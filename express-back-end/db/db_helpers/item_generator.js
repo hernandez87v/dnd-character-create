@@ -7,11 +7,6 @@ const apiComber = function(url) {
     }
     const data = JSON.parse(body);
     const allItems = data.results
-    let results = `
-    INSERT INTO items (name, damage, api_link, equipment_category, weight, cost)
-    VALUES
-
-    `
     for (i = 0; i < allItems.length; i++) {
       // console.log(allItems[i].name)
       let itemURL = `http://dnd5eapi.co${allItems[i].url}`;

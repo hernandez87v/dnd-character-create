@@ -4,7 +4,7 @@ CREATE TABLE items
 (
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(255),
-    damage VARCHAR DEFAULT NULL,
+    damage_dice VARCHAR DEFAULT NULL,
     api_link VARCHAR(255),
     equipment_category VARCHAR(255) NOT NULL,
     weight INTEGER NOT NULL,
