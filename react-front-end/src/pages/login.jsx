@@ -1,5 +1,5 @@
 import React from "react";
-
+import UserLIst from "../components/users/users.js"
 const Login = () => {
 // class App extends Component {
 //   constructor(props) {
@@ -33,9 +33,10 @@ const Login = () => {
 // }
 // export default App;
     return (
-<div className="App">
-    <h3>Login Page</h3>
-</div>
+    <div className="App">
+  
+<UserLIst/>
+    </div>
     )
 }
 
