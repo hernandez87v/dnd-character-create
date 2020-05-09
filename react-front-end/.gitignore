@@ -5,7 +5,6 @@
 .env
 /.pnp
 .pnp.js
-
 # testing
 /coverage
 
@@ -13,7 +12,7 @@
 /build
 
 # misc
-
+react-front-end/.env
 .DS_Store
 .env.local
 .env.development.local
