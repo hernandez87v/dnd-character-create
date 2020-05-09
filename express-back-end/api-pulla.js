@@ -31,4 +31,4 @@ const apiComber = function(url) {
 
 };
 
-apiComber("http://dnd5eapi.co/api/features")
+apiComber("http://dnd5eapi.co/api/proficiencies")
