@@ -1,5 +1,5 @@
 INSERT INTO Proficiency
-    (Name)
+    (Name, api_link)
 VALUES
 ("Brewer's supplies"),
 ("Alchemist's supplies"),

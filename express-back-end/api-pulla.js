@@ -19,7 +19,7 @@ const apiComber = function(url) {
         }
         const data = JSON.parse(body);
         // console.log("this is the category ", data.equipment_category)
-        const currentInsertion = `('${data.full_name}'),`;
+        const currentInsertion = `("${data.name}", "${data.url}"),`;
         console.log(currentInsertion);
       });
 
@@ -31,4 +31,4 @@ const apiComber = function(url) {
 
 };
 
-apiComber("http://dnd5eapi.co/api/ability-scores")
+apiComber("http://dnd5eapi.co/api/features")
