@@ -231,4 +231,4 @@ VALUES
 ("Dart", "1d4", "/api/equipment/dart", "Weapon", 0.25, 5),
 ("Crossbow, light", "1d8", "/api/equipment/crossbow-light", "Weapon", 5, 25),
 ("Crystal", null, "/api/equipment/crystal", "Adventuring Gear", 1, 10),
-("Diplomat's Pack", null, "/api/equipment/diplomats-pack", "Adventuring Gear", undefined, 39),
+("Diplomat's Pack", null, "/api/equipment/diplomats-pack", "Adventuring Gear", undefined, 39);
