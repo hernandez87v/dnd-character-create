@@ -8,7 +8,7 @@ const MainPage = () => {
     return (
 
         <div className="App">
- <h3>Home page</h3>
+        <h3>Home page</h3>
         <AppBar/>
         <ExpansionPanel/>
         <Button/> 

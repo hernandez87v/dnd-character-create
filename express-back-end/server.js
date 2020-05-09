@@ -3,11 +3,7 @@ const Express = require('express');
 const App = Express();
 const BodyParser = require('body-parser');
 const PORT = 8080;
-const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
-const db = new Pool(dbParams);
-db.connect();
-
+const db = require('./db/index');
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: false }));
 App.use(Express.static('public'));
@@ -25,6 +21,11 @@ App.listen(PORT, () => {
     `Express seems to be listening on port ${PORT} so that's pretty good 👍`
   );
 });
+
+const usersQueries = require("./db/routes/user");
+
+// Mount all resource routes
+App.use("/api/user", usersQueries(db));
 
 App.get('/test', (req, res) => {
   db.query(
