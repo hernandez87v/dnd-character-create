@@ -1,5 +1,5 @@
 import React from 'react';
-import UserLIst from '../components/users/usersList.js';
+import UserLIst from '../components/users/usersList';
 import SignIn from '../components/signin';
 const Login = () => {
   return (
