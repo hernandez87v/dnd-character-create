@@ -3,17 +3,14 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    console.log('this is req.params ', req.params)
-    const id = req.params
     let query = `
-      SELECT * FROM characters
-      WHERE id = 1;
+      SELECT * FROM characters;
     `;
     db.query(query)
       .then(data => {
         console.log(data.rows)
-        const user = data.rows;
-        res.json({ user });
+        const characters = data.rows;
+        res.json({ characters });
       })
       .catch(err => {
         res

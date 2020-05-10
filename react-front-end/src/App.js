@@ -6,6 +6,7 @@ import NotFoundPage from './pages/404'
 import NewCharacter from './pages/newCharacter'
 import NewUser from './pages/newUser'
 import Login from './pages/login'
+import CharacterList from './components/characters/characters_show'
 // import TableContainer from './components/table'
 import {
   BrowserRouter as Router,
@@ -27,6 +28,7 @@ class App extends Component {
         <Route exact path="/newcharacter" component={NewCharacter}/>
         <Route exact path="/newuser" component={NewUser}/>
         <Route exact path="/404" component={NotFoundPage}/>
+        <Route exact path="/allcharacters" component={CharacterList}/>
         <Redirect to="/404"/>
         </Switch>
       </Router>
