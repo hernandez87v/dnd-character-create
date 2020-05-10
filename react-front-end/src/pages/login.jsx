@@ -1,5 +1,5 @@
 import React from "react";
-
+import UserLIst from "../components/users/users.js"
 const Login = () => {
 // class App extends Component {
 //   constructor(props) {
@@ -9,7 +9,7 @@ const Login = () => {
 //     }
 //   }
 //   fetchData = () => {
-//     axios.get('/api/user') // You can simply make your requests to "/api/whatever you want"
+//     axios.post('/api/user') // You can simply make your requests to "/api/whatever you want"
 //     .then((response) => {
 //       console.log('hi',response)
 //       // handle success
@@ -33,9 +33,11 @@ const Login = () => {
 // }
 // export default App;
     return (
-<div className="App">
-    <h3>Login Page</h3>
-</div>
+    <div className="App">
+        <ul>
+<UserLIst/>
+</ul>
+    </div>
     )
 }
 

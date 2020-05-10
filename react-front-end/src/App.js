@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './App.css';
 import MainPage from './pages'
 import NotFoundPage from './pages/404'
 import NewCharacter from './pages/newCharacter'
+import NewUser from './pages/newUser'
 import Login from './pages/login'
-import TableContainer from './components/table'
+// import TableContainer from './components/table'
 import {
   BrowserRouter as Router,
   Route,
@@ -14,7 +15,7 @@ import {
   Redirect
 } from "react-router-dom"
 
-const host = "http://dnd5eapi.co/api"
+// const host = "http://dnd5eapi.co/api"
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
         <Route exact path="/" component={MainPage}/>
         <Route exact path="/login" component={Login}/>
         <Route exact path="/newcharacter" component={NewCharacter}/>
+        <Route exact path="/newuser" component={NewUser}/>
         <Route exact path="/404" component={NotFoundPage}/>
         <Redirect to="/404"/>
         </Switch>
