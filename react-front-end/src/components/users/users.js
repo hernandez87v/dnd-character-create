@@ -2,26 +2,57 @@ import React from 'react';
 import axios from 'axios';
 
 export default class UserList extends React.Component {
+  // State will apply to the users object which is set to loading by default
   state = {
-    users: []
-  }
-
-  componentDidMount() {
-    axios.get(`/api/user`)
-      .then(res => {
-        // const users = res.data;
-        console.log("users test", res)
-        this.setState({ users: res.data });
+    users: [],
+    isLoading: true,
+    errors: null,
+  };
+  // Now we're going to make a request for data using axios
+  getUsers() {
+    axios
+      // This is where the data is hosted
+      .get('/api/user')
+      // Once we get a response and store data, let's change the loading state
+      .then((response) => {
+        this.setState({
+          users: response.data.user,
+          isLoading: false,
+        });
       })
+      // If we catch any errors connecting, let's update accordingly
+      .catch((error) => this.setState({ error, isLoading: false }));
   }
-
+  // Let's our app know we're ready to render the data
+  componentDidMount() {
+    this.getUsers();
+  }
+  // Putting that data to use
   render() {
+    const { isLoading, users } = this.state;
+    console.log('this is userssss', users);
     return (
-      <ul>
-        <li>{console.log('test',this.state.users)}</li>
-       <li>{this.state.users.name}</li>
-       {/* { this.state.users.map(user => <li>{user.name}</li>)} */}
-      </ul>
-    )
+      <React.Fragment>
+        <h2>Random Post</h2>
+        <div>
+          {!isLoading ? (
+            users.map((user) => {
+              const { id, name, email, nick_name, password } = user;
+              return (
+                <div key={id}>
+                  <h2>{name}</h2>
+                  <p>{email}</p>
+                  <p>{nick_name}</p>
+                  <p>{password}</p>
+                  <hr />
+                </div>
+              );
+            })
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+      </React.Fragment>
+    );
   }
 }
