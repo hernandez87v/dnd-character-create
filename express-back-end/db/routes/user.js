@@ -3,14 +3,13 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.post('/', (req, res) => {
-    const name = req.body.name;
-    const nick_name = req.body.nick_name;
-    const email = req.body.email;
-    const password = req.body.password;
+    const name = req.body.user.name;
+    const nick_name = req.body.user.nick_name;
+    const email = req.body.user.email;
+    const password = req.body.user.password;
     const values = [name, nick_name, email, password];
     // const values = ['santi', 'santy76' ,'asn@asd.com' , 'password'];
 
-    console.log('req', req.body);
 
     let query = `
       INSERT INTO users (name, nick_name , email , password)

@@ -7,6 +7,7 @@ const db = require('./db/index');
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: false }));
 App.use(Express.static('public'));
+App.use(BodyParser.json());
 
 // Sample GET route
 App.get('/api/data', (req, res) =>
