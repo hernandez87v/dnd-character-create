@@ -17,11 +17,7 @@ export default class CharacterList extends React.Component {
       .then((response) => {
         console.log('THIS IS THE RESPONSE ', response);
         this.setState({
-<<<<<<< HEAD
-          characters: response.data.characters,
-=======
-          characters: response.data.user,
->>>>>>> 919dd519e9ba29ad56ff0134215d7d03f4216e43
+          characters: response.data.character,
           isLoading: false,
         });
       })
