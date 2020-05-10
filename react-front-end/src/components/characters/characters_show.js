@@ -17,7 +17,7 @@ export default class CharacterList extends React.Component {
       .then((response) => {
         console.log('THIS IS THE RESPONSE ', response);
         this.setState({
-          characters: response.data.user,
+          characters: response.data.characters,
           isLoading: false,
         });
       })
@@ -38,7 +38,29 @@ export default class CharacterList extends React.Component {
         <div>
           {!isLoading ? (
             characters.map((character) => {
-              const { id, user_id, class_id, race_id, background_id, experience, level, alignment, speed, armour_class, total_hit_points, temporary_hit_points, initiative, strength, dexterity, constitution, intelligence, wisdom, charisma, name, avatar_url } = character;
+              const {
+                id,
+                user_id,
+                class_id,
+                race_id,
+                background_id,
+                experience,
+                level,
+                alignment,
+                speed,
+                armour_class,
+                total_hit_points,
+                temporary_hit_points,
+                initiative,
+                strength,
+                dexterity,
+                constitution,
+                intelligence,
+                wisdom,
+                charisma,
+                name,
+                avatar_url,
+              } = character;
               return (
                 <div key={id}>
                   <h2>{name}</h2>

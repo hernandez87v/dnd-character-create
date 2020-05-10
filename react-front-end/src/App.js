@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import './App.css';
-import MainPage from './pages'
-import NotFoundPage from './pages/404'
-import NewCharacter from './pages/newCharacter'
-import NewUser from './pages/newUser'
-import Login from './pages/login'
-import CharacterList from './components/characters/characters_show'
+import MainPage from './pages';
+import NotFoundPage from './pages/404';
+import NewCharacter from './pages/newCharacter';
+import SignUp from './pages/SignUp';
+import Login from './pages/login';
+import CharacterList from './components/characters/characters_show';
 // import TableContainer from './components/table'
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Link,
-  Redirect
-} from "react-router-dom"
+  Redirect,
+} from 'react-router-dom';
 
 // const host = "http://dnd5eapi.co/api"
 
@@ -23,13 +23,13 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-        <Route exact path="/" component={MainPage}/>
-        <Route exact path="/login" component={Login}/>
-        <Route exact path="/newcharacter" component={NewCharacter}/>
-        <Route exact path="/newuser" component={NewUser}/>
-        <Route exact path="/404" component={NotFoundPage}/>
-        <Route exact path="/allcharacters" component={CharacterList}/>
-        <Redirect to="/404"/>
+          <Route exact path="/" component={MainPage} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/newcharacter" component={NewCharacter} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/404" component={NotFoundPage} />
+          <Route exact path="/allcharacters" component={CharacterList} />
+          <Redirect to="/404" />
         </Switch>
       </Router>
     );
@@ -37,8 +37,6 @@ class App extends Component {
 }
 
 export default App;
-
-
 
 // class App extends Component {
 //   constructor(props) {
@@ -57,7 +55,7 @@ export default App;
 //       this.setState({
 //         message: response.data.message
 //       });
-//     }) 
+//     })
 //   }
 //   render() {
 //     return (
@@ -65,7 +63,7 @@ export default App;
 //         <h1>{ this.state.message }</h1>
 //         <button onClick={this.fetchData} >
 //           Fetch Data
-//         </button>        
+//         </button>
 //       </div>
 //     );
 //   }
