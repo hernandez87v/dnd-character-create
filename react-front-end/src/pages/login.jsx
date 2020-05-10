@@ -9,7 +9,7 @@ const Login = () => {
 //     }
 //   }
 //   fetchData = () => {
-//     axios.get('/api/user') // You can simply make your requests to "/api/whatever you want"
+//     axios.post('/api/user') // You can simply make your requests to "/api/whatever you want"
 //     .then((response) => {
 //       console.log('hi',response)
 //       // handle success
