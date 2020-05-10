@@ -30,7 +30,6 @@ export default class UserList extends React.Component {
   // Putting that data to use
   render() {
     const { isLoading, users } = this.state;
-    console.log('this is userssss', users);
     return (
       <React.Fragment>
         <h2>Random Post</h2>
