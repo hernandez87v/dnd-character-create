@@ -8,7 +8,6 @@ export default class UserList extends React.Component {
     isLoading: true,
     errors: null,
   };
-  // Now we're going to make a request for data using axios
   getUsers() {
     axios
       // This is where the data is hosted
