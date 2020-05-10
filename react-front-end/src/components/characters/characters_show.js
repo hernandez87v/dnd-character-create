@@ -17,7 +17,7 @@ export default class CharacterList extends React.Component {
       .then((response) => {
         console.log('THIS IS THE RESPONSE ', response);
         this.setState({
-          characters: response.characters,
+          characters: response.data.user,
           isLoading: false,
         });
       })
