@@ -8,7 +8,6 @@ const db = require('./db/index');
 App.use(BodyParser.urlencoded({ extended: false }));
 App.use(Express.static('public'));
 App.use(BodyParser.json());
-
 // Sample GET route
 App.get('/api/data', (req, res) =>
   res.json({
@@ -23,12 +22,12 @@ App.listen(PORT, () => {
   );
 });
 
-const usersQueries = require("./db/routes/user");
-const characterQueries = require("./db/routes/character")
+const usersQueries = require('./db/routes/user');
+const characterQueries = require('./db/routes/character');
 
 // Mount all resource routes
-App.use("/api/user", usersQueries(db));
-App.use("/api/character", characterQueries(db));
+App.use('/api/user', usersQueries(db));
+App.use('/api/character', characterQueries(db));
 
 App.get('/test', (req, res) => {
   db.query(
@@ -46,4 +45,3 @@ App.get('/test', (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
-
