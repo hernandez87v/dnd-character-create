@@ -1,5 +1,5 @@
-INSERT INTO Proficiency
-    (Name, api_link)
+INSERT INTO proficiencies
+    (name, api_link)
 VALUES
 ("Cobbler's tools", "/api/proficiencies/cobblers-tools"),
 ("Leatherworker's tools", "/api/proficiencies/leatherworkers-tools"),

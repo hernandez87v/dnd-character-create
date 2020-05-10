@@ -16,7 +16,7 @@ const itemApiComber = function(url) {
           callback(error, null);
         }
         const data = JSON.parse(body);
-        const currentInsertion = `("${data.name}", ${data.damage ? data.damage.damage_dice : null}, "${data.url}", "${data.equipment_category}", ${data.weight}, ${data.cost.quantity}),`;
+        const currentInsertion = `('${data.name}', ${data.damage ? data.damage.damage_dice : null}, '${data.url}', '${data.equipment_category}', ${data.weight}, ${data.cost.quantity}),`;
         console.log(currentInsertion);
       });
 

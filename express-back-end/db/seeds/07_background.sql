@@ -1,4 +1,4 @@
-INSERT INTO background
+INSERT INTO backgrounds
     (name)
 VALUES
     ('acolyte'),

@@ -1,4 +1,4 @@
-INSERT INTO race
+INSERT INTO races
     (name)
 VALUES
     ('dragonborn'),

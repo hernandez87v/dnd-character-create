@@ -1,13 +1,13 @@
-DROP TABLE IF EXISTS character
+DROP TABLE IF EXISTS characters
 CASCADE;
-CREATE TABLE character
+CREATE TABLE characters
 (
     id SERIAL PRIMARY KEY NOT NULL,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
     class_id INTEGER REFERENCES class(id) ON DELETE CASCADE,
     race_id INTEGER REFERENCES race(id) ON DELETE CASCADE,
     background_id INTEGER REFERENCES background(id) ON DELETE CASCADE,
-    expirience INTEGER DEFAULT 0,
+    experience INTEGER DEFAULT 0,
     level INTEGER DEFAULT 1,
     aligment VARCHAR(255),
     speed INTEGER DEFAULT 0,

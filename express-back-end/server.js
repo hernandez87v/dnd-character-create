@@ -23,9 +23,11 @@ App.listen(PORT, () => {
 });
 
 const usersQueries = require("./db/routes/user");
+const characterQueries = require("./db/routes/character")
 
 // Mount all resource routes
 App.use("/api/user", usersQueries(db));
+App.use("/api/character", characterQueries(db));
 
 App.get('/test', (req, res) => {
   db.query(

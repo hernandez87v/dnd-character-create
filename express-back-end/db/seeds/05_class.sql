@@ -1,4 +1,4 @@
-INSERT INTO class
+INSERT INTO classes
     (name)
 VALUES
     ('barbarian'),
