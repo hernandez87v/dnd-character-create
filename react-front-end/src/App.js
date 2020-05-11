@@ -15,8 +15,8 @@ import {
   Route,
   Switch,
   Link,
-  Redirect
-} from "react-router-dom"
+  Redirect,
+} from 'react-router-dom';
 
 // const host = "http://dnd5eapi.co/api"
 
@@ -41,8 +41,6 @@ class App extends Component {
 
 export default App;
 
-
-
 // class App extends Component {
 //   constructor(props) {
 //     super(props)
@@ -60,7 +58,7 @@ export default App;
 //       this.setState({
 //         message: response.data.message
 //       });
-//     }) 
+//     })
 //   }
 //   render() {
 //     return (
@@ -68,7 +66,7 @@ export default App;
 //         <h1>{ this.state.message }</h1>
 //         <button onClick={this.fetchData} >
 //           Fetch Data
-//         </button>        
+//         </button>
 //       </div>
 //     );
 //   }

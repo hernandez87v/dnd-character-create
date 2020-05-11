@@ -4,9 +4,9 @@ CREATE TABLE characters
 (
     id SERIAL PRIMARY KEY NOT NULL,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    class_id INTEGER REFERENCES classes(id) ON DELETE CASCADE,
-    race_id INTEGER REFERENCES races(id) ON DELETE CASCADE,
-    background_id INTEGER REFERENCES backgrounds(id) ON DELETE CASCADE,
+    class_id INTEGER REFERENCES class(id) ON DELETE CASCADE,
+    race_id INTEGER REFERENCES race(id) ON DELETE CASCADE,
+    background_id INTEGER REFERENCES background(id) ON DELETE CASCADE,
     experience INTEGER DEFAULT 0,
     level INTEGER DEFAULT 1,
     aligment VARCHAR(255),
@@ -18,10 +18,9 @@ CREATE TABLE characters
     strength INTEGER DEFAULT 0,
     dexterity INTEGER DEFAULT 0,
     constitution INTEGER DEFAULT 0,
-    intelligence INTEGER DEFAULT 0,
+    inteligence INTEGER DEFAULT 0,
     wisdom INTEGER DEFAULT 0,
     charisma INTEGER DEFAULT 0,
-    name VARCHAR(255),
-    avatar_url VARCHAR(255)
+    name VARCHAR(255)
 
 );
