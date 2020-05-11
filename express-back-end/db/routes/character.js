@@ -4,7 +4,11 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `
-      SELECT * FROM characters;
+    SELECT characters.*, classes.name as character_class, races.name as race, backgrounds.name as background
+    FROM characters 
+    JOIN classes ON classes.id = class_id
+    JOIN races ON races.id = race_id
+    JOIN backgrounds ON backgrounds.id = background_id;
     `;
     db.query(query)
       .then(data => {
@@ -21,3 +25,10 @@ module.exports = (db) => {
   
   return router;
 };
+
+// SELECT characters.*, classes.name as class, races.name as race, backgrounds.name as background
+// FROM characters 
+// JOIN classes ON classes.id = class_id
+// JOIN races ON races.id = race_id
+// JOIN backgrounds ON backgrounds.id = background_id
+// WHERE characters.id = 1;
