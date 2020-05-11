@@ -6,7 +6,8 @@ import NotFoundPage from './pages/404';
 import NewCharacter from './pages/newCharacter';
 import SignUp from './pages/SignUp';
 import Login from './pages/login';
-import CharacterList from './components/characters/characters_show';
+import CharacterList from './components/characters/Character_List';
+import CharacterView from './components/characters/characters_view';
 // import TableContainer from './components/table'
 import {
   BrowserRouter as Router,
@@ -15,6 +16,7 @@ import {
   Link,
   Redirect,
 } from 'react-router-dom';
+
 
 // const host = "http://dnd5eapi.co/api"
 
@@ -29,6 +31,7 @@ class App extends Component {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/404" component={NotFoundPage} />
           <Route exact path="/allcharacters" component={CharacterList} />
+          <Route exact path="/character" component={CharacterView} />
           <Redirect to="/404" />
         </Switch>
       </Router>
