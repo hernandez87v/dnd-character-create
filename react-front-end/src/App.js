@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import './App.css';
-import MainPage from './pages'
-import NotFoundPage from './pages/404'
-import NewCharacter from './pages/newCharacter'
-import NewUser from './pages/newUser'
-import Login from './pages/login'
-import CharacterList from './components/characters/characters_show'
-import CharacterNew from './components/characters/characters_new'
+import MainPage from './pages';
+import NotFoundPage from './pages/404';
+import NewCharacter from './pages/newCharacter';
+import SignUp from './pages/SignUp';
+import Login from './pages/login';
+import CharacterList from './components/characters/characters_show';
+import CharacterNew from './components/characters/characters_new';
 
 // import TableContainer from './components/table'
 import {
@@ -25,14 +25,14 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-        <Route exact path="/" component={MainPage}/>
-        <Route exact path="/login" component={Login}/>
-        <Route exact path="/newcharacter" component={NewCharacter}/>
-        <Route exact path="/newuser" component={NewUser}/>
-        <Route exact path="/404" component={NotFoundPage}/>
-        <Route exact path="/allcharacters" component={CharacterList}/>
-        <Route exact path="/newcharacter" component={CharacterNew}/>
-        <Redirect to="/404"/>
+          <Route exact path="/" component={MainPage} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/newcharacter" component={NewCharacter} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/404" component={NotFoundPage} />
+          <Route exact path="/allcharacters" component={CharacterList} />
+          <Route exact path="/newcharacter" component={CharacterNew} />
+          <Redirect to="/404" />
         </Switch>
       </Router>
     );
