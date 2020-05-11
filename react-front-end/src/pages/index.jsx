@@ -8,7 +8,6 @@ const MainPage = () => {
     return (
 
         <div className="App">
-
         <AppBar/>
         <ExpansionPanel/>
         <Button/> 
