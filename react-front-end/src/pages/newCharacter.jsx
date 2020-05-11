@@ -1,13 +1,13 @@
 import React from "react";
+import CharacterNew from '../components/characters/characters_new'
 
 const NewCharacter = () => {
 
     return (
 
-        <div className="App">
- <h3>New Character page</h3>
-
-      </div>
+    <div className="App">
+        <CharacterNew />
+    </div>
     )
 }
 
