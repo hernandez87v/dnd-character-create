@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 
 export default class UserList extends React.Component {
-  // State will apply to the users object which is set to loading by default
   state = {
     users: [],
     isLoading: true,
@@ -10,23 +9,18 @@ export default class UserList extends React.Component {
   };
   getUsers() {
     axios
-      // This is where the data is hosted
       .get('/api/user')
-      // Once we get a response and store data, let's change the loading state
       .then((response) => {
         this.setState({
           users: response.data.user,
           isLoading: false,
         });
       })
-      // If we catch any errors connecting, let's update accordingly
       .catch((error) => this.setState({ error, isLoading: false }));
   }
-  // Let's our app know we're ready to render the data
   componentDidMount() {
     this.getUsers();
   }
-  // Putting that data to use
   render() {
     const { isLoading, users } = this.state;
     return (

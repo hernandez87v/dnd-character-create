@@ -3,13 +3,11 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.post('/', (req, res) => {
-    const name = req.body.user.name;
-    const nick_name = req.body.user.nick_name;
-    const email = req.body.user.email;
-    const password = req.body.user.password;
+    const name = req.body.form.name;
+    const nick_name = req.body.form.nick_name;
+    const email = req.body.form.email;
+    const password = req.body.form.password;
     const values = [name, nick_name, email, password];
-    // const values = ['santi', 'santy76' ,'asn@asd.com' , 'password'];
-
 
     let query = `
       INSERT INTO users (name, nick_name , email , password)
@@ -47,10 +45,14 @@ module.exports = (db) => {
   // });
 
   router.get('/', (req, res) => {
+    console.log(req.body);
+    const email = req.body.form.email;
+    const password = req.body.form.password;
+    const values = [email, password];
     let query = `
-      SELECT * FROM users;
+      SELECT * FROM users WHERE VALUES ($1, $2) RETURNING *;;
       `;
-    db.query(query)
+    db.query(query, values)
       .then((data) => {
         console.log(data.rows);
         const user = data.rows;
@@ -61,22 +63,22 @@ module.exports = (db) => {
       });
   });
 
-  router.post('/:user_id', (req, res) => {
-    const values = [Number(req.params.poll_id)];
-    console.log(values);
-    let query = `
-        UPDATE users
-        SET completed = TRUE
-        WHERE id = $1;
-        `;
-    db.query(query, values)
-      .then(() => {
-        res.send('hi user');
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
-  });
+  // router.post('/:user_id', (req, res) => {
+  //   const values = [Number(req.params.poll_id)];
+  //   console.log(values);
+  //   let query = `
+  //       UPDATE users
+  //       SET completed = TRUE
+  //       WHERE id = $1;
+  //       `;
+  //   db.query(query, values)
+  //     .then(() => {
+  //       res.send('hi user');
+  //     })
+  //     .catch((err) => {
+  //       res.status(500).json({ error: err.message });
+  //     });
+  // });
 
   return router;
 };

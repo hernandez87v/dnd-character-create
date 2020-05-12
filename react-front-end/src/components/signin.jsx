@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import red from '@material-ui/core/colors/red';
+import axios from 'axios';
 
 function Copyright() {
   return (
@@ -58,7 +59,9 @@ const useStyles = makeStyles((theme) => ({
 
 const theme = createMuiTheme({
   palette: {
-    primary: red,
+    primary: {
+      main: '#6f0000',
+    },
     secondary: {
       main: '#6f0000',
     },
@@ -67,6 +70,19 @@ const theme = createMuiTheme({
 
 export default function SignIn() {
   const classes = useStyles();
+  const [form, setForm] = React.useState({
+    email: '',
+    password: '',
+  });
+
+  let handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios.get(`/api/user`, { form }).then((res) => {
+      console.log(res);
+      console.log(res.data);
+    });
+  };
 
   return (
     <MuiThemeProvider theme={theme}>
@@ -79,7 +95,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} noValidate onSubmit={handleSubmit}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -87,6 +103,8 @@ export default function SignIn() {
               fullWidth
               id="email"
               label="Email Address"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
               name="email"
               autoComplete="email"
               autoFocus
@@ -98,6 +116,7 @@ export default function SignIn() {
               fullWidth
               name="password"
               label="Password"
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
               type="password"
               id="password"
               autoComplete="current-password"
@@ -115,7 +134,7 @@ export default function SignIn() {
             >
               Sign In
             </Button>
-            <Grid container>
+            <Grid container justify="center">
               <Grid item>
                 <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}

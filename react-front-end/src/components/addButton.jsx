@@ -1,5 +1,10 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {
+  makeStyles,
+  createMuiTheme,
+  MuiThemeProvider,
+} from '@material-ui/core/styles';
+import red from '@material-ui/core/colors/red';
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
@@ -10,14 +15,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const theme = createMuiTheme({
+  palette: {
+    primary: red,
+    secondary: {
+      main: '#6f0000',
+    },
+  },
+});
+
 export default function ContainedButtons() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Button variant="contained" color="primary">
-        +
-      </Button>
+      <MuiThemeProvider theme={theme}>
+        <Button variant="contained" color="primary">
+          +
+        </Button>
+      </MuiThemeProvider>
     </div>
   );
 }
