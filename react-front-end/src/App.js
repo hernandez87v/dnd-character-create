@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import './App.css';
 import MainPage from './pages'
 import NotFoundPage from './pages/404'
-import NewCharacter from './pages/newCharacter'
 import SignUp from './pages/SignUp';
 import Login from './pages/login'
 import CharacterList from './components/characters/characters_show'
-import CharacterNew from './components/characters/characters_new'
+import CreateCharacter from './pages/createCharacter'
+import AppBar from './components/navbar'
 
 // import TableContainer from './components/table'
 import {
@@ -18,20 +18,19 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-// const host = "http://dnd5eapi.co/api"
 
 class App extends Component {
   render() {
     return (
       <Router>
+      <AppBar/>
         <Switch>
         <Route exact path="/" component={MainPage}/>
         <Route exact path="/login" component={Login}/>
-        <Route exact path="/newcharacter" component={NewCharacter}/>
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/404" component={NotFoundPage}/>
         <Route exact path="/allcharacters" component={CharacterList}/>
-        <Route exact path="/newcharacter" component={CharacterNew}/>
+        <Route exact path="/createCharacter" component={CreateCharacter}/>
         <Redirect to="/404"/>
         </Switch>
       </Router>
