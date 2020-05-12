@@ -1,14 +1,14 @@
 import React from 'react'
 
-export default function BasicInfo() {
+export default function BasicInfo(props) {
 
   return (
     <div>
-      <h3>Andy Lindsay</h3>
-      <p>Level: 1</p>
-      <p>Race: Elf</p>
-      <p>Class: Ranger</p>
-      <p>Background: Urchin</p>
+      <h3>{props.name}</h3>
+      <p>Level: {props.level}</p>
+      <p>Race: {props.race}</p>
+      <p>Class: {props.character_class}</p>
+      <p>Background: {props.background}</p>
     </div>
   )
 

@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Avatar() {
+export default function Avatar(props) {
 
   return (
     <div>
-      <img src='https://www.lighthouselabs.ca/uploads/team_member/avatar/330/medium_Andy_Lindsay_profile.jpeg'></img>
+      <img src={props.avatar_url}></img>
     </div>
   )
 
