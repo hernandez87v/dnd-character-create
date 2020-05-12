@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import red from '@material-ui/core/colors/red';
+import axios from 'axios';
 
 function Copyright() {
   return (
@@ -74,10 +75,14 @@ export default function SignIn() {
     password: '',
   });
 
-  // submit: function(e) {
-  //   e.preventDefault();
-  //   alert("It works!")
-  // }
+  let handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios.get(`/api/user`, { form }).then((res) => {
+      console.log(res);
+      console.log(res.data);
+    });
+  };
 
   return (
     <MuiThemeProvider theme={theme}>
@@ -90,15 +95,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form
-            className={classes.form}
-            noValidate
-            onSubmit={(e) => {
-              // not working
-              this.alert('hello');
-              e.preventDefault();
-            }}
-          >
+          <form className={classes.form} noValidate onSubmit={handleSubmit}>
             <TextField
               variant="outlined"
               margin="normal"
