@@ -1,17 +1,21 @@
 import React from "react";
-import AppBar from '../components/navbar'
+
 import ExpansionPanel from '../components/panel'
 import Button from '../components/addButton'
+import { Container } from '@material-ui/core';
+
 
 const MainPage = () => {
 
     return (
 
         <div className="App">
-        <AppBar/>
+          <Container>
         <ExpansionPanel/>
         <Button/> 
+        </Container>
       </div>
+
     )
 }
 

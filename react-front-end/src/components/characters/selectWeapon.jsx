@@ -48,9 +48,7 @@ let charisma = props.stats;
     <div className="App">
         <Grid container spacing={1}>
             <Grid item xs={6}>
-              <DropDown {...statsStrength} />
-              <DropDown {...statsDexterity} />
-              <DropDown {...statsCostitution} />
+text
             </Grid>
              <Grid item xs={6}>
               <DropDown {...statsInteligence} />

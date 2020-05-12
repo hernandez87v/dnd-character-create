@@ -79,8 +79,13 @@ export default function SignIn() {
     e.preventDefault();
     axios.post(`/api/user/login`, {form})
     .then((res) => {
-      console.log(res);
-      console.log(res.data);
+      if (res.data.user.length > 0){
+        window.location = `/`;
+
+      }
+      else {
+        alert('invalid data')
+      }
     });
   };
 

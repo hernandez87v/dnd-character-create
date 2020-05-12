@@ -5,7 +5,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import SelectAtributes from './characters/selectAtributes';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +31,7 @@ function getStepContent(stepIndex,props) {
     case 1:
       return props.pages[1];
     case 2:
-      return 'This is the bit I really care about!';
+      return props.pages[2];
     default:
       return 'Unknown stepIndex';
   }
@@ -73,6 +73,7 @@ export default function HorizontalLabelPositionBelowStepper(props) {
           <div>
             <div className={classes.instructions}>{getStepContent(activeStep,props)}</div>
             <div>
+            <Grid container justify="center">
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
@@ -80,9 +81,11 @@ export default function HorizontalLabelPositionBelowStepper(props) {
               >
                 Back
               </Button>
+
               <Button variant="contained" color="primary" onClick={handleNext}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
+              </Grid>
             </div>
           </div>
         )}

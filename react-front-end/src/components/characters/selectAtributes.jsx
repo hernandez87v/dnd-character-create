@@ -1,9 +1,11 @@
 import React from "react";
 import DropDown from '../../components/dropDown'
 
+import Grid from '@material-ui/core/Grid';
+
+
 
 const selectAtributes = ({backgrounds, classes, races}) => {
-console.log(backgrounds)
 
     const generateCharacterAtributes = (characterAtributes) =>  characterAtributes.map(characterAtribute => ({
         value: characterAtribute.name,
@@ -30,11 +32,20 @@ console.log(backgrounds)
             options: racesOptions,
             helperText: 'Select a race' ,
         }     
+
+
     return (
     <div className="App">
-        <DropDown {...classOption} />
-        <DropDown {...raceOption} />
-        <DropDown {...backgroundOption} />
+        <Grid container spacing={1}>
+            <Grid item xs={6}>
+                Select a photo
+            </Grid>
+            <Grid item xs={6}>
+                <DropDown {...classOption} /> 
+                <DropDown {...raceOption} />
+                <DropDown {...backgroundOption} />
+            </Grid>
+        </Grid>
     </div>
     )
 }

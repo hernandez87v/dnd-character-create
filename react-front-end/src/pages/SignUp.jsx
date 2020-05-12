@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import SignUpShow from '../components/users/signup_show';
-import AppBar from '../components/navbar';
 
 export default class SignUp extends React.Component {
   state = {
@@ -44,7 +43,6 @@ export default class SignUp extends React.Component {
   render() {
     return (
       <div>
-        <AppBar />
         <SignUpShow />
         <form onSubmit={this.handleSubmit}>
           <label>
