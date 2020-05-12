@@ -44,7 +44,7 @@ export default class SignUp extends React.Component {
     return (
       <div>
         <SignUpShow />
-        <form onSubmit={this.handleSubmit}>
+        {/* <form onSubmit={this.handleSubmit}>
           <label>
             Person Name:
             <br />
@@ -82,7 +82,7 @@ export default class SignUp extends React.Component {
             <br />
           </label>
           <button type="submit">create</button>
-        </form>
+        </form> */}
       </div>
     );
   }
