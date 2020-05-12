@@ -77,8 +77,8 @@ export default function SignIn() {
 
   let handleSubmit = (e) => {
     e.preventDefault();
-
-    axios.get(`/api/user`, { form }).then((res) => {
+    axios.post(`/api/user/login`, {form})
+    .then((res) => {
       console.log(res);
       console.log(res.data);
     });

@@ -44,17 +44,17 @@ module.exports = (db) => {
   //     .catch(error => console.log(error));
   // });
 
-  router.get('/', (req, res) => {
-    console.log(req.body);
+  router.post('/login', (req, res) => {
     const email = req.body.form.email;
     const password = req.body.form.password;
     const values = [email, password];
     let query = `
-      SELECT * FROM users WHERE VALUES ($1, $2) RETURNING *;;
+      SELECT * FROM users WHERE email = $1 and password = $2;
       `;
+
     db.query(query, values)
       .then((data) => {
-        console.log(data.rows);
+        console.log('data',data.rows);
         const user = data.rows;
         res.json({ user });
       })
