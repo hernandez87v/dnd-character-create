@@ -25,25 +25,26 @@ export default function CombatContainer(props) {
 
   return (
       <div>
-        <h2>Overview</h2>
-        <ul>
+        <h2 className='view-title'>Combat</h2>
+        <ul className='character-nav'>
           <li>
-            <Link to={`${url}/main`}>Main</Link>
+            <Link to={`${url}/stats`}>Stats</Link>
           </li>
           <li>
-            <Link to={`${url}/skills-throws`}>Skills/Throws</Link>
+            <Link to={`${url}/weapons`}>Weapons</Link>
           </li>
           <li>
-            <Link to={`${url}/features-proficencies`}>Features & Proficencies</Link>
+            <Link to={`${url}/spells`}>Spells</Link>
+          </li>
+          <li>
+            <Link to={`${url}/dice`}>Dice</Link>
           </li>
         </ul>
 
         <Switch>
           <Route exact path={path}>
-            <h3>Please select a topic.</h3>
           </Route>
-          <Route path={`${path}/main`}>
-            <CharacterMain characterObject={props.characterObject}/>
+          <Route path={`${path}/stats`}>
           </Route>
         </Switch>
       </div>

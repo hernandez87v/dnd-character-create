@@ -25,8 +25,8 @@ export default function OverviewContainer(props) {
 
   return (
       <div>
-        <h2>Overview</h2>
-        <ul>
+        <h2 className='view-title'>Overview</h2>
+        <ul className='character-nav'>
           <li>
             <Link to={`${url}/main`}>Main</Link>
           </li>
@@ -40,7 +40,6 @@ export default function OverviewContainer(props) {
 
         <Switch>
           <Route exact path={path}>
-            <h3>Please select a topic.</h3>
           </Route>
           <Route path={`${path}/main`}>
             <CharacterMain characterObject={props.characterObject}/>

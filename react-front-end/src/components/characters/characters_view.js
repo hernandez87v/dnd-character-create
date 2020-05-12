@@ -27,8 +27,7 @@ export default function CharacterView(props) {
   return (
 
     <div>
-    <h2>Overview</h2>
-    <ul>
+    <ul className='character-nav'>
       <li>
         <Link to={`${url}/overview`}>Overview</Link>
       </li>
@@ -39,7 +38,6 @@ export default function CharacterView(props) {
 
     <Switch>
       <Route exact path={path}>
-        <h3>Please select a topic.</h3>
       </Route>
       <Route path={`${path}/overview`}>
         <OverviewContainer characterObject={props.characterObject}/>
