@@ -8,7 +8,7 @@ import {
   useParams,
   useRouteMatch
 } from "react-router-dom";
-import AbilityPointsAll from './AP_all'
+import CharacterMain from './overview/Character_Main'
 
 // Since routes are regular React components, they
 // may be rendered anywhere in the app, including in
@@ -20,6 +20,7 @@ import AbilityPointsAll from './AP_all'
 // any other React app.
 
 export default function CharacterView() {
+
 
   
   return (
@@ -63,10 +64,10 @@ function OverviewCard() {
           <Link to={`${url}/main`}>Main</Link>
         </li>
         <li>
-          <Link to={`${url}/components`}>Components</Link>
+          <Link to={`${url}/skills-throws`}>Skills/Throws</Link>
         </li>
         <li>
-          <Link to={`${url}/props-v-state`}>Props v. State</Link>
+          <Link to={`${url}/features-proficencies`}>Features & Proficencies</Link>
         </li>
       </ul>
 
@@ -75,7 +76,7 @@ function OverviewCard() {
           <h3>Please select a topic.</h3>
         </Route>
         <Route path={`${path}/main`}>
-          <AbilityPointsAll />
+          <CharacterMain />
         </Route>
       </Switch>
     </div>
@@ -90,16 +91,19 @@ function CombatCard() {
 
   return (
     <div>
-      <h2>Topics</h2>
+      <h2>Combat</h2>
       <ul>
         <li>
-          <Link to={`${url}/rendering`}>Rendering with React</Link>
+          <Link to={`${url}/stats`}>Stats</Link>
         </li>
         <li>
-          <Link to={`${url}/components`}>Components</Link>
+          <Link to={`${url}/weapons`}>Weapons</Link>
         </li>
         <li>
-          <Link to={`${url}/props-v-state`}>Props v. State</Link>
+          <Link to={`${url}/spells`}>Spells</Link>
+        </li>
+        <li>
+          <Link to={`${url}/dice`}>Dice</Link>
         </li>
       </ul>
 
