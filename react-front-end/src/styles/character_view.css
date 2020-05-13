@@ -25,7 +25,7 @@
   margin-right: 10vw;
   width: 80vw;
   height: 60vh;
-  border:solid black 3px;
+  border: solid black 3px;
   border-radius: 1em;
   border-radius: 1em;
   background-color: darkgrey;
@@ -38,7 +38,7 @@
   display: inline-block;
   overflow: hidden;
   margin: 0;
-  border-radius: .75em;
+  border-radius: 0.75em;
   border: solid black 2px;
   box-shadow: 2px;
 }
@@ -58,7 +58,6 @@ div > img {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
 }
 
 /* .img-info-div {
@@ -91,7 +90,6 @@ div > img {
   border: solid black 2px;
   border-radius: 1em;
   background-color: grey;
-
 }
 .abp-row {
   display: flex;
@@ -104,7 +102,7 @@ div > img {
   margin: 5px;
 }
 
-a {
+/* a {
   text-decoration: none;
   color: black;
   border: solid;
@@ -116,4 +114,4 @@ a {
 body {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   background-color: grey;
-}
+} */
