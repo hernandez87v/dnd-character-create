@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,6 +18,7 @@ import {
 import red from '@material-ui/core/colors/red';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
+import { UserContext } from '../../UserContext';
 
 function Copyright() {
   return (
@@ -76,6 +77,7 @@ export default function SignUp() {
     email: '',
     password: '',
   });
+  const msg = useContext(UserContext);
 
   let save = (e) => {
     e.preventDefault();
@@ -168,6 +170,7 @@ export default function SignUp() {
             >
               Sign Up
             </Button>
+            <div>{msg}</div>
             <Grid container justify="center">
               <Grid item>
                 <Link href="/login" variant="body2">

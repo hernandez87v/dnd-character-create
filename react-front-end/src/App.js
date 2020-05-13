@@ -7,6 +7,7 @@ import Login from './pages/login';
 import CharacterList from './components/characters/characters_show';
 import CreateCharacter from './pages/createCharacter';
 import AppBar from './components/navbar';
+import { UserContext } from './UserContext';
 
 // import TableContainer from './components/table'
 import {
@@ -28,21 +29,23 @@ class App extends Component {
     return (
       <Router>
         <AppBar email={this.state.email} />
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route
-            exact
-            path="/login"
-            component={(props) => (
-              <Login {...props} test="test" setEmail={this.setEmail} />
-            )}
-          />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/404" component={NotFoundPage} />
-          <Route exact path="/allcharacters" component={CharacterList} />
-          <Route exact path="/createCharacter" component={CreateCharacter} />
-          <Redirect to="/404" />
-        </Switch>
+        <UserContext.Provider value="Logout message test">
+          <Switch>
+            <Route exact path="/" component={MainPage} />
+            <Route
+              exact
+              path="/login"
+              component={(props) => (
+                <Login {...props} test="test" setEmail={this.setEmail} />
+              )}
+            />
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/404" component={NotFoundPage} />
+            <Route exact path="/allcharacters" component={CharacterList} />
+            <Route exact path="/createCharacter" component={CreateCharacter} />
+            <Redirect to="/404" />
+          </Switch>
+        </UserContext.Provider>
       </Router>
     );
   }

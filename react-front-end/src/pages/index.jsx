@@ -6,6 +6,7 @@ import { UserContext } from '../UserContext';
 
 const MainPage = () => {
   const msg = useContext(UserContext);
+  console.log(msg);
   return (
     <div className="App">
       <Container>
