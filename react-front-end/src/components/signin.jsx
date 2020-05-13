@@ -24,7 +24,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="http://localhost:3000/">
-        DND Character
+        DnD Character Creation
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -70,6 +70,7 @@ const theme = createMuiTheme({
 
 export default function SignIn(props) {
   const classes = useStyles();
+
   const [form, setForm] = React.useState({
     email: '',
     password: '',
@@ -86,10 +87,10 @@ export default function SignIn(props) {
       })
         console.log('on singin',props.login)
         window.location = `/`;
-
-      }
-      else {
-        alert('invalid data')
+        console.log(props.test);
+        props.setEmail(form.email);
+      } else {
+        alert('invalid data');
       }
     });
   };

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 // import axios from 'axios';
 import './App.css';
-import MainPage from './pages'
-import NotFoundPage from './pages/404'
+import MainPage from './pages';
+import NotFoundPage from './pages/404';
 import SignUp from './pages/SignUp';
 import Login from './pages/login'
 import CharacterList from './components/characters/characters_show'
@@ -13,7 +13,6 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link,
   Redirect,
 } from 'react-router-dom';
 
