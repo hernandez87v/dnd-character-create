@@ -26,7 +26,6 @@ module.exports = (db) => {
       .then(data  => {
         const classes = data[0];
         const races = data[1];
-        console.log(races);
         query = `       
         SELECT * FROM backgrounds
         ;`;

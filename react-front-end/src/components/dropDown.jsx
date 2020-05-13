@@ -9,7 +9,7 @@ import Select from '@material-ui/core/Select';
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: 220,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleSelect(props){
   const classes = useStyles();
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = React.useState('data');
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -26,7 +26,7 @@ export default function SimpleSelect(props){
       props.handleChange(event.target.value)
     }
   };
-console.log(props)
+
   return (
     <div>
       <FormControl className={classes.formControl}>
@@ -35,10 +35,10 @@ console.log(props)
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={value}
+          renderValue={(selected) => props.value}
           onChange={handleChange}
         >
           {props.options.map(option => (<MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>))}
-
         </Select>
         {props.helperText && <FormHelperText>{props.helperText}</FormHelperText>}
       </FormControl>
