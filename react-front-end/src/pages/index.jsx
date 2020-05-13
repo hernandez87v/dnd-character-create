@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ExpansionPanel from '../components/panel';
 import Button from '../components/addButton';
+import { Container } from '@material-ui/core';
+import { UserContext } from '../UserContext';
 
 const MainPage = () => {
+  const msg = useContext(UserContext);
   return (
     <div className="App">
-      <ExpansionPanel />
-      <Button />
+      <Container>
+        <ExpansionPanel />
+        <Button />
+        <div>{msg}</div>
+      </Container>
     </div>
   );
 };

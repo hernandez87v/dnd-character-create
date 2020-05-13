@@ -44,45 +44,6 @@ export default class SignUp extends React.Component {
     return (
       <div>
         <SignUpShow />
-        {/* <form onSubmit={this.handleSubmit}>
-          <label>
-            Person Name:
-            <br />
-            <input type="text" name="name" onChange={this.handleChangeName} />
-            <br />
-          </label>
-          <label>
-            Nick Name:
-            <br />
-            <input
-              type="text"
-              nick_name="nick_name"
-              onChange={this.handleChangeNickName}
-            />
-            <br />
-          </label>
-          <label>
-            Email:
-            <br />
-            <input
-              type="text"
-              email="email"
-              onChange={this.handleChangeEmail}
-            />
-            <br />
-          </label>
-          <label>
-            Password:
-            <br />
-            <input
-              type="password"
-              password="password"
-              onChange={this.handleChangePassword}
-            />
-            <br />
-          </label>
-          <button type="submit">create</button>
-        </form> */}
       </div>
     );
   }

@@ -24,7 +24,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="http://localhost:3000/">
-        DND Character
+        DnD Character Creation
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -68,8 +68,9 @@ const theme = createMuiTheme({
   },
 });
 
-export default function SignIn() {
+export default function SignIn(props) {
   const classes = useStyles();
+
   const [form, setForm] = React.useState({
     email: '',
     password: '',
@@ -77,10 +78,14 @@ export default function SignIn() {
 
   let handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`/api/user/login`, {form})
-    .then((res) => {
-      console.log(res);
-      console.log(res.data);
+    axios.post(`/api/user/login`, { form }).then((res) => {
+      if (res.data.user.length > 0) {
+        window.location = `/`;
+        console.log(props.test);
+        props.setEmail(form.email);
+      } else {
+        alert('invalid data');
+      }
     });
   };
 
