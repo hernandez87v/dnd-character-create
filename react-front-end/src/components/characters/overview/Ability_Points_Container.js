@@ -9,10 +9,10 @@ export default function PointsContainer(props) {
   let modifier = getModifier(props.abilityScore)
 
   return (
-    <div>
-      <h1>{modifier}</h1>
-      <p>{props.abilityScore}</p>
-      <h3>{props.name}</h3>
+    <div className="abp-unit">
+      <h1 className="ab-unit-info">+1</h1>
+      <p className="ab-unit-info">{props.abilityScore}</p>
+      <h3 className="ab-unit-info">{props.name}</h3>
     </div>
   )
 

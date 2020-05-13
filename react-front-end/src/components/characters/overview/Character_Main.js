@@ -9,6 +9,8 @@ export default function CharacterMain(props) {
     <div className="overview-main">
       <div className="overview-internal">
 
+      <div className="img-info-cont">
+
         <div className='img-info-div'>
           <Avatar 
           avatar_url={props.characterObject.avatar_url}
@@ -21,6 +23,9 @@ export default function CharacterMain(props) {
           background={props.characterObject.background}
           />
         </div>  
+
+      </div>
+
 
         <AbilityPointsAll 
         constitution={props.characterObject.constitution}

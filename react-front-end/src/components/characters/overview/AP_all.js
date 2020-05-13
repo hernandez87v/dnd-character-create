@@ -5,12 +5,12 @@ export default function AbilityPointsAll(props) {
 
   return (
     <div className="abp-div">
-      <div className="abp-row-one">
+      <div className="abp-row">
         <PointsContainer name="Strength" abilityScore={props.strength}/>
         <PointsContainer name="Dexterity" abilityScore={props.dexterity}/>
         <PointsContainer name="Constitution" abilityScore={props.constitution}/>
       </div>
-      <div className="abp-row-two">
+      <div className="abp-row">
         <PointsContainer name="Intelligence" abilityScore={props.intelligence}/>
         <PointsContainer name="Wisdom" abilityScore={props.wisdom}/>
         <PointsContainer name="Charisma" abilityScore={props.charisma}/>

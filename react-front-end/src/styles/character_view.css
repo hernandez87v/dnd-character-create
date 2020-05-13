@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  list-style-type: none;
 }
 
 .quickview-container {
@@ -23,6 +24,7 @@
   width: 80vw;
   height: 60vh;
   border:solid black 3px;
+  border-radius: 1em;
 }
 
 .avatar-img {
@@ -32,6 +34,7 @@
   display: inline-block;
   overflow: hidden;
   margin: 0;
+  border-radius: .75em;
 }
 
 div > img {
@@ -45,6 +48,7 @@ div > img {
 }
 
 .abp-div {
+  width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -58,7 +62,9 @@ div > img {
 } */
 
 .overview-internal {
+  width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
@@ -67,3 +73,27 @@ div > img {
   justify-content: space-evenly;
   flex-direction: column;
 }
+
+.img-info-cont {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: center;
+}
+
+.abp-unit {
+  border: solid black 2px;
+  border-radius: 1em;
+
+}
+.abp-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.ab-unit-info {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+
