@@ -4,7 +4,12 @@ const App = Express();
 const BodyParser = require('body-parser');
 const PORT = 8080;
 const db = require('./db/index');
+const cors = require('cors');
+
+
+
 // Express Configuration
+App.use(cors())
 App.use(BodyParser.urlencoded({ extended: false }));
 App.use(Express.static('public'));
 App.use(BodyParser.json());

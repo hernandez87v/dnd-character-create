@@ -5,45 +5,64 @@ import Grid from '@material-ui/core/Grid';
 
 
 
-const selectAtributes = ({backgrounds, classes, races}) => {
+const selectAtributes = ({backgrounds, classes, races, characterState, setCharacterState}) => {
 
     const generateCharacterAtributes = (characterAtributes) =>  characterAtributes.map(characterAtribute => ({
-        value: characterAtribute.name,
+        value: characterAtribute.id,
         label: characterAtribute.name
     })) 
-
-    const backgroundOptions = generateCharacterAtributes(backgrounds)
+ 
     let  backgroundOption ={
             title: 'Background',
-            options: backgroundOptions,
+            options:  generateCharacterAtributes(backgrounds),
             helperText: 'Select a background' ,
         } 
 
-    const classesOptions = generateCharacterAtributes(classes)
     let  classOption ={
             title: 'Classes',
-            options: classesOptions,
+            options: generateCharacterAtributes(classes),
             helperText: 'Select a class' ,
         } 
 
-    const racesOptions = generateCharacterAtributes(races)
     let  raceOption ={
             title: 'Races',
-            options: racesOptions,
+            options: generateCharacterAtributes(races),
             helperText: 'Select a race' ,
-        }     
+        }   
 
+    const updateBackground = (val) => {
+        setCharacterState( {
+            ...characterState, 
+            background: {id: val, name: backgrounds[val-1].name }
+        })
+    }
+
+    const updateClass = (val) => {
+        setCharacterState( {
+            ...characterState, 
+            class: {id: val, name: classes[val-1].name }
+        })
+    }
+
+    const updateRace = (val) => {
+        setCharacterState( {
+            ...characterState, 
+            race: {id: val, name: races[val-1].name }
+        })
+    }
+        
 
     return (
     <div className="App">
-        <Grid container spacing={1}>
-            <Grid item xs={6}>
+        <Grid container spacing={0}>
+            <Grid item xs={2}/>
+            <Grid item xs={4}>
                 Select a photo
             </Grid>
-            <Grid item xs={6}>
-                <DropDown {...classOption} /> 
-                <DropDown {...raceOption} />
-                <DropDown {...backgroundOption} />
+            <Grid item xs={4}>
+                <DropDown {...classOption} value = {characterState.class.name} handleChange = {val => updateClass(val)} /> 
+                <DropDown {...raceOption} value = {characterState.race.name} handleChange = {val => updateRace(val)} />
+                <DropDown {...backgroundOption} value = {characterState.background.name} handleChange = {val => updateBackground(val)}/>
             </Grid>
         </Grid>
     </div>
