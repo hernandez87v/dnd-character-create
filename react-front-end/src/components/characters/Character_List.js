@@ -60,14 +60,17 @@ export default class CharacterList extends React.Component {
                 charisma,
                 name,
                 avatar_url,
+                race,
+                background,
+                character_class
               } = character;
               return (
                 <div key={id}>
                   <h2>{name}</h2>
                   <img src={avatar_url}></img>
-                  <p>Class: {class_id}</p>
-                  <p>Race: {race_id}</p>
-                  <p>Background: {background_id}</p>
+                  <p>Class: {character_class}</p>
+                  <p>Race: {race}</p>
+                  <p>Background: {background}</p>
                   <p>EXP: {experience}</p>
                   <p>Level: {level}</p>
                   <p>Alignment: {alignment}</p>

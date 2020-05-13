@@ -5,9 +5,10 @@ import MainPage from './pages';
 import NotFoundPage from './pages/404';
 import SignUp from './pages/SignUp';
 import Login from './pages/login'
-import CharacterList from './components/characters/characters_show'
 import CreateCharacter from './pages/createCharacter'
 import AppBar from './components/navbar'
+import CharacterList from './components/characters/Character_List';
+import CharacterContainer from './components/characters/Character_Container';
 // import TableContainer from './components/table'
 import {
   BrowserRouter as Router,
@@ -28,6 +29,7 @@ export default function App (){
         <Route exact path="/404" component={NotFoundPage}/>
         <Route exact path="/allcharacters" component={CharacterList}/>
         <Route exact path="/createCharacter" component={CreateCharacter}/>
+        <Route exact path="/character" component={CharacterContainer} />
         <Redirect to="/404"/>
         </Switch>
       </Router>
