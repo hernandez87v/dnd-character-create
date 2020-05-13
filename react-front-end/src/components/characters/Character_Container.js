@@ -49,8 +49,6 @@ export default function CharacterContainer() {
           </li>
         </ul>
 
-        <hr />
-
         <Switch>
           <Route path="/quickview">
             <CharacterView characterObject={characterData} />
