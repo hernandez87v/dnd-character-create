@@ -12,6 +12,7 @@ const [state , setState] = useState({backgrounds:[], classes: [], races:[] });
 let i = 0
 const [stats, setStats] = useState([15,14,13,12,10,8,''].map(stat => ({value: i++, label:stat})))
 const [characterState, setCharacterState] = useState({
+  user_id: 1,
   background:{id: '0', name:'background'}, 
   class: {id: '0', name:'class'}, 
   race: {id: '0', name:'race'},
@@ -48,7 +49,7 @@ const [characterState, setCharacterState] = useState({
         <Stepper pages = {[ <SelectAtributes backgrounds={state.backgrounds} classes={state.classes} races={state.races} 
         characterState = {characterState} setCharacterState = {setCharacterState}/>, 
         <SelectStats stats = {stats} characterState = {characterState} setCharacterState = {setCharacterState}/>,  
-        <SelectWeapon stats = {stats} characterState = {characterState} setCharacterState = {setCharacterState}/>]}
+        <SelectWeapon characterState = {characterState} setCharacterState = {setCharacterState}/>]}
         />
        
       </React.Fragment>

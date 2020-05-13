@@ -18,7 +18,6 @@ const selectAtributes = (props) => {
           ...props.characterState, 
           speed: val
       }, []) 
-      
     }
 
 

@@ -32,6 +32,8 @@ function getStepContent(stepIndex,props) {
       return props.pages[1];
     case 2:
       return props.pages[2];
+      case 3:
+        return props.pages[3];
     default:
       return 'Unknown stepIndex';
   }

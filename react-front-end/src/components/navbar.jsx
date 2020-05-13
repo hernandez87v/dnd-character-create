@@ -34,31 +34,59 @@ const theme = createMuiTheme({
   },
 });
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
   const classes = useStyles();
 
-  return (
-    <div className={classes.root}>
-      <MuiThemeProvider theme={theme}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              DND Home
-            </Typography>
-            <Button href="/login" color="inherit">
-              Login
-            </Button>
-          </Toolbar>
-        </AppBar>
-      </MuiThemeProvider>
-    </div>
-  );
+  if (props.login.login === true){
+    return (
+      <div className={classes.root}>
+        <MuiThemeProvider theme={theme}>
+          <AppBar position="static">
+            <Toolbar>
+              <IconButton
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" className={classes.title}>
+                DND testing
+              </Typography>
+              <Button href="/login" color="inherit">
+                logOut
+              </Button>
+            </Toolbar>
+          </AppBar>
+        </MuiThemeProvider>
+      </div>
+    );
+  } else {
+    return (
+      <div className={classes.root}>
+        <MuiThemeProvider theme={theme}>
+          <AppBar position="static">
+            <Toolbar>
+              <IconButton
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" className={classes.title}>
+                DND Home
+              </Typography>
+              <Button href="/login" color="inherit">
+                Login
+              </Button>
+            </Toolbar>
+          </AppBar>
+        </MuiThemeProvider>
+      </div>
+    );
+  }
 }
+

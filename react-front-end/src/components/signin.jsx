@@ -68,7 +68,7 @@ const theme = createMuiTheme({
   },
 });
 
-export default function SignIn() {
+export default function SignIn(props) {
   const classes = useStyles();
   const [form, setForm] = React.useState({
     email: '',
@@ -76,10 +76,15 @@ export default function SignIn() {
   });
 
   let handleSubmit = (e) => {
+    console.log('on singin',props.login)
     e.preventDefault();
     axios.post(`/api/user/login`, {form})
     .then((res) => {
       if (res.data.user.length > 0){
+        props.setLogin ( {        
+          login: true
+      })
+        console.log('on singin',props.login)
         window.location = `/`;
 
       }
