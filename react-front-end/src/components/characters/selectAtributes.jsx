@@ -2,7 +2,7 @@ import React from 'react';
 import DropDown from '../../components/dropDown';
 
 import Grid from '@material-ui/core/Grid';
-import AliceCarousel from '../imgUpload';
+// import AliceCarousel from '../imgUpload';
 
 const selectAtributes = ({
   backgrounds,
@@ -56,28 +56,23 @@ const selectAtributes = ({
     });
   };
 
-  // const updateAvatar = (val) => {
-  //   setCharacterState({
-  //     ...characterState,
-  //     avatar_url: { avatar_url: [val - 1].avatar_url },
-  //   });
-  // };
+  const updateAvatar = (val) => {
+    setCharacterState({
+      ...characterState,
+      avatar_url: { avatar_url: [val - 1].avatar_url },
+    });
+  };
 
-  // <img src={characterState.avatar_url} className="avatar-img"></img>
-  //   <input type="text" id="fname" name="fname" /><br></br>
-  //   <button onClick={name => updateAvatar(name)}>i'm a buttom</button>
   return (
     <div className="App">
       <Grid container spacing={0}>
         <Grid item xs={2} />
-        <Grid item xs={5}>
-          <AliceCarousel />
-          {/* <img src={characterState.avatar_url} className="avatar-img"></img> */}
-          {/* <input type="text" id="fname" name="fname" />
-          <br></br>
-          <input type="text" ref={(input) => this.textInput = input} />  */}
-          {/* <input name="name" />
-          <button onClick={(name) => updateAvatar(name)}>i'm a buttom</button> */}
+        <Grid item xs={4}>
+          {/* <AliceCarousel /> */}
+          {/* below is the code for avatar text field and button/ above is for the image carousel.(also uncomment import AliceCarousel) uncomment one or the other. */}
+          <img src={characterState.avatar_url} className="avatar-img"></img>
+          <input name="name" />
+          <button onClick={(name) => updateAvatar(name)}>i'm a buttom</button>
         </Grid>
         <Grid item xs={4}>
           <DropDown

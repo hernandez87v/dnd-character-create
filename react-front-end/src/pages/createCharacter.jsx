@@ -41,7 +41,6 @@ export default function CharacterNew() {
           ...state,
           ...response.data,
         });
-        console.log('createCharacter: ', response.data);
       })
       .catch((error) => setState({ error }));
   };

@@ -2,18 +2,8 @@ import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import Link from '@material-ui/core/Link';
-import characterState from './characters/selectAtributes';
-import setCharacterState from './characters/selectAtributes';
-console.log('imgload: ', characterState);
 
 class Gallery extends React.Component {
-  state = {
-    avatar_url: '',
-  };
-
-  updateAvatar = (e) => {
-    this.setState({ avatar_url: e.target.value });
-  };
   render() {
     const responsive = {
       0: {
@@ -24,12 +14,6 @@ class Gallery extends React.Component {
       },
     };
 
-    //   const updateAvatar = (val) => {
-    //     setCharacterState({
-    //       ...characterState,
-    //       characters: { avatar_url: characters[val - 1].avatar_url },
-    //     });
-    //   };
     return (
       <AliceCarousel
         duration={400}
@@ -44,13 +28,7 @@ class Gallery extends React.Component {
         onSlideChange={this.onSlideChange}
         onSlideChanged={this.onSlideChanged}
       >
-        <Link
-          component="button"
-          variant="avatar2"
-          onClick={(e) =>
-            setCharacterState({ ...characterState, avatar_url: e.target.value })
-          }
-        >
+        <Link component="button" variant="avatar2">
           <img
             src="https://avatarfiles.alphacoders.com/198/thumb-1983.jpg"
             className="avatar-img"
@@ -64,13 +42,7 @@ class Gallery extends React.Component {
             alt="avatar"
           />
         </Link>
-        <Link
-          component="button"
-          variant="avatar3"
-          onClick={(e) =>
-            setCharacterState({ ...characterState, avatar_url: e.target.value })
-          }
-        >
+        <Link component="button" variant="avatar3">
           <img
             src="https://avatarfiles.alphacoders.com/109/thumb-1092.jpg"
             className="avatar-img"
@@ -88,7 +60,7 @@ class Gallery extends React.Component {
           component="button"
           variant="avatar5"
           onClick={() => {
-            console.info("I'm a button.");
+            console.info("test, I'm a button.");
           }}
         >
           <img

@@ -5,7 +5,6 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import TableContainer from './table'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,9 +30,7 @@ export default function SimpleExpansionPanel() {
           <Typography className={classes.heading}>Character 1</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
-            <TableContainer/>
-          </Typography>
+          <Typography></Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel>
@@ -45,9 +42,7 @@ export default function SimpleExpansionPanel() {
           <Typography className={classes.heading}>Character 2</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
-          LVL 1, exp: 400, Class:barbarian
-          </Typography>
+          <Typography>LVL 1, exp: 400, Class:barbarian</Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel disabled>
@@ -56,7 +51,9 @@ export default function SimpleExpansionPanel() {
           aria-controls="panel3a-content"
           id="panel3a-header"
         >
-          <Typography className={classes.heading}>Disabled Expansion Panel</Typography>
+          <Typography className={classes.heading}>
+            Disabled Expansion Panel
+          </Typography>
         </ExpansionPanelSummary>
       </ExpansionPanel>
     </div>
