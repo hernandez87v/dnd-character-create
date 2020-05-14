@@ -16,17 +16,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleSelect(props){
+export default function SimpleSelect(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState('data');
 
   const handleChange = (event) => {
     setValue(event.target.value);
     if (props.handleChange) {
-      props.handleChange(event.target.value)
+      props.handleChange(event.target.value);
     }
   };
-
+  console.log(props.value);
   return (
     <div>
       <FormControl className={classes.formControl}>
@@ -38,11 +38,16 @@ export default function SimpleSelect(props){
           renderValue={(selected) => props.value}
           onChange={handleChange}
         >
-          {props.options.map(option => (<MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>))}
+          {props.options.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
         </Select>
-        {props.helperText && <FormHelperText>{props.helperText}</FormHelperText>}
+        {props.helperText && (
+          <FormHelperText>{props.helperText}</FormHelperText>
+        )}
       </FormControl>
-     
     </div>
   );
 }
