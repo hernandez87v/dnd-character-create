@@ -8,7 +8,6 @@ const selectAtributes = ({
   backgrounds,
   classes,
   races,
-  //   avatar,
   characterState,
   setCharacterState,
 }) => {
@@ -36,12 +35,6 @@ const selectAtributes = ({
     helperText: 'Select a race',
   };
 
-  //   let avatarOption = {
-  //     title: 'Avatar',
-  //     options: generateCharacterAtributes(avatar),
-  //     helperText: 'Select avatar',
-  //   };
-
   const updateBackground = (val) => {
     setCharacterState({
       ...characterState,
@@ -63,23 +56,28 @@ const selectAtributes = ({
     });
   };
 
-  //   const updateAvatar = (val) => {
-  //     setCharacterState({
-  //       ...characterState,
-  //       avatar: { id: val, name: avatar[val - 1].avatar_url },
-  //     });
-  //   };
+  // const updateAvatar = (val) => {
+  //   setCharacterState({
+  //     ...characterState,
+  //     avatar_url: { avatar_url: [val - 1].avatar_url },
+  //   });
+  // };
 
+  // <img src={characterState.avatar_url} className="avatar-img"></img>
+  //   <input type="text" id="fname" name="fname" /><br></br>
+  //   <button onClick={name => updateAvatar(name)}>i'm a buttom</button>
   return (
     <div className="App">
       <Grid container spacing={0}>
         <Grid item xs={2} />
         <Grid item xs={5}>
-          <AliceCarousel
-          // {...avatarOption}
-          // value={characterState.avatar.avatar_url}
-          // handleChange={(val) => updateAvatar(val)}
-          />
+          <AliceCarousel />
+          {/* <img src={characterState.avatar_url} className="avatar-img"></img> */}
+          {/* <input type="text" id="fname" name="fname" />
+          <br></br>
+          <input type="text" ref={(input) => this.textInput = input} />  */}
+          {/* <input name="name" />
+          <button onClick={(name) => updateAvatar(name)}>i'm a buttom</button> */}
         </Grid>
         <Grid item xs={4}>
           <DropDown
