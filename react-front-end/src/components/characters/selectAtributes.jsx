@@ -51,12 +51,6 @@ const selectAtributes = ({
     });
   };
 
-  const updateRace = (val) => {
-    setCharacterState({
-      ...characterState,
-      race: { id: val, name: races[val - 1].name },
-    });
-  };
   const updateAvatar = (val) => {
     console.log('test', val);
     setCharacterState({
@@ -65,15 +59,6 @@ const selectAtributes = ({
       // avatar_url: val
     });
   };
-
-<<<<<<< HEAD
-    const updateClass = (val) => {
-        setCharacterState( {
-            ...characterState, 
-            class: {id: val, name: classes[val-1].name }
-        })
-    }
-
     const updateRace = (val) => {
         // setCharacterState( {
         //     ...characterState, 
@@ -158,50 +143,7 @@ avatar_url: 'https://i.pinimg.com/originals/ba/c2/1d/bac21d16043a7e9d41593338660
                 <DropDown {...raceOption} value = {characterState.race.name} handleChange = {val => updateRace(val)} />
                 <DropDown {...backgroundOption} value = {characterState.background.name} handleChange = {val => updateBackground(val)}/>
             </Grid>
-=======
-  let value = '';
-  return (
-    <div className="App">
-      <Grid container spacing={0}>
-        <Grid item xs={2} />
-        <Grid item xs={4}>
-          <img src={characterState.avatar_url} className="avatar-img"></img>
->>>>>>> 4b7ed2b51f1ce7dfc0cdf42a9d6a15eaec63e739
-
-          <TextField
-            id="outlined-basic"
-            value={value}
-            label="URL"
-            variant="outlined"
-          />
-          <br></br>
-          <Button
-            disableElevation
-            variant="contained"
-            color="primary"
-            onClick={(name) => updateAvatar(name)}
-          >
-            Submit your avatar
-          </Button>
-        </Grid>
-        <Grid item xs={4}>
-          <DropDown
-            {...classOption}
-            value={characterState.class.name}
-            handleChange={(val) => updateClass(val)}
-          />
-          <DropDown
-            {...raceOption}
-            value={characterState.race.name}
-            handleChange={(val) => updateRace(val)}
-          />
-          <DropDown
-            {...backgroundOption}
-            value={characterState.background.name}
-            handleChange={(val) => updateBackground(val)}
-          />
-        </Grid>
-      </Grid>
+            </Grid>
     </div>
   );
 };
