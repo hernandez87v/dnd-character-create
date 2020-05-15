@@ -13,20 +13,14 @@
   box-shadow: 10px 5px 5px rgb(141, 59, 59);
 }
 
-.crumb-button {
-  color: #6f0000;
-}
-
-Button {
-  width: 100%;
-  size: 5em;
-}
-
 .character-nav:hover {
   background-color: #7a1111;
   filter: none;
 }
 
+.crumb-button {
+  color: #6f0000;
+}
 .quickview-container {
   display: flex;
   flex-direction: row;
