@@ -35,7 +35,7 @@ let choose = 2;
 
     const getClassesInfo = () => {
       var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-        targetUrl = `http://dnd5eapi.co/api/classes/${props.characterState.class.name}`
+        targetUrl = `http://dnd5eapi.co/api/classes/${props.characterState.class_info.name}`
         fetch(proxyUrl + targetUrl)
           .then(blob => blob.json())
           .then(data => {

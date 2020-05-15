@@ -45,7 +45,52 @@ module.exports = (db) => {
       });
   });
 
-  router.post("/submit")
+//Handles logic for posting of a newly created character. destructures the objects, then will make the proper db insertions
+
+  router.post("/submit", (req, res) => {
+
+    console.log(req.body)
+    const raceData = req.body.raceState;
+    const characterData = req.body.characterState
+    const {
+      id,
+      name,
+      strength_bonus,
+      dexterity_bonus,
+      constitution_bonus,
+      intelligence_bonus,
+      wisdom_bonus,
+      charisma_bonus,
+      speed,
+      size,
+      ab_choice,
+      proficiency_choice,
+      language_choice,
+      trait_choice,
+    } = raceData;
+
+    const {
+      user_id,
+      background,
+      class_info,
+      strength,
+      dexterity,
+      constitution,
+      intelligence,
+      widsom,
+      charisma,
+      hitDie,
+      avatar_url,
+      proficienciesSelected, //array of objects
+      equipmentSelected, //array of objects
+      characterName
+    } = characterData;
+
+    console.log('this is the character, ', background, constitution, name)
+
+
+
+  })
   
   return router;
 };

@@ -17,16 +17,16 @@ const selectStats = (props) => {
       helperText: 'Select a Dexterity' ,
     } 
 
-  let  statsCostitution ={
-      title: 'Costitution',
+  let  statsConstitution ={
+      title: 'Constitution',
       options: props.stats,
-      helperText: 'Select a Costitution' ,
+      helperText: 'Select a Constitution' ,
     } 
 
-  let  statsInteligence ={
-      title: 'Inteligence',
+  let  statsIntelligence ={
+      title: 'Intelligence',
       options: props.stats,
-      helperText: 'Select a Inteligence' ,
+      helperText: 'Select a Intelligence' ,
     } 
 
   let  statsWidsom ={
@@ -66,10 +66,10 @@ const selectStats = (props) => {
             delete props.stats[val];
         }
     }
-    const updateCostitution = (val) => {
+    const updateConstitution = (val) => {
         props.setCharacterState( {    
         ...props.characterState, 
-        costitution: props.stats[val].label 
+        constitution: props.stats[val].label 
     })
     if (val === 6 ){
         //here i should be add again the element i delete before
@@ -79,10 +79,10 @@ const selectStats = (props) => {
         delete props.stats[val];
     }
     }
-    const updateInteligence = (val) => {
+    const updateIntelligence = (val) => {
         props.setCharacterState( {        
             ...props.characterState, 
-            inteligence: props.stats[val].label 
+            intelligence: props.stats[val].label 
         })
         delete props.stats[val];
 
@@ -122,10 +122,10 @@ const selectStats = (props) => {
             <Grid item xs={4}>
                 <DropDown {...statsStrength} value = {props.characterState.strength} handleChange = {val => updateStrength(val)} />
                 <DropDown {...statsDexterity} value = {props.characterState.dexterity} handleChange = {val => updateDexterity(val)}/>
-                <DropDown {...statsCostitution} value = {props.characterState.costitution} handleChange = {val => updateCostitution(val)}/>
+                <DropDown {...statsConstitution} value = {props.characterState.constitution} handleChange = {val => updateConstitution(val)}/>
             </Grid>
              <Grid item xs={4}>
-                <DropDown {...statsInteligence} value = {props.characterState.inteligence} handleChange = {val => updateInteligence(val)}/>
+                <DropDown {...statsIntelligence} value = {props.characterState.intelligence} handleChange = {val => updateIntelligence(val)}/>
                 <DropDown {...statsWidsom} value = {props.characterState.widsom} handleChange = {val => updateWidsom(val)}/>
                 <DropDown {...statsCharisma} value = {props.characterState.charisma} handleChange = {val => updateCharisma(val)}/>
             </Grid>
