@@ -6,7 +6,6 @@
   padding-left: 5%;
   padding-right: 5%;
   margin-left: 5vw;
-  /* margin-right: 5vw; */
   list-style-type: none;
   border-radius: 10px;
   background-color: #7a1111;
@@ -29,9 +28,9 @@ button {
   font-size: 16px;
 }
 
-/* button:target {
+button:focus {
   background-color: #d36464;
-} */
+}
 
 .quickview-container {
   display: flex;
