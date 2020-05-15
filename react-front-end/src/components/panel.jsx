@@ -24,41 +24,41 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleExpansionPanel(props) {
   const classes = useStyles();
-  if (props.characterState[0]){
-console.log('props on panel',props.characterState[0].id)
-  }
-  if (props.characterState[0]){
-
+  if (props.characterState[3]){
     return (
       <div className={classes.root}>
         <ExpansionPanel>
           <ExpansionPanelSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.heading}>{props.characterState[0].name}</Typography>
+            id="panel1a-header">
+          <Typography className={classes.heading}>{props.characterState[0].name}</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
+          <Grid item xs={2}>
+          <img src={props.characterState[0].avatar_url} className="avatar-img"></img>
+
+            </Grid>
           <Grid item xs={3}>
             <p>Class: {props.characterState[0].character_class}</p><br/>
+            <p>Level: {props.characterState[0].level}</p><br/>
           </Grid>
           <Grid item xs={3}>
             <p>Race:  {props.characterState[0].race} </p><br/>
+            <p>EXP:  {props.characterState[0].experience} </p><br/>
+
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[0].background} </p><br/>
+            <p>Aligment:  {props.characterState[0].aligment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
               <Link color="inherit" href="/character">
                 Full View
               </Link>{' '}
-      </Typography>
+            </Typography>
               </Grid>
-          {/* <img src={props.characterState[0].avatar_url} className="avatar-img"></img> */}
-
-            {/* <Typography>{props.characterState[0].avatar_url}</Typography><br/> */}
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel>
@@ -70,16 +70,332 @@ console.log('props on panel',props.characterState[0].id)
             <Typography className={classes.heading}>{props.characterState[1].name}</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Typography>Class{props.characterState[0].character_class}</Typography><br/>
-            <Typography>Race {props.characterState[0].race}</Typography><br/>
-            {/* <Button/> */}
+          <Grid item xs={2}>
+          <img src={props.characterState[1].avatar_url} className="avatar-img"></img>
+
+            </Grid>
+          <Grid item xs={3}>
+            <p>Class: {props.characterState[1].character_class}</p><br/>
+            <p>Level: {props.characterState[1].level}</p><br/>
+          </Grid>
+          <Grid item xs={3}>
+            <p>Race:  {props.characterState[1].race} </p><br/>
+            <p>EXP:  {props.characterState[1].experience} </p><br/>
+
+          </Grid>
+          <Grid item xs={3}>
+            <p>Background:  {props.characterState[1].background} </p><br/>
+            <p>Aligment:  {props.characterState[1].aligment} </p><br/>        
+            </Grid>
+            <Grid item xs={3}>
+            <Typography variant="body2" color="textSecondary" align="center">
+              <Link color="inherit" href="/character">
+                Full View
+              </Link>{' '}
+      </Typography>
+              </Grid>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography className={classes.heading}>{props.characterState[2].name}</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+          <Grid item xs={2}>
+          <img src={props.characterState[2].avatar_url} className="avatar-img"></img>
+
+            </Grid>
+          <Grid item xs={3}>
+            <p>Class: {props.characterState[2].character_class}</p><br/>
+            <p>Level: {props.characterState[2].level}</p><br/>
+          </Grid>
+          <Grid item xs={3}>
+            <p>Race:  {props.characterState[2].race} </p><br/>
+            <p>EXP:  {props.characterState[2].experience} </p><br/>
+
+          </Grid>
+          <Grid item xs={3}>
+            <p>Background:  {props.characterState[2].background} </p><br/>
+            <p>Aligment:  {props.characterState[2].aligment} </p><br/>        
+            </Grid>
+            <Grid item xs={3}>
+            <Typography variant="body2" color="textSecondary" align="center">
+              <Link color="inherit" href="/character">
+                Full View
+              </Link>{' '}
+      </Typography>
+              </Grid>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography className={classes.heading}>{props.characterState[3].name}</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+          <Grid item xs={2}>
+          <img src={props.characterState[3].avatar_url} className="avatar-img"></img>
+
+            </Grid>
+          <Grid item xs={3}>
+            <p>Class: {props.characterState[3].character_class}</p><br/>
+            <p>Level: {props.characterState[3].level}</p><br/>
+          </Grid>
+          <Grid item xs={3}>
+            <p>Race:  {props.characterState[3].race} </p><br/>
+            <p>EXP:  {props.characterState[3].experience} </p><br/>
+
+          </Grid>
+          <Grid item xs={3}>
+            <p>Background:  {props.characterState[3].background} </p><br/>
+            <p>Aligment:  {props.characterState[3].aligment} </p><br/>        
+            </Grid>
+            <Grid item xs={3}>
+            <Typography variant="body2" color="textSecondary" align="center">
+              <Link color="inherit" href="/character">
+                Full View
+              </Link>{' '}
+      </Typography>
+              </Grid>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        </div>
+    );
+  }
+  if (props.characterState[2]){
+    return (
+      <div className={classes.root}>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header">
+          <Typography className={classes.heading}>{props.characterState[0].name}</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+          <Grid item xs={2}>
+          <img src={props.characterState[0].avatar_url} className="avatar-img"></img>
+
+            </Grid>
+          <Grid item xs={3}>
+            <p>Class: {props.characterState[0].character_class}</p><br/>
+            <p>Level: {props.characterState[0].level}</p><br/>
+          </Grid>
+          <Grid item xs={3}>
+            <p>Race:  {props.characterState[0].race} </p><br/>
+            <p>EXP:  {props.characterState[0].experience} </p><br/>
+
+          </Grid>
+          <Grid item xs={3}>
+            <p>Background:  {props.characterState[0].background} </p><br/>
+            <p>Aligment:  {props.characterState[0].aligment} </p><br/>        
+            </Grid>
+            <Grid item xs={3}>
+            <Typography variant="body2" color="textSecondary" align="center">
+              <Link color="inherit" href="/character">
+                Full View
+              </Link>{' '}
+            </Typography>
+              </Grid>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography className={classes.heading}>{props.characterState[1].name}</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+          <Grid item xs={2}>
+          <img src={props.characterState[1].avatar_url} className="avatar-img"></img>
+
+            </Grid>
+          <Grid item xs={3}>
+            <p>Class: {props.characterState[1].character_class}</p><br/>
+            <p>Level: {props.characterState[1].level}</p><br/>
+          </Grid>
+          <Grid item xs={3}>
+            <p>Race:  {props.characterState[1].race} </p><br/>
+            <p>EXP:  {props.characterState[1].experience} </p><br/>
+
+          </Grid>
+          <Grid item xs={3}>
+            <p>Background:  {props.characterState[1].background} </p><br/>
+            <p>Aligment:  {props.characterState[1].aligment} </p><br/>        
+            </Grid>
+            <Grid item xs={3}>
+            <Typography variant="body2" color="textSecondary" align="center">
+              <Link color="inherit" href="/character">
+                Full View
+              </Link>{' '}
+      </Typography>
+              </Grid>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography className={classes.heading}>{props.characterState[2].name}</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+          <Grid item xs={2}>
+          <img src={props.characterState[2].avatar_url} className="avatar-img"></img>
+
+            </Grid>
+          <Grid item xs={3}>
+            <p>Class: {props.characterState[2].character_class}</p><br/>
+            <p>Level: {props.characterState[2].level}</p><br/>
+          </Grid>
+          <Grid item xs={3}>
+            <p>Race:  {props.characterState[2].race} </p><br/>
+            <p>EXP:  {props.characterState[2].experience} </p><br/>
+
+          </Grid>
+          <Grid item xs={3}>
+            <p>Background:  {props.characterState[2].background} </p><br/>
+            <p>Aligment:  {props.characterState[2].aligment} </p><br/>        
+            </Grid>
+            <Grid item xs={3}>
+            <Typography variant="body2" color="textSecondary" align="center">
+              <Link color="inherit" href="/character">
+                Full View
+              </Link>{' '}
+      </Typography>
+              </Grid>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        </div>
+    );
+  }
+  else if (props.characterState[1]){
+    return (
+      <div className={classes.root}>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header">
+          <Typography className={classes.heading}>{props.characterState[0].name}</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+          <Grid item xs={2}>
+          <img src={props.characterState[0].avatar_url} className="avatar-img"></img>
+
+            </Grid>
+          <Grid item xs={3}>
+            <p>Class: {props.characterState[0].character_class}</p><br/>
+            <p>Level: {props.characterState[0].level}</p><br/>
+          </Grid>
+          <Grid item xs={3}>
+            <p>Race:  {props.characterState[0].race} </p><br/>
+            <p>EXP:  {props.characterState[0].experience} </p><br/>
+
+          </Grid>
+          <Grid item xs={3}>
+            <p>Background:  {props.characterState[0].background} </p><br/>
+            <p>Aligment:  {props.characterState[0].aligment} </p><br/>        
+            </Grid>
+            <Grid item xs={3}>
+            <Typography variant="body2" color="textSecondary" align="center">
+              <Link color="inherit" href="/character">
+                Full View
+              </Link>{' '}
+            </Typography>
+              </Grid>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography className={classes.heading}>{props.characterState[1].name}</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+          <Grid item xs={2}>
+          <img src={props.characterState[1].avatar_url} className="avatar-img"></img>
+
+            </Grid>
+          <Grid item xs={3}>
+            <p>Class: {props.characterState[1].character_class}</p><br/>
+            <p>Level: {props.characterState[1].level}</p><br/>
+          </Grid>
+          <Grid item xs={3}>
+            <p>Race:  {props.characterState[1].race} </p><br/>
+            <p>EXP:  {props.characterState[1].experience} </p><br/>
+
+          </Grid>
+          <Grid item xs={3}>
+            <p>Background:  {props.characterState[1].background} </p><br/>
+            <p>Aligment:  {props.characterState[1].aligment} </p><br/>        
+            </Grid>
+            <Grid item xs={3}>
+            <Typography variant="body2" color="textSecondary" align="center">
+              <Link color="inherit" href="/character">
+                Full View
+              </Link>{' '}
+      </Typography>
+              </Grid>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        </div>
+    );
+  }
+  else if (props.characterState[0]) {
+    return (
+      <div className={classes.root}>
+              <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header">
+          <Typography className={classes.heading}>{props.characterState[0].name}</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+          <Grid item xs={2}>
+          <img src={props.characterState[0].avatar_url} className="avatar-img"></img>
+
+            </Grid>
+          <Grid item xs={3}>
+            <p>Class: {props.characterState[0].character_class}</p><br/>
+            <p>Level: {props.characterState[0].level}</p><br/>
+          </Grid>
+          <Grid item xs={3}>
+            <p>Race:  {props.characterState[0].race} </p><br/>
+            <p>EXP:  {props.characterState[0].experience} </p><br/>
+
+          </Grid>
+          <Grid item xs={3}>
+            <p>Background:  {props.characterState[0].background} </p><br/>
+            <p>Aligment:  {props.characterState[0].aligment} </p><br/>        
+            </Grid>
+            <Grid item xs={3}>
+            <Typography variant="body2" color="textSecondary" align="center">
+              <Link color="inherit" href="/character">
+                Full View
+              </Link>{' '}
+            </Typography>
+              </Grid>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       
       </div>
     );
-  }
-  else {
+  
+  } else {
     return (
     <h1>loading</h1>
     )
