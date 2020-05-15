@@ -9,18 +9,30 @@
   /* margin-right: 5vw; */
   list-style-type: none;
   border-radius: 10px;
-  background-color: #6f0000;
+  background-color: #7a1111;
   box-shadow: 10px 5px 5px rgb(141, 59, 59);
 }
 
 .character-nav:hover {
-  background-color: #7a1111;
+  background-color: #6f0000;
   filter: none;
 }
 
-.crumb-button {
-  color: #6f0000;
+button {
+  background-color: #7a1111;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
+
+/* button:target {
+  background-color: #d36464;
+} */
+
 .quickview-container {
   display: flex;
   flex-direction: row;

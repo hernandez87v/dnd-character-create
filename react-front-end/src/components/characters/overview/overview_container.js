@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,7 +9,6 @@ import {
   useRouteMatch,
 } from 'react-router-dom';
 import CharacterMain from './Character_Main';
-import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 // Since routes are regular React components, they
@@ -44,23 +43,23 @@ export default function OverviewContainer(props) {
         <ul className="character-nav">
           <li>
             <Link class="crumb-button" to={`${url}/main`}>
-              <Button variant="contained" color="primary">
+              <button variant="contained" color="primary">
                 Main
-              </Button>
+              </button>
             </Link>
           </li>
           <li>
             <Link class="crumb-button" to={`${url}/skills-throws`}>
-              <Button variant="contained" color="primary">
+              <button variant="contained" color="primary">
                 Skills/Throws
-              </Button>
+              </button>
             </Link>
           </li>
           <li>
             <Link class="crumb-button" to={`${url}/features-proficencies`}>
-              <Button variant="contained" color="primary">
+              <button variant="contained" color="primary">
                 Features & Proficencies
-              </Button>
+              </button>
             </Link>
           </li>
         </ul>

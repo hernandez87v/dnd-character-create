@@ -2,7 +2,6 @@ import React from 'react';
 import AbilityPointsAll from './AP_all';
 import Avatar from './Character_Avatar';
 import BasicInfo from './Character_Basic_info';
-import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 // ROUTE 4 - THIS IS AFTER CLICKING MAIN

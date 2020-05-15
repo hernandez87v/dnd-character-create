@@ -10,7 +10,6 @@ import {
 } from 'react-router-dom';
 import OverviewContainer from './overview/overview_container';
 import CombatContainer from './overview/combat_container';
-import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 // ROUTE 2 - THIS IS AFTER CLICKING QUICKVIEW
@@ -36,16 +35,16 @@ export default function CharacterView(props) {
         <ul className="character-nav">
           <li>
             <Link class="crumb-button" to={`${url}/overview`}>
-              <Button variant="contained" color="primary">
+              <button variant="contained" color="primary">
                 Overview
-              </Button>
+              </button>
             </Link>
           </li>
           <li>
             <Link class="crumb-button" to={`${url}/combat`}>
-              <Button variant="contained" color="primary">
+              <button variant="contained" color="primary">
                 Combat
-              </Button>
+              </button>
             </Link>
           </li>
         </ul>

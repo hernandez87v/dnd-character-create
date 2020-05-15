@@ -3,7 +3,6 @@ import CharacterView from './characters_view.js';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import '../../styles/character_view.css';
-import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 // ROUTE 1 - THIS IS AFTER CLICKING QUICKVIEW
@@ -48,23 +47,23 @@ export default function CharacterContainer() {
           <ul className="character-nav">
             <li>
               <Link class="crumb-button" to="/quickview">
-                <Button variant="contained" color="primary">
+                <button variant="contained" color="primary">
                   Quickview
-                </Button>
+                </button>
               </Link>
             </li>
             <li>
               <Link class="crumb-button" to="/inventory">
-                <Button variant="contained" color="primary">
+                <button variant="contained" color="primary">
                   Inventory
-                </Button>
+                </button>
               </Link>
             </li>
             <li>
               <Link class="crumb-button" to="/details-notes">
-                <Button variant="contained" color="primary">
+                <button variant="contained" color="primary">
                   Details & Notes
-                </Button>
+                </button>
               </Link>
             </li>
           </ul>
