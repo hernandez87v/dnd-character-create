@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ['Select Class,Background and race', 'Select your stats', 'Select your wepons', 'Create an ad','Create an ad','Create an ad'];
+  return ['Select Class,Background and race', 'Select your stats', 'Select your profencies', 'Select your equipment','Select your name'];
 }
 
 function getStepContent(stepIndex,props) {
@@ -32,8 +32,12 @@ function getStepContent(stepIndex,props) {
       return props.pages[1];
     case 2:
       return props.pages[2];
-      case 3:
-        return props.pages[3];
+    case 3:
+      return props.pages[3];
+    case 4:
+      return props.pages[4];
+    case 5:
+      return props.pages[5];
     default:
       return 'Unknown stepIndex';
   }
@@ -68,6 +72,7 @@ export default function HorizontalLabelPositionBelowStepper(props) {
       <div>
         {activeStep === steps.length ? (
           <div>
+            {/* here shoul be were */}
             <Typography className={classes.instructions}>All steps completed</Typography>
             <Button onClick={handleReset}>Reset</Button>
           </div>
