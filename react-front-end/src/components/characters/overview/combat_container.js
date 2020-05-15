@@ -6,9 +6,9 @@ import {
   Route,
   Link,
   useParams,
-  useRouteMatch
-} from "react-router-dom";
-import CharacterMain from './Character_Main'
+  useRouteMatch,
+} from 'react-router-dom';
+import CharacterMain from './Character_Main';
 
 // Since routes are regular React components, they
 // may be rendered anywhere in the app, including in
@@ -20,35 +20,46 @@ import CharacterMain from './Character_Main'
 // any other React app.
 
 export default function CombatContainer(props) {
-
   let { path, url } = useRouteMatch();
 
   return (
-      <div>
-        <h2 className='view-title'>Combat</h2>
-        <ul className='character-nav'>
-          <li>
-            <Link to={`${url}/stats`}>Stats</Link>
-          </li>
-          <li>
-            <Link to={`${url}/weapons`}>Weapons</Link>
-          </li>
-          <li>
-            <Link to={`${url}/spells`}>Spells</Link>
-          </li>
-          <li>
-            <Link to={`${url}/dice`}>Dice</Link>
-          </li>
-        </ul>
+    <div>
+      {/* <h2 className='view-title'>Combat</h2> */}
+      <ul className="character-nav">
+        <li>
+          <Link to={`${url}/stats`}>
+            <button variant="contained" color="primary">
+              Stats
+            </button>
+          </Link>
+        </li>
+        <li>
+          <Link to={`${url}/weapons`}>
+            <button variant="contained" color="primary">
+              Weapons
+            </button>
+          </Link>
+        </li>
+        <li>
+          <Link to={`${url}/spells`}>
+            <button variant="contained" color="primary">
+              Spells
+            </button>
+          </Link>
+        </li>
+        <li>
+          <Link to={`${url}/dice`}>
+            <button variant="contained" color="primary">
+              Dice
+            </button>
+          </Link>
+        </li>
+      </ul>
 
-        <Switch>
-          <Route exact path={path}>
-          </Route>
-          <Route path={`${path}/stats`}>
-          </Route>
-        </Switch>
-      </div>
-
+      <Switch>
+        <Route exact path={path}></Route>
+        <Route path={`${path}/stats`}></Route>
+      </Switch>
+    </div>
   );
-
 }
