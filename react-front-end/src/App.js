@@ -6,6 +6,8 @@ import NotFoundPage from './pages/404';
 import SignUp from './pages/SignUp';
 import Login from './pages/login'
 import CreateCharacter from './pages/createCharacter'
+import ShowCharacterByUser from './pages/ShowCharacterByUser'
+
 import AppBar from './components/navbar'
 import CharacterList from './components/characters/Character_List';
 import CharacterContainer from './components/characters/Character_Container';
@@ -18,13 +20,17 @@ import {
 } from 'react-router-dom';
 
 export default function App (){
-  const [login , setLogin] = useState({login:  false})
+  const [loginState , setLogin] = React.useState({
+    login: 'false',
+    user_id: 0,
+  });
     return (
       <Router>
-      <AppBar login={login} setLogin={setLogin}/>
+      <AppBar login={loginState} setLogin={setLogin}/>
         <Switch>
-        <Route exact path="/" component={MainPage}/>
-        <Route exact path="/login" component={Login}/>
+        <Route exact path="/" component={MainPage} login={loginState} setLogin={setLogin}/>
+        <Route exact path="/ShowCharacterByUser" component={ShowCharacterByUser} login={loginState} setLogin={setLogin}/>
+        <Route exact path="/login" component={Login} login={loginState} setLogin={setLogin}/>
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/404" component={NotFoundPage}/>
         <Route exact path="/allcharacters" component={CharacterList}/>

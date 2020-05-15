@@ -30,7 +30,7 @@ export default function ContainedButtons() {
   return (
     <div className={classes.root}>
       <MuiThemeProvider theme={theme}>
-        <Button variant="contained" color="primary">
+        <Button href="/createCharacter" variant="contained" color="primary">
           +
         </Button>
       </MuiThemeProvider>

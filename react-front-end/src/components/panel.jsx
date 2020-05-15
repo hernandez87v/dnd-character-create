@@ -5,6 +5,9 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Button } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,46 +19,66 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleExpansionPanel() {
+export default function SimpleExpansionPanel(props) {
   const classes = useStyles();
+  if (props.characterState[0]){
+console.log('props on panel',props.characterState[0].id)
+  }
+  if (props.characterState[0]){
 
-  return (
-    <div className={classes.root}>
-      <ExpansionPanel>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography className={classes.heading}>Character 1</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography></Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}>Character 2</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>LVL 1, exp: 400, Class:barbarian</Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel disabled>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
-        >
-          <Typography className={classes.heading}>
-            Disabled Expansion Panel
-          </Typography>
-        </ExpansionPanelSummary>
-      </ExpansionPanel>
-    </div>
-  );
+    return (
+      <div className={classes.root}>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography className={classes.heading}>{props.characterState[0].name}</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+          <Grid item xs={3}>
+            <p>Class: {props.characterState[0].character_class}</p><br/>
+          </Grid>
+          <Grid item xs={3}>
+            <p>Race:  {props.characterState[0].race} </p><br/>
+          </Grid>
+          <Grid item xs={3}>
+            <p>Background:  {props.characterState[0].background} </p><br/>
+            </Grid>
+            <Grid item xs={3}>
+            <Typography variant="body2" color="textSecondary" align="center">
+              <Link color="inherit" href="/character">
+                Full View
+              </Link>{' '}
+      </Typography>
+              </Grid>
+          {/* <img src={props.characterState[0].avatar_url} className="avatar-img"></img> */}
+
+            {/* <Typography>{props.characterState[0].avatar_url}</Typography><br/> */}
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography className={classes.heading}>{props.characterState[1].name}</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>Class{props.characterState[0].character_class}</Typography><br/>
+            <Typography>Race {props.characterState[0].race}</Typography><br/>
+            {/* <Button/> */}
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+      
+      </div>
+    );
+  }
+  else {
+    return (
+    <h1>loading</h1>
+    )
+  }
 }

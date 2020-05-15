@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -36,8 +37,8 @@ const theme = createMuiTheme({
 
 export default function ButtonAppBar(props) {
   const classes = useStyles();
-
-  if (props.login.login === true){
+  console.log('props',props)
+  if (props.login === true){
     return (
       <div className={classes.root}>
         <MuiThemeProvider theme={theme}>
@@ -54,8 +55,11 @@ export default function ButtonAppBar(props) {
               <Typography variant="h6" className={classes.title}>
                 DND testing
               </Typography>
+              <Button href="/signup" color="inherit">
+                Sing Up
+              </Button>
               <Button href="/login" color="inherit">
-                logOut
+                Login
               </Button>
             </Toolbar>
           </AppBar>
@@ -68,19 +72,40 @@ export default function ButtonAppBar(props) {
         <MuiThemeProvider theme={theme}>
           <AppBar position="static">
             <Toolbar>
-              <IconButton
+              <IconButton href = "/"
                 edge="start"
                 className={classes.menuButton}
                 color="inherit"
                 aria-label="menu"
               >
-                <MenuIcon />
+                Home
+              </IconButton>
+              <IconButton href = "/createCharacter"
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+              >
+                New Character
+
+              </IconButton>
+              <IconButton href = "/ShowCharacterByUser"
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+              >
+                Show My Characters
+                
               </IconButton>
               <Typography variant="h6" className={classes.title}>
-                DND Home
+                DND Character Creation
               </Typography>
-              <Button href="/login" color="inherit">
-                Login
+              <Typography variant="h9" aligment = 'left' className={classes.title}>
+                santiFedericoni
+              </Typography>
+              <Button href="/" color="inherit">
+                LogOut
               </Button>
             </Toolbar>
           </AppBar>
@@ -89,4 +114,3 @@ export default function ButtonAppBar(props) {
     );
   }
 }
-
