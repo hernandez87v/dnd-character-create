@@ -6,7 +6,7 @@ import SelectProfiencies from '../components/characters/selectProfiencies'
 import SelectEquipment from '../components/characters/selectequipment'
 import SelectName from '../components/characters/selectName'
 
-import Stepper from '../components/stepper'
+import Stepper from '../components/stepper';
 import { Container } from '@material-ui/core';
 
 
@@ -90,7 +90,7 @@ const [characterState, setCharacterState] = useState({
       <Container>
       <React.Fragment>
         <h2>Characters</h2>
-        <Stepper pages = {[ <SelectAtributes backgrounds={state.backgrounds} classes={state.classes} races={state.races} 
+        <Stepper raceState={raceState} characterState={characterState} pages = {[ <SelectAtributes backgrounds={state.backgrounds} classes={state.classes} races={state.races} 
         characterState = {characterState} setCharacterState = {setCharacterState}/>, 
         <SelectStats stats = {stats} characterState = {characterState} setCharacterState = {setCharacterState}/>,  
         <SelectProfiencies characterState = {characterState} setCharacterState = {setCharacterState}/>,

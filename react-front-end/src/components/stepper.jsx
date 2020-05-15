@@ -60,6 +60,15 @@ export default function HorizontalLabelPositionBelowStepper(props) {
     setActiveStep(0);
   };
 
+  const submitCharacter = () => {
+    axios
+      .post(`/api/character/submit`, {
+        raceState: props.raceState,
+        characterState: props.characterState
+      })
+      .catch((error) => setState({ error })); 
+  }
+
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep} alternativeLabel>
@@ -72,7 +81,7 @@ export default function HorizontalLabelPositionBelowStepper(props) {
       <div>
         {activeStep === steps.length ? (
           <div>
-            {/* here shoul be were */}
+            {submitCharacter}
             <Typography className={classes.instructions}>All steps completed</Typography>
             <Button onClick={handleReset}>Reset</Button>
           </div>

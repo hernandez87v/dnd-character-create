@@ -44,6 +44,8 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.post("/submit")
   
   return router;
 };
