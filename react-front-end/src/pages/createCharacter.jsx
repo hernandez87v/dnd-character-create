@@ -61,6 +61,7 @@ export default function CharacterNew (){
       .get(`/api/race/${characterState.race.id}`)
       .then((response) => {
           console.log(response.data.raceData[0])
+          console.log(response.data)
           setRaceState({
            ...state,
           ...response.data.raceData[0],   
@@ -82,7 +83,6 @@ export default function CharacterNew (){
       <Container>
       <React.Fragment>
         <h2>Characters</h2>
-        <h2>{raceState.size}</h2>
         <Stepper pages = {[ <SelectAtributes backgrounds={state.backgrounds} classes={state.classes} races={state.races} 
         characterState = {characterState} setCharacterState = {setCharacterState}/>, 
         <SelectStats stats = {stats} characterState = {characterState} setCharacterState = {setCharacterState}/>,  
