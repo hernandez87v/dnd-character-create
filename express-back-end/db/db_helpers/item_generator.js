@@ -28,4 +28,4 @@ const itemApiComber = function(url) {
 
 };
 
-itemApiComber("http://dnd5eapi.co/api/equipment")
+itemApiComber("http://dnd5eapi.co/api/traits");

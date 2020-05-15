@@ -33,6 +33,24 @@ const [characterState, setCharacterState] = useState({
   characterName:'',
 })
 
+  const [raceState, setRaceState] = useState({
+    ab_choice: 0,
+    charisma_bonus: 0,
+    constitution_bonus: 0,
+    dexterity_bonus: 0,
+    id: 0,
+    intelligence_bonus: 0,
+    language_choice: 0,
+    name: "",
+    proficiency_choice: 0,
+    size: "",
+    speed: 0,
+    strength_bonus: 0,
+    trait_choice: 0,
+    wisdom_bonus: 0,
+
+  })
+
   const getRaces = () => {
     axios
       .get('/api/race')
@@ -44,12 +62,32 @@ const [characterState, setCharacterState] = useState({
       })
       .catch((error) => setState({ error }));
   };
-  useEffect(() => {
+
+  const getRaceSpecifics = () => {
+    axios
+      .get(`/api/race/${characterState.race.id}`)
+      .then((response) => {
+          console.log(response.data.raceData[0])
+          console.log(response.data)
+          setRaceState({
+           ...state,
+          ...response.data.raceData[0],   
+        });
+      })
+      .catch((error) => setState({ error })); 
+  }
+
+  useEffect( () => {
     getRaces();
   }, []);
 
-  return (
-    <Container>
+  useEffect( () => {
+    getRaceSpecifics();
+  }, [characterState.race.id])
+
+
+    return (
+      <Container>
       <React.Fragment>
         <h2>Characters</h2>
         <Stepper pages = {[ <SelectAtributes backgrounds={state.backgrounds} classes={state.classes} races={state.races} 
