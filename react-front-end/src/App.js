@@ -21,7 +21,7 @@ import {
 
 export default function App (){
   const [loginState , setLogin] = React.useState({
-    login: 'false',
+    login: true,
     user_id: 0,
   });
     return (

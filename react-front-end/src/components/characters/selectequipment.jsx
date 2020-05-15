@@ -188,6 +188,7 @@ const [chooseState, setChooseState] = React.useState(0);
  } else {
     return( 
       <div className="App">
+        <p>loading</p>
         <p><Loading /></p>
       </div>
       )

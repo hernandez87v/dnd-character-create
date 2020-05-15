@@ -37,36 +37,8 @@ const theme = createMuiTheme({
 
 export default function ButtonAppBar(props) {
   const classes = useStyles();
-  console.log('props',props)
-  if (props.login === true){
-    return (
-      <div className={classes.root}>
-        <MuiThemeProvider theme={theme}>
-          <AppBar position="static">
-            <Toolbar>
-              <IconButton
-                edge="start"
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="menu"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography variant="h6" className={classes.title}>
-                DND testing
-              </Typography>
-              <Button href="/signup" color="inherit">
-                Sing Up
-              </Button>
-              <Button href="/login" color="inherit">
-                Login
-              </Button>
-            </Toolbar>
-          </AppBar>
-        </MuiThemeProvider>
-      </div>
-    );
-  } else {
+  console.log('props',props.login.login)
+  if (props.login.login === true){
     return (
       <div className={classes.root}>
         <MuiThemeProvider theme={theme}>
@@ -106,6 +78,34 @@ export default function ButtonAppBar(props) {
               </Typography>
               <Button href="/" color="inherit">
                 LogOut
+              </Button>
+            </Toolbar>
+          </AppBar>
+        </MuiThemeProvider>
+      </div>
+    );
+  } else {
+    return (
+      <div className={classes.root}>
+        <MuiThemeProvider theme={theme}>
+          <AppBar position="static">
+            <Toolbar>
+              <IconButton
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" className={classes.title}>
+                DND testing
+              </Typography>
+              <Button href="/signup" color="inherit">
+                Sing Up
+              </Button>
+              <Button href="/login" color="inherit">
+                Login
               </Button>
             </Toolbar>
           </AppBar>
