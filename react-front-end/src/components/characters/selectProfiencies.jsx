@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Loading from '../../components/Loading';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const selectProfiencies = (props) => {
 let choose = 2;
@@ -95,7 +95,8 @@ else if (chooseState > 0){
 }else  {
   return( 
     <div className="App">
-      <p><Loading /></p>
+        <p>Loading</p>
+        <CircularProgress />
     </div>
     )
     }

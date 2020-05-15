@@ -4,7 +4,10 @@ import Grid from '@material-ui/core/Grid';
 import FormLabel from '@material-ui/core/FormLabel';
 import Radio from '@material-ui/core/Radio';
 import Loading from '../../components/Loading';
-
+import CircularProgress from '@material-ui/core/CircularProgress';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import RadioGroup from '@material-ui/core/RadioGroup';
 
 const selectequipment = (props) => {
 const [chooseState, setChooseState] = React.useState(0);
@@ -188,8 +191,8 @@ const [chooseState, setChooseState] = React.useState(0);
  } else {
     return( 
       <div className="App">
-        <p>loading</p>
-        <p><Loading /></p>
+        <p>Loading</p>
+        <CircularProgress />
       </div>
       )
     }
