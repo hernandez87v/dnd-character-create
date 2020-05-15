@@ -32,7 +32,7 @@ export default function CharacterView(props) {
   return (
     <div>
       <MuiThemeProvider theme={theme}>
-        <h2 className="view-title">Quickview</h2>
+        {/* <h2 className="view-title">Quickview</h2> */}
         <ul className="character-nav">
           <li>
             <Link class="crumb-button" to={`${url}/overview`}>

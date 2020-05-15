@@ -40,7 +40,7 @@ export default function OverviewContainer(props) {
   return (
     <div>
       <MuiThemeProvider theme={theme}>
-        <h2 className="view-title">Overview</h2>
+        {/* <h2 className="view-title">Overview</h2> */}
         <ul className="character-nav">
           <li>
             <Link class="crumb-button" to={`${url}/main`}>
