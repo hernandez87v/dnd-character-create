@@ -2,12 +2,14 @@ import React, {useEffect, useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Loading from '../../components/Loading';
 
 const selectProfiencies = (props) => {
 let choose = 2;
 
   // const [value, setValue] = React.useState('');
   const [proficienciesData,setProficienciesData ] = React.useState([])
+  const [chooseState,setChooseData ] = React.useState(0)
 
     const updateHitDie = (val) => {
       props.setCharacterState( {        
@@ -29,13 +31,7 @@ let choose = 2;
           proficienciesSelected: [...props.characterState.proficienciesSelected,val]
       }, []) 
     }
-    const proficienciesSelected2 = (val) => {
-      props.setCharacterState( {        
-          ...props.characterState,
-          // ...props.characterState.proficienciesSelected, 
-          proficienciesSelected2: val
-      }, []) 
-    }
+
 
     const getClassesInfo = () => {
       var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
@@ -44,7 +40,7 @@ let choose = 2;
           .then(blob => blob.json())
           .then(data => {
             setProficienciesData(data.proficiency_choices[0].from)
-            choose = data.proficiency_choices[0].choose
+            setChooseData(data.proficiency_choices[0].choose)
             updateSavingThrows(data.saving_throws)
             updateHitDie(data.hit_die)
         return data;
@@ -60,13 +56,35 @@ let choose = 2;
     }, [])
 
 console.log('character',props.characterState) 
-let demo = true;
+let demo = false;
 if (demo){
+  return (
+  <div className="App">
+      <Grid container spacing={1}>
+      <Grid item xs={12}> 
+        <FormLabel component="legend">Pick {choose}</FormLabel>
+        </Grid>
+        <Grid item xs={2}/>
+        <Grid item xs={2}/>
+          <Grid item xs={2}>
+              <div><p> Animal Handling<Checkbox onClick = {val => proficienciesSelected('Animal Handling')} /></p><br/> </div>
+              <div><p> Athletics<Checkbox onClick = {val => proficienciesSelected('Athletics')}/></p><br/>  </div>
+              <div><p> Intimidation<Checkbox onClick = {val => proficienciesSelected('Intimidation')} /></p><br/> </div>
+          </Grid>
+          <Grid item xs={2}>
+          <div><p> Nature<Checkbox onClick = {val => proficienciesSelected('Nature')}/></p><br/> </div>
+          <div><p> Perception<Checkbox onClick = {val => proficienciesSelected('Perception')}/></p><br/> </div>
+          <div><p> Survival<Checkbox onClick = {val => proficienciesSelected('Survival')}/></p><br/> </div>
+          </Grid>
+  </Grid>
+  </div>
+  )}
+else if (chooseState > 0){
     return (
     <div className="App">
         <Grid container spacing={1}>
         <Grid item xs={12}> 
-          <FormLabel component="legend">Pick {choose}</FormLabel>
+          <FormLabel component="legend">Pick {chooseState}</FormLabel>
           </Grid>
             <Grid item xs={12}>
                 {proficienciesData.map(proficiency => <div><p> <Checkbox onClick = {val => proficienciesSelected(proficiency)}/> {proficiency.name}</p><br/> </div>)}
@@ -74,28 +92,12 @@ if (demo){
      </Grid>
     </div>
     )
-}else {
-  return (
-        <div className="App">
-            <Grid container spacing={1}>
-            <Grid item xs={12}> 
-              <FormLabel component="legend">Pick {choose}</FormLabel>
-              </Grid>
-              <Grid item xs={2}/>
-              <Grid item xs={2}/>
-                <Grid item xs={2}>
-                    <div><p> Animal Handling<Checkbox onClick = {val => proficienciesSelected('Animal Handling')} /></p><br/> </div>
-                    <div><p> Athletics<Checkbox onClick = {val => proficienciesSelected('Athletics')}/></p><br/>  </div>
-                    <div><p> Intimidation<Checkbox onClick = {val => proficienciesSelected('Intimidation')} /></p><br/> </div>
-                </Grid>
-                <Grid item xs={2}>
-                <div><p> Nature<Checkbox onClick = {val => proficienciesSelected2('Nature')}/></p><br/> </div>
-                <div><p> Perception<Checkbox onClick = {val => proficienciesSelected2('Perception')}/></p><br/> </div>
-                <div><p> Survival<Checkbox onClick = {val => proficienciesSelected2('Survival')}/></p><br/> </div>
-                </Grid>
-        </Grid>
-        </div>
-        )
+}else  {
+  return( 
+    <div className="App">
+      <p><Loading /></p>
+    </div>
+    )
     }
 }
 export default selectProfiencies;

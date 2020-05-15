@@ -13,6 +13,10 @@ const [chooseState, setChooseState] = React.useState(0);
   const [equipmentData,setEquipmentData ] = React.useState([])
 
   const [equipmentData2,setEquipmentData2 ] = React.useState([])
+  const [equipmentData3,setEquipmentData3 ] = React.useState([])
+  const [equipmentData4,setEquipmentData4 ] = React.useState([])
+
+  const [equipmentData5,setEquipmentData5 ] = React.useState([])
 
   const [choicesData ,setChoicesData] = React.useState([])
 
@@ -29,16 +33,31 @@ const [chooseState, setChooseState] = React.useState(0);
         fetch(proxyUrl + targetUrl)
           .then(blob => blob.json())
           .then(data => {
-            console.log(data)
-            if (data.choices_to_make > 5){
-              console.log('hi')
-            }
-            setChoicesData(data.choices_to_make)
-            setEquipmentData(data.choice_1[1].from)
-            setEquipmentData2(data.choice_2[1].from)
             setChooseState(data.choices_to_make)
+            if (data.choices_to_make === 2) {
+              console.log('here') 
+              setEquipmentData(data.choice_1[1].from)
+              setEquipmentData2(data.choice_2[1].from)
+              console.log('set all the data')
+            } else if (data.choices_to_make === 3) { 
+              setEquipmentData(data.choice_1[1].from)
+              setEquipmentData2(data.choice_2[1].from)
+              setEquipmentData3(data.choice_3[1].from)
+            } else if (data.choices_to_make === 4) {
+              setEquipmentData(data.choice_1[1].from)
+              setEquipmentData2(data.choice_2[1].from)
+              setEquipmentData3(data.choice_3[1].from)
+              setEquipmentData4(data.choice_4[0].from)
+            } else if (data.choices_to_make === 5) {
+              console.log('data_choice',data.choice_5[0].from)
+              setEquipmentData(data.choice_1[1].from)
+              setEquipmentData2(data.choice_2[1].from)
+              setEquipmentData3(data.choice_3[1].from)
+              setEquipmentData4(data.choice_4[0].from)
+              setEquipmentData5(data.choice_5[0].from)
 
-            console.log(equipmentData)
+
+            }
         return data;
       })
       .catch(e => {
@@ -57,9 +76,10 @@ const [chooseState, setChooseState] = React.useState(0);
       props.handleChange(event.target.value)
     }
 };
-console.log('character',props.characterState) 
+
+
  if (chooseState === 2 ){
-    return (
+  return (
     <div className="App">
       <Grid container spacing={1}>
         <Grid item xs={12}> 
@@ -78,15 +98,100 @@ console.log('character',props.characterState)
     </div>
     )
 
-}
-else {
-  return( 
+ } else if (chooseState === 3){
+  return (
     <div className="App">
-      <p><Loading /></p>
-      
+      <Grid container spacing={1}>
+        <Grid item xs={12}> 
+          </Grid>
+            <Grid item xs={4}>
+                <FormLabel component="legend">Pick 1</FormLabel>
+                {equipmentData.map(equipment => <div><p> <Radio onClick = {val => equipmentSelected(equipment)}/> {equipment.item.name}</p><br/> 
+                </div>)}
+            </Grid>
+            <Grid item xs={4}>
+                <FormLabel component="legend">Pick 1</FormLabel>
+                {equipmentData2.map(equipment => <div><p> <Radio onClick = {val => equipmentSelected(equipment)}/> {equipment.item.name}</p><br/> 
+                </div>)}
+            </Grid>
+            <Grid item xs={4}>
+                <FormLabel component="legend">Pick 1</FormLabel>
+                {equipmentData3.map(equipment => <div><p> <Radio onClick = {val => equipmentSelected(equipment)}/> {equipment.item.name}</p><br/> 
+                </div>)}
+            </Grid>
+      </Grid>
     </div>
     )
-  }
+ } else if (chooseState === 4){
+  return (
+    <div className="App">
+      <Grid container spacing={1}>
+        <Grid item xs={12}> 
+          </Grid>
+            <Grid item xs={3}>
+                <FormLabel component="legend">Pick 1</FormLabel>
+                {equipmentData.map(equipment => <div><p> <Radio onClick = {val => equipmentSelected(equipment)}/> {equipment.item.name}</p><br/> 
+                </div>)}
+            </Grid>
+            <Grid item xs={3}>
+                <FormLabel component="legend">Pick 1</FormLabel>
+                {equipmentData2.map(equipment => <div><p> <Radio onClick = {val => equipmentSelected(equipment)}/> {equipment.item.name}</p><br/> 
+                </div>)}
+            </Grid>
+            <Grid item xs={3}>
+                <FormLabel component="legend">Pick 1</FormLabel>
+                {equipmentData3.map(equipment => <div><p> <Radio onClick = {val => equipmentSelected(equipment)}/> {equipment.item.name}</p><br/> 
+                </div>)}
+            </Grid>
+            <Grid item xs={3}>
+                <FormLabel component="legend">Pick 1</FormLabel>
+                {equipmentData4.map(equipment => <div><p> <Radio onClick = {val => equipmentSelected(equipment)}/> {equipment.item.name}</p><br/> 
+                </div>)}
+            </Grid>
+      </Grid>
+    </div>
+    )
+ } else if (chooseState === 5) {
+  return (
+    <div className="App">
+      <Grid container spacing={1}>
+        <Grid item xs={12}> 
+          </Grid>
+            <Grid item xs={2}>
+                <FormLabel component="legend">Pick 1</FormLabel>
+                {equipmentData.map(equipment => <div><p> <Radio onClick = {val => equipmentSelected(equipment)}/> {equipment.item.name}</p><br/> 
+                </div>)}
+            </Grid>
+            <Grid item xs={2}>
+                <FormLabel component="legend">Pick 1</FormLabel>
+                {equipmentData2.map(equipment => <div><p> <Radio onClick = {val => equipmentSelected(equipment)}/> {equipment.item.name}</p><br/> 
+                </div>)}
+            </Grid>
+            <Grid item xs={2}>
+                <FormLabel component="legend">Pick 1</FormLabel>
+                {equipmentData3.map(equipment => <div><p> <Radio onClick = {val => equipmentSelected(equipment)}/> {equipment.item.name}</p><br/> 
+                </div>)}
+            </Grid>
+            <Grid item xs={2}>
+                <FormLabel component="legend">Pick 1</FormLabel>
+                {equipmentData4.map(equipment => <div><p> <Radio onClick = {val => equipmentSelected(equipment)}/> {equipment.item.name}</p><br/> 
+                </div>)}
+            </Grid>
+            <Grid item xs={2}>
+                <FormLabel component="legend">Pick 1</FormLabel>
+                {equipmentData5.map(equipment => <div><p> <Radio onClick = {val => equipmentSelected(equipment)}/> {equipment.item.name}</p><br/> 
+                </div>)}
+            </Grid>
+      </Grid>
+    </div>
+    )
+ } else {
+    return( 
+      <div className="App">
+        <p><Loading /></p>
+      </div>
+      )
+    }
 }
   
 export default selectequipment;

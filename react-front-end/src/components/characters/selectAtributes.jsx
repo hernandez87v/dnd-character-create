@@ -51,14 +51,7 @@ const selectAtributes = ({
     });
   };
 
-  const updateAvatar = (val) => {
-    console.log('test', val);
-    setCharacterState({
-      ...characterState,
-      avatar_url: 'https://i.redd.it/9qvhtum74g911.png',
-      // avatar_url: val
-    });
-  };
+ 
     const updateRace = (val) => {
         // setCharacterState( {
         //     ...characterState, 
