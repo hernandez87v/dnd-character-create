@@ -1,15 +1,13 @@
 import React from 'react';
-import ExpansionPanel from '../components/panel';
-import Button from '../components/addButton';
 import { Container } from '@material-ui/core';
 
-const MainPage = () => {
+const MainPage = (props) => {
+  
   return (
     <div className="App">
-      <Container>
-        <ExpansionPanel />
-        <Button />
-      </Container>
+        <Container>
+          hi
+        </Container>
     </div>
   );
 };
