@@ -1,44 +1,72 @@
-import React from "react";
-import DropDown from '../../components/dropDown'
+import React from 'react';
+import DropDown from '../../components/dropDown';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
+// import AliceCarousel from '../imgUpload';
 
+const selectAtributes = ({
+  backgrounds,
+  classes,
+  races,
+  characterState,
+  setCharacterState,
+}) => {
+  const generateCharacterAtributes = (characterAtributes) =>
+    characterAtributes.map((characterAtribute) => ({
+      value: characterAtribute.id,
+      label: characterAtribute.name,
+    }));
 
+  let backgroundOption = {
+    title: 'Background',
+    options: generateCharacterAtributes(backgrounds),
+    helperText: 'Select a background',
+  };
 
-const selectAtributes = ({backgrounds, classes, races, characterState, setCharacterState}) => {
+  let classOption = {
+    title: 'Classes',
+    options: generateCharacterAtributes(classes),
+    helperText: 'Select a class',
+  };
 
-    const generateCharacterAtributes = (characterAtributes) =>  characterAtributes.map(characterAtribute => ({
-        value: characterAtribute.id,
-        label: characterAtribute.name
-    })) 
- 
-    let  backgroundOption ={
-            title: 'Background',
-            options:  generateCharacterAtributes(backgrounds),
-            helperText: 'Select a background' ,
-        } 
+  let raceOption = {
+    title: 'Races',
+    options: generateCharacterAtributes(races),
+    helperText: 'Select a race',
+  };
 
-    let  classOption ={
-            title: 'Classes',
-            options: generateCharacterAtributes(classes),
-            helperText: 'Select a class' ,
-        } 
+  const updateBackground = (val) => {
+    setCharacterState({
+      ...characterState,
+      background: { id: val, name: backgrounds[val - 1].name },
+    });
+  };
 
-    let  raceOption ={
-            title: 'Races',
-            options: generateCharacterAtributes(races),
-            helperText: 'Select a race' ,
-        }   
+  const updateClass = (val) => {
+    setCharacterState({
+      ...characterState,
+      class: { id: val, name: classes[val - 1].name },
+    });
+  };
 
-    const updateBackground = (val) => {
-        setCharacterState( {
-            ...characterState, 
-            background: {id: val, name: backgrounds[val-1].name }
-        })
-    }
+  const updateRace = (val) => {
+    setCharacterState({
+      ...characterState,
+      race: { id: val, name: races[val - 1].name },
+    });
+  };
+  const updateAvatar = (val) => {
+    console.log('test', val);
+    setCharacterState({
+      ...characterState,
+      avatar_url: 'https://i.redd.it/9qvhtum74g911.png',
+      // avatar_url: val
+    });
+  };
 
+<<<<<<< HEAD
     const updateClass = (val) => {
         setCharacterState( {
             ...characterState, 
@@ -130,10 +158,52 @@ avatar_url: 'https://i.pinimg.com/originals/ba/c2/1d/bac21d16043a7e9d41593338660
                 <DropDown {...raceOption} value = {characterState.race.name} handleChange = {val => updateRace(val)} />
                 <DropDown {...backgroundOption} value = {characterState.background.name} handleChange = {val => updateBackground(val)}/>
             </Grid>
+=======
+  let value = '';
+  return (
+    <div className="App">
+      <Grid container spacing={0}>
+        <Grid item xs={2} />
+        <Grid item xs={4}>
+          <img src={characterState.avatar_url} className="avatar-img"></img>
+>>>>>>> 4b7ed2b51f1ce7dfc0cdf42a9d6a15eaec63e739
 
+          <TextField
+            id="outlined-basic"
+            value={value}
+            label="URL"
+            variant="outlined"
+          />
+          <br></br>
+          <Button
+            disableElevation
+            variant="contained"
+            color="primary"
+            onClick={(name) => updateAvatar(name)}
+          >
+            Submit your avatar
+          </Button>
         </Grid>
+        <Grid item xs={4}>
+          <DropDown
+            {...classOption}
+            value={characterState.class.name}
+            handleChange={(val) => updateClass(val)}
+          />
+          <DropDown
+            {...raceOption}
+            value={characterState.race.name}
+            handleChange={(val) => updateRace(val)}
+          />
+          <DropDown
+            {...backgroundOption}
+            value={characterState.background.name}
+            handleChange={(val) => updateBackground(val)}
+          />
+        </Grid>
+      </Grid>
     </div>
-    )
-}
+  );
+};
 
 export default selectAtributes;
