@@ -43,6 +43,26 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.get("/:id", (req, res) => {
+    console.log(req.params.id)
+    let id = req.params.id;
+    db.query(` 
+    SELECT races.*  
+    FROM races
+    WHERE races.id = $1
+    ;`, [id])
+      .then(data => {
+        const raceData = data.rows;
+        res.json({ raceData });
+      })
+      .catch(err => {
+        console.error(err)
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
   
   return router;
 };

@@ -8,23 +8,41 @@ import { Container } from '@material-ui/core';
 
 
 export default function CharacterNew (){
-const [state , setState] = useState({backgrounds:[], classes: [], races:[] });
-let i = 0
-const [stats, setStats] = useState([15,14,13,12,10,8,''].map(stat => ({value: i++, label:stat})))
-const [characterState, setCharacterState] = useState({
-  user_id: 1,
-  background:{id: '0', name:'background'}, 
-  class: {id: '0', name:'class'}, 
-  race: {id: '0', name:'race'},
-  strength: 10,
-  dexterity: 10,
-  costitution: 10,
-  inteligence: 10,
-  widsom: 10,
-  charisma: 10,
-  speed: 0,
+  const [state , setState] = useState({backgrounds:[], classes: [], races:[] });
+  let i = 0
+  const [stats, setStats] = useState([15,14,13,12,10,8,''].map(stat => ({value: i++, label:stat})))
+  const [characterState, setCharacterState] = useState({
+    user_id: 1,
+    background:{id: '0', name:'background'}, 
+    class: {id: '0', name:'class'}, 
+    race: {id: '0', name:'race'},
+    strength: 10,
+    dexterity: 10,
+    costitution: 10,
+    inteligence: 10,
+    widsom: 10,
+    charisma: 10,
+    speed: 0,
 
-})
+  })
+
+  const [raceState, setRaceState] = useState({
+    ab_choice: 0,
+    charisma_bonus: 0,
+    constitution_bonus: 0,
+    dexterity_bonus: 0,
+    id: 0,
+    intelligence_bonus: 0,
+    language_choice: 0,
+    name: "",
+    proficiency_choice: 0,
+    size: "",
+    speed: 0,
+    strength_bonus: 0,
+    trait_choice: 0,
+    wisdom_bonus: 0,
+
+  })
 
   const getRaces = () => {
     axios
@@ -35,17 +53,36 @@ const [characterState, setCharacterState] = useState({
           ...response.data,   
         });
       })
-      .catch((error) => setState({ error }));
+      .catch((error) => setState({ error })); 
   }
+
+  const getRaceSpecifics = () => {
+    axios
+      .get(`/api/race/${characterState.race.id}`)
+      .then((response) => {
+          console.log(response.data.raceData[0])
+          setRaceState({
+           ...state,
+          ...response.data.raceData[0],   
+        });
+      })
+      .catch((error) => setState({ error })); 
+  }
+
   useEffect( () => {
     getRaces();
   }, [])
+
+  useEffect( () => {
+    getRaceSpecifics();
+  }, [characterState.race.id])
 
 
     return (
       <Container>
       <React.Fragment>
         <h2>Characters</h2>
+        <h2>{raceState.size}</h2>
         <Stepper pages = {[ <SelectAtributes backgrounds={state.backgrounds} classes={state.classes} races={state.races} 
         characterState = {characterState} setCharacterState = {setCharacterState}/>, 
         <SelectStats stats = {stats} characterState = {characterState} setCharacterState = {setCharacterState}/>,  

@@ -5,7 +5,7 @@ VALUES
     ('Dwarvish'),
     ('Draconic'),
     ('Deep-speech'),
-    ('common'),
+    ('Common'),
     ('Celestial'),
     ('Abyssal'),
     ('Giant'),
