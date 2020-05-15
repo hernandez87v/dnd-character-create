@@ -3,6 +3,9 @@ import axios from 'axios';
 import SelectAtributes from '../components/characters/selectAtributes'
 import SelectStats from '../components/characters/selectStats'
 import SelectProfiencies from '../components/characters/selectProfiencies'
+import SelectEquipment from '../components/characters/selectequipment'
+import SelectName from '../components/characters/selectName'
+
 import Stepper from '../components/stepper'
 import { Container } from '@material-ui/core';
 
@@ -24,10 +27,10 @@ const [characterState, setCharacterState] = useState({
   charisma: 10,
   speed: 0,
   hitDie: 0,
-  avatar_url: 'https://i.redd.it/9qvhtum74g911.png',
-  saving_throws: [],
+  avatar_url: 'https://www.underconsideration.com/brandnew/archives/dungeons_and_dragons_40_ampersand_detail_black.jpg',
   proficienciesSelected: [],
-  proficienciesSelected2: [],
+  equipmentSelected: [],
+  characterName:'',
 })
 
   const getRaces = () => {
@@ -53,7 +56,11 @@ const [characterState, setCharacterState] = useState({
         <Stepper pages = {[ <SelectAtributes backgrounds={state.backgrounds} classes={state.classes} races={state.races} 
         characterState = {characterState} setCharacterState = {setCharacterState}/>, 
         <SelectStats stats = {stats} characterState = {characterState} setCharacterState = {setCharacterState}/>,  
-        <SelectProfiencies characterState = {characterState} setCharacterState = {setCharacterState}/>]}
+        <SelectProfiencies characterState = {characterState} setCharacterState = {setCharacterState}/>,
+        <SelectEquipment characterState = {characterState} setCharacterState = {setCharacterState}/>,
+        <SelectName characterState = {characterState} setCharacterState = {setCharacterState}/>
+
+      ]}
         />
        
       </React.Fragment>
