@@ -101,7 +101,7 @@ export default function ButtonAppBar(props) {
               <Typography variant="h6" className={classes.title}>
                 DND Character Creation
               </Typography>
-              <Typography variant="h9" aligment = 'left' className={classes.title}>
+              <Typography variant="h9" alignment = 'left' className={classes.title}>
                 santiFedericoni
               </Typography>
               <Button href="/" color="inherit">

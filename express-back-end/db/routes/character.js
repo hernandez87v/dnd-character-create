@@ -86,6 +86,20 @@ module.exports = (db) => {
       characterName
     } = characterData;
 
+    const getModifier = function(number) {
+      let result = (number - 10)/2
+      return Math.floor(result)
+    }
+
+
+
+    let characterQuery = `
+      INSERT INTO characters
+      (user_id, class_id, race_id, background_id, experience, level, alignment, speed, armour_class, total_hit_points, temporary_hit_points, initiative, strength, dexterity, constitution, intelligence, wisdom, charisma, name, avatar_url)
+      VALUES
+      (${user_id}, ${class_info.id}, ${name}, ${background.id}, 0, 1, null, ${speed}, ${10 + getModifier(dexterity + dexterity_bonus)},  )
+    `;
+
     console.log('this is the character, ', background, constitution, name)
 
 
