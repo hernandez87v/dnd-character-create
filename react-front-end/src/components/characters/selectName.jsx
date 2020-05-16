@@ -23,6 +23,7 @@ const selectStats = (props) => {
   }));
   const classes = useStyles();
 
+  console.log('character',props.characterState) 
 
     return (
     <div className="App">
@@ -33,7 +34,7 @@ const selectStats = (props) => {
           <form className={classes.root} noValidate autoComplete="off">
             <img src={props.characterState.avatar_url} className="avatar-img"></img>
             <p>Select the name of your character</p>
-            <TextField id="standard-basic" label="Name" onChange = {val => updateName(val)} />
+            <TextField id="standard-basic" label="Name" onChange={val => updateName(val)} />
           </form>
           </Grid>
 

@@ -12,6 +12,7 @@ const selectAtributes = ({
   races,
   characterState,
   setCharacterState,
+  alignments,
 }) => {
   const generateCharacterAtributes = (characterAtributes) =>
     characterAtributes.map((characterAtribute) => ({
@@ -25,6 +26,11 @@ const selectAtributes = ({
     helperText: 'Select a background',
   };
 
+  let alignmentOption = {
+    title: 'Alignment',
+    options: generateCharacterAtributes(alignments),
+    helperText: 'Select a Alignment',
+  };
   let classOption = {
     title: 'Classes',
     options: generateCharacterAtributes(classes),
@@ -40,14 +46,21 @@ const selectAtributes = ({
   const updateBackground = (val) => {
     setCharacterState({
       ...characterState,
-      background: { id: val, name: backgrounds[val - 1].name },
+      background: { id: 1, name: backgrounds[val - 1].name },
+    });
+  };
+
+  const updateAlignment = (val) => {
+    setCharacterState({
+      ...characterState,
+      alignment: { id: val, name: alignments[val-1].name },
     });
   };
 
   const updateClass = (val) => {
     setCharacterState({
       ...characterState,
-      class: { id: val, name: classes[val - 1].name },
+      class_info: { id: val, name: classes[val - 1].name },
     });
   };
 
@@ -131,10 +144,12 @@ avatar_url: 'https://i.pinimg.com/originals/ba/c2/1d/bac21d16043a7e9d41593338660
 
             </Grid>
             <Grid item xs={4}>
-                <DropDown {...classOption} value = {characterState.class.name} handleChange = {val => updateClass(val)}
+                <DropDown {...classOption} value = {characterState.class_info.name} handleChange = {val => updateClass(val)}
                      /> 
                 <DropDown {...raceOption} value = {characterState.race.name} handleChange = {val => updateRace(val)} />
                 <DropDown {...backgroundOption} value = {characterState.background.name} handleChange = {val => updateBackground(val)}/>
+                <DropDown {...alignmentOption} value = {characterState.alignment.name} handleChange = {val => updateAlignment(val)}/>
+
             </Grid>
             </Grid>
     </div>
