@@ -23,6 +23,6 @@ CREATE TABLE characters
     charisma INTEGER DEFAULT 0,
     name VARCHAR(255),
     avatar_url VARCHAR(255),
-    hit_die VARCHAR(255)
+    hit_die INTEGER 
 
 );
