@@ -45,7 +45,7 @@ export default function CharacterView(props) {
             />
           </div>
         </div>
-        <ul className="character-nav">
+        <ul className="character-nav2">
           <li>
             <Link class="crumb-button" to={`${url}/overview`}>
               <button variant="contained" color="primary">
