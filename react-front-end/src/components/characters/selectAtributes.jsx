@@ -19,7 +19,7 @@ const selectAtributes = ({
       value: characterAtribute.id,
       label: characterAtribute.name,
     }));
-
+console.log('backgrounds',backgrounds)
   let backgroundOption = {
     title: 'Background',
     options: generateCharacterAtributes(backgrounds),
@@ -46,7 +46,7 @@ const selectAtributes = ({
   const updateBackground = (val) => {
     setCharacterState({
       ...characterState,
-      background: { id: 1, name: backgrounds[val - 1].name },
+      background: { id: val, name: backgrounds[val - 1].name },
     });
   };
 

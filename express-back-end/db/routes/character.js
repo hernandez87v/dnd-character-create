@@ -93,25 +93,60 @@ module.exports = (db) => {
     }
 
     console.log('background',background)
-    const values = [user_id, class_info.id, id, 1,0,1, alignment.name, speed ,10 + getModifier(dexterity + dexterity_bonus),hitDie + getModifier(constitution + constitution_bonus),0, getModifier(dexterity + dexterity_bonus),strength + strength_bonus,dexterity + dexterity_bonus,constitution + constitution_bonus,intelligence + intelligence_bonus,wisdom + wisdom_bonus,charisma + charisma_bonus,'santy', avatar_url, hitDie];
+    const values = [user_id, class_info.id, id, background.id,0,1, alignment.name, speed ,10 + getModifier(dexterity + dexterity_bonus),hitDie + getModifier(constitution + constitution_bonus),0, getModifier(dexterity + dexterity_bonus),strength + strength_bonus,dexterity + dexterity_bonus,constitution + constitution_bonus,intelligence + intelligence_bonus,wisdom + wisdom_bonus,charisma + charisma_bonus,'santy', avatar_url, hitDie];
 
     let characterQuery = `INSERT INTO characters
     (user_id, class_id, race_id, background_id, experience, level, alignment, speed, armour_class, total_hit_points, temporary_hit_points, initiative, strength, dexterity, constitution, intelligence, wisdom, charisma, name, avatar_url, hit_die)
     VALUES
-    ($1, $2, $3, $4, $5, $6, $7 ,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19, $20, $21);`
+    ($1, $2, $3, $4, $5, $6, $7 ,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19, $20, $21) RETURNING id;`
 
-    const proficienciesQuery = `
-    
-    `;
+    //takes in returned id for character insertion
+
+    const getProficiencyids = function(characterID) {
+      // console.log('in the getproficiencyids fucntion')
+      let allIDs = []
+      let raceID = [id];
+      // console.log('the race id you want to query with', raceID[0])
+      let raceQuery = `SELECT proficiency_id FROM race_proficiencies WHERE race_id = $1;`;
+      for (let i = 0; i < proficienciesSelected.length; i++) {
+        // console.log('in the for loop')
+        let currentProficiency = proficienciesSelected[i]
+        let currentProficiencyURL = [currentProficiency.url]
+        let query = `SELECT id FROM proficiencies WHERE api_link = $1;`;
+        db.query(query, currentProficiencyURL)
+        .then((result) => {
+          // console.log('this is the result of getproficiencyids ', result.rows[0].id)
+          allIDs.push(result.rows[0].id)
+          // console.log('resultsArray ', allIDs)
+        })
+      }
+      db.query(raceQuery, raceID)
+      .then((result) => {
+        // console.log('this is the result of racequery ', result)
+        if (result.rows[0].proficiency_id) {
+          let raceProficiencyArray = result.rows;
+          for (let j = 0; j < raceProficiencyArray.length; j++) {
+            allIDs.push(raceProficiencyArray[j].proficiency_id)
+          }
+          
+        }
+        console.log('all ids', allIDs)
+        return allIDs
+      })
+    } 
 
     const languageQuery = ``;
 
     const itemQuery = ``;
 
-    db.query(characterQuery,values)
-    .then(
-      console.log('FUCK YA MOTHER FUCKER IT FUCKING WORKS')
-    )
+    db.query(characterQuery, values)
+    .then((result) => {
+      console.log('this is the id', result.rows[0].id);
+      const newCharacterID = result.rows[0].id;
+      let proficiencyIdArray = getProficiencyids(newCharacterID);
+      console.log('proficiencyidarray ', proficiencyIdArray)
+
+    })
     .catch(err => {
       res
         .status(500)

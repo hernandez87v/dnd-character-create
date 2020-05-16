@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS traits_known CASCADE;
+CREATE TABLE traits_known (
+  id SERIAL PRIMARY KEY NOT NULL,
+  character_id INTEGER REFERENCES characters(id) ON DELETE CASCADE,
+  trait_id INTEGER REFERENCES traits(id) ON DELETE CASCADE
+);
