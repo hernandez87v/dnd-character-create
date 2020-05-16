@@ -69,7 +69,7 @@ export default function CombatWeapons() {
 
   return (
     <React.Fragment>
-      <Container maxWidth="m">
+      <Container maxWidth="md">
         <TableContainer component={Paper}>
           <Table
             className={classes.table}

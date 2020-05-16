@@ -86,7 +86,7 @@ export default function CombatSpells() {
 
   return (
     <React.Fragment>
-      <Container maxWidth="m">
+      <Container maxWidth="md">
         <TableContainer component={Paper}>
           <Table
             className={classes.table}
