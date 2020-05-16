@@ -92,14 +92,13 @@ module.exports = (db) => {
       return Math.floor(result)
     }
 
+    console.log('background',background)
+    const values = [user_id, class_info.id, id, 1,0,1, alignment.name, speed ,10 + getModifier(dexterity + dexterity_bonus),hitDie + getModifier(constitution + constitution_bonus),0, getModifier(dexterity + dexterity_bonus),strength + strength_bonus,dexterity + dexterity_bonus,constitution + constitution_bonus,intelligence + intelligence_bonus,wisdom + wisdom_bonus,charisma + charisma_bonus,'santy', avatar_url, hitDie];
 
-
-    let characterQuery = `
-      INSERT INTO characters
-      (user_id, class_id, race_id, background_id, experience, level, alignment, speed, armour_class, total_hit_points, temporary_hit_points, initiative, strength, dexterity, constitution, intelligence, wisdom, charisma, name, avatar_url, hit_die)
-      VALUES
-      (${user_id}, ${class_info.id}, ${name}, ${background.id}, 0, 1, ${alignment}, ${speed}, ${10 + getModifier(dexterity + dexterity_bonus)}, ${hitDie + getModifier(constitution + constitution_bonus)}, 0, ${getModifier(dexterity + dexterity_bonus)}, ${strength + strength_bonus}, ${dexterity + dexterity_bonus}, ${constitution + constitution_bonus}, ${intelligence + intelligence_bonus}, ${wisdom + wisdom_bonus}, ${charisma + charisma_bonus}, 'Bill Sanderson', ${avatar_url}, ${hitDie});
-    `;
+    let characterQuery = `INSERT INTO characters
+    (user_id, class_id, race_id, background_id, experience, level, alignment, speed, armour_class, total_hit_points, temporary_hit_points, initiative, strength, dexterity, constitution, intelligence, wisdom, charisma, name, avatar_url, hit_die)
+    VALUES
+    ($1, $2, $3, $4, $5, $6, $7 ,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19, $20, $21);`
 
     const proficienciesQuery = `
     
@@ -109,7 +108,7 @@ module.exports = (db) => {
 
     const itemQuery = ``;
 
-    db.query(characterQuery)
+    db.query(characterQuery,values)
     .then(
       console.log('FUCK YA MOTHER FUCKER IT FUCKING WORKS')
     )

@@ -30,9 +30,9 @@ const selectStats = (props) => {
     } 
 
   let  statsWidsom ={
-      title: 'Widsom',
+      title: 'Wisdom',
       options: props.stats,
-      helperText: 'Select a Widsom' ,
+      helperText: 'Select a Wisdom' ,
     } 
   let  statsCharisma ={
       title: 'Charisma',
@@ -87,10 +87,10 @@ const selectStats = (props) => {
         delete props.stats[val];
 
     }
-    const updateWidsom = (val) => {
+    const updateWisdom = (val) => {
         props.setCharacterState( {        
             ...props.characterState, 
-            widsom: props.stats[val].label 
+            wisdom: props.stats[val].label 
         })
         if (val === 6 ){
             //here i should be add again the element i delete before
@@ -126,7 +126,7 @@ const selectStats = (props) => {
             </Grid>
              <Grid item xs={4}>
                 <DropDown {...statsIntelligence} value = {props.characterState.intelligence} handleChange = {val => updateIntelligence(val)}/>
-                <DropDown {...statsWidsom} value = {props.characterState.widsom} handleChange = {val => updateWidsom(val)}/>
+                <DropDown {...statsWidsom} value = {props.characterState.wisdom} handleChange = {val => updateWisdom(val)}/>
                 <DropDown {...statsCharisma} value = {props.characterState.charisma} handleChange = {val => updateCharisma(val)}/>
             </Grid>
         </Grid>
