@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,8 +7,14 @@ import {
   useParams,
   useRouteMatch,
 } from 'react-router-dom';
-import CharacterMain from './Character_Main';
+import CombatStats from './Combat_Stats';
+import CombatWeapons from './Combat_Weapons';
+import CombatSpells from './Combat_Spells';
+import CombatDice from './Combat_Dice';
+// ROUTE 3B - THIS IS AFTER CLICKING MAIN
+// QUICKVIEW > COMBAT CONTAINER
 
+import AbilityPointsAll from './AP_all';
 // Since routes are regular React components, they
 // may be rendered anywhere in the app, including in
 // child elements.
@@ -24,7 +29,19 @@ export default function CombatContainer(props) {
 
   return (
     <div>
-      {/* <h2 className='view-title'>Combat</h2> */}
+      <h2 className="view-title">Combat Container</h2>
+      <div className="overview-skill-throw">
+        <div className="skill-throw-internal">
+          <AbilityPointsAll
+            constitution={props.characterObject.constitution}
+            strength={props.characterObject.strength}
+            dexterity={props.characterObject.dexterity}
+            charisma={props.characterObject.charisma}
+            wisdom={props.characterObject.wisdom}
+            intelligence={props.characterObject.intelligence}
+          />
+        </div>
+      </div>
       <ul className="character-nav">
         <li>
           <Link to={`${url}/stats`}>
@@ -58,7 +75,18 @@ export default function CombatContainer(props) {
 
       <Switch>
         <Route exact path={path}></Route>
-        <Route path={`${path}/stats`}></Route>
+        <Route path={`${path}/stats`}>
+          <CombatStats characterObject={props.characterObject} />
+        </Route>
+        <Route path={`${path}/weapons`}>
+          <CombatWeapons characterObject={props.characterObject} />
+        </Route>
+        <Route path={`${path}/spells`}>
+          <CombatSpells characterObject={props.characterObject} />
+        </Route>
+        <Route path={`${path}/dice`}>
+          <CombatDice characterObject={props.characterObject} />
+        </Route>
       </Switch>
     </div>
   );

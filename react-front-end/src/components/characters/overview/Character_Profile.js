@@ -5,7 +5,7 @@ import BasicInfo from './Character_Basic_info';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 // ROUTE 4 - THIS IS AFTER CLICKING MAIN
-// QUICKVIEW > OVERVIEW > MAIN - Profile
+// QUICKVIEW > OVERVIEW > MAIN - Profile Card
 const theme = createMuiTheme({
   palette: {
     primary: {

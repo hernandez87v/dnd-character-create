@@ -1,5 +1,4 @@
 import React from 'react';
-// import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,18 +7,12 @@ import {
   useParams,
   useRouteMatch,
 } from 'react-router-dom';
-import CharacterMain from './Character_Main';
+import CharacterMain from './Character_Profile';
+import CharacterSkillThrow from './Character_SkillThrow';
+import CharacterFeaturesProficiencies from './Character_FeaturesProficiencies';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
-// Since routes are regular React components, they
-// may be rendered anywhere in the app, including in
-// child elements.
-//
-// This helps when it's time to code-split your app
-// into multiple bundles because code-splitting a
-// React Router app is the same as code-splitting
-// any other React app.
-
+import AbilityPointsAll from './AP_all';
 // ROUTE 3 - THIS IS OVERVIEW PAGE WITH BLACK TEXT
 // QUICKVIEW > OVERVIEW > MAIN - SKILLS/THROWS - FEATURES & PROFICIENCIES
 const theme = createMuiTheme({
@@ -39,7 +32,19 @@ export default function OverviewContainer(props) {
   return (
     <div>
       <MuiThemeProvider theme={theme}>
-        {/* <h2 className="view-title">Overview</h2> */}
+        <h2 className="view-title">Overview Container</h2>
+        <div className="overview-skill-throw">
+          <div className="skill-throw-internal">
+            <AbilityPointsAll
+              constitution={props.characterObject.constitution}
+              strength={props.characterObject.strength}
+              dexterity={props.characterObject.dexterity}
+              charisma={props.characterObject.charisma}
+              wisdom={props.characterObject.wisdom}
+              intelligence={props.characterObject.intelligence}
+            />
+          </div>
+        </div>
         <ul className="character-nav">
           <li>
             <Link class="crumb-button" to={`${url}/main`}>
@@ -69,6 +74,14 @@ export default function OverviewContainer(props) {
         <Route exact path={path}></Route>
         <Route path={`${path}/main`}>
           <CharacterMain characterObject={props.characterObject} />
+        </Route>
+        <Route path={`${path}/skills-throws`}>
+          <CharacterSkillThrow characterObject={props.characterObject} />
+        </Route>
+        <Route path={`${path}/features-proficencies`}>
+          <CharacterFeaturesProficiencies
+            characterObject={props.characterObject}
+          />
         </Route>
       </Switch>
     </div>

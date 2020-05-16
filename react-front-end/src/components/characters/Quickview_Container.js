@@ -8,9 +8,10 @@ import {
   // useParams,
   useRouteMatch,
 } from 'react-router-dom';
-import OverviewContainer from './overview/overview_container';
-import CombatContainer from './overview/combat_container';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import AbilityPointsAll from './overview/AP_all';
+import OverviewContainer from './overview/Overview_Container';
+import CombatContainer from './overview/Combat_Container';
 
 // ROUTE 2 - THIS IS AFTER CLICKING QUICKVIEW
 // QUICKVIEW > OVERVIEW - COMBAT
@@ -31,7 +32,19 @@ export default function CharacterView(props) {
   return (
     <div>
       <MuiThemeProvider theme={theme}>
-        {/* <h2 className="view-title">Quickview</h2> */}
+        <h2 className="view-title">Quickview Container</h2>
+        <div className="overview-skill-throw">
+          <div className="skill-throw-internal">
+            <AbilityPointsAll
+              constitution={props.characterObject.constitution}
+              strength={props.characterObject.strength}
+              dexterity={props.characterObject.dexterity}
+              charisma={props.characterObject.charisma}
+              wisdom={props.characterObject.wisdom}
+              intelligence={props.characterObject.intelligence}
+            />
+          </div>
+        </div>
         <ul className="character-nav">
           <li>
             <Link class="crumb-button" to={`${url}/overview`}>

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import CharacterView from './characters_view.js';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import '../../styles/character_view.css';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import CharacterView from './Quickview_Container.js';
+import CharacterInventory from './overview/Character_Inventory';
+import CharacterDetailsNotes from './overview/Character_DetailsNotes';
 
-// ROUTE 1 - THIS IS AFTER CLICKING QUICKVIEW
-// QUICKVIEW - INVENTORY - DETAILS & NOTES
+// ROUTE 0 - THIS IS THE BEGINNING
+// QUICKVIEW - INVENTORY - DETAILS NOTES
 
 const theme = createMuiTheme({
   palette: {
@@ -44,6 +46,7 @@ export default function CharacterContainer() {
     <MuiThemeProvider theme={theme}>
       <Router>
         <div>
+          <h2 className="view-title">Character Container</h2>
           <ul className="character-nav">
             <li>
               <Link class="crumb-button" to="/quickview">
@@ -72,8 +75,12 @@ export default function CharacterContainer() {
             <Route path="/quickview">
               <CharacterView characterObject={characterData} />
             </Route>
-            <Route path="/inventory"></Route>
-            <Route path="/details-notes"></Route>
+            <Route path="/inventory">
+              <CharacterInventory characterObject={characterData} />
+            </Route>
+            <Route path="/details-notes">
+              <CharacterDetailsNotes characterObject={characterData} />
+            </Route>
           </Switch>
         </div>
       </Router>
