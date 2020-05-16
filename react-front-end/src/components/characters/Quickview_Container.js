@@ -30,21 +30,21 @@ export default function CharacterView(props) {
   let { path, url } = useRouteMatch();
 
   return (
+    // <h2 className="view-title">Quickview Container</h2>
+    //     <div className="overview-skill-throw">
+    //       <div className="skill-throw-internal">
+    //         <AbilityPointsAll
+    //           constitution={props.characterObject.constitution}
+    //           strength={props.characterObject.strength}
+    //           dexterity={props.characterObject.dexterity}
+    //           charisma={props.characterObject.charisma}
+    //           wisdom={props.characterObject.wisdom}
+    //           intelligence={props.characterObject.intelligence}
+    //         />
+    //       </div>
+    //     </div>
     <div>
       <MuiThemeProvider theme={theme}>
-        <h2 className="view-title">Quickview Container</h2>
-        <div className="overview-skill-throw">
-          <div className="skill-throw-internal">
-            <AbilityPointsAll
-              constitution={props.characterObject.constitution}
-              strength={props.characterObject.strength}
-              dexterity={props.characterObject.dexterity}
-              charisma={props.characterObject.charisma}
-              wisdom={props.characterObject.wisdom}
-              intelligence={props.characterObject.intelligence}
-            />
-          </div>
-        </div>
         <ul className="character-nav2">
           <li>
             <Link class="crumb-button" to={`${url}/overview`}>
@@ -62,7 +62,6 @@ export default function CharacterView(props) {
           </li>
         </ul>
       </MuiThemeProvider>
-
       <Switch>
         <Route exact path={path}></Route>
         <Route path={`${path}/overview`}>
