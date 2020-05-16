@@ -2,20 +2,9 @@ import React from 'react';
 import AbilityPointsAll from './AP_all';
 import Avatar from './Character_Avatar';
 import BasicInfo from './Character_Basic_info';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 // ROUTE 4 - THIS IS AFTER CLICKING MAIN
 // QUICKVIEW > OVERVIEW > MAIN - Profile Card
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#6f0000',
-    },
-    secondary: {
-      main: '#6f0000',
-    },
-  },
-});
 
 export default function CharacterMain(props) {
   return (
