@@ -93,7 +93,7 @@ module.exports = (db) => {
     }
 
     console.log('background',background)
-    const values = [user_id, class_info.id, id, background.id,0,1, alignment.name, speed ,10 + getModifier(dexterity + dexterity_bonus),hitDie + getModifier(constitution + constitution_bonus),0, getModifier(dexterity + dexterity_bonus),strength + strength_bonus,dexterity + dexterity_bonus,constitution + constitution_bonus,intelligence + intelligence_bonus,wisdom + wisdom_bonus,charisma + charisma_bonus,'santy', avatar_url, hitDie];
+    const values = [user_id, class_info.id, id, background.id,0,1, alignment.name, speed ,10 + getModifier(dexterity + dexterity_bonus),hitDie + getModifier(constitution + constitution_bonus),0, getModifier(dexterity + dexterity_bonus), strength + strength_bonus, dexterity + dexterity_bonus, constitution + constitution_bonus, intelligence + intelligence_bonus,wisdom + wisdom_bonus, charisma + charisma_bonus, characterName, avatar_url, hitDie];
 
     let characterQuery = `INSERT INTO characters
     (user_id, class_id, race_id, background_id, experience, level, alignment, speed, armour_class, total_hit_points, temporary_hit_points, initiative, strength, dexterity, constitution, intelligence, wisdom, charisma, name, avatar_url, hit_die)
@@ -123,15 +123,33 @@ module.exports = (db) => {
       db.query(raceQuery, raceID)
       .then((result) => {
         // console.log('this is the result of racequery ', result)
-        if (result.rows[0].proficiency_id) {
+        if (result.rows[0]) {
           let raceProficiencyArray = result.rows;
           for (let j = 0; j < raceProficiencyArray.length; j++) {
             allIDs.push(raceProficiencyArray[j].proficiency_id)
           }
           
         }
-        console.log('all ids', allIDs)
         return allIDs
+       
+      })
+      .then((data) => {
+        console.log('for real allIDs ', data)
+        for (g = 0; g < data.length; g++) {
+          let proficiencyInsertion = `INSERT INTO proficiencies_known (character_id, proficiency_id) VALUES ($1, $2);`;
+          let insertionVariables = [characterID, data[g]]
+          db.query(proficiencyInsertion, insertionVariables)
+          .then(data => {
+            console.log('proficiencies Added!')
+          })
+          .catch(err => {
+            res
+              .status(500)
+              .json({ error: err.message });
+          });
+
+
+        }
       })
     } 
 
