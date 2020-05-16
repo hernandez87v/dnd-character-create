@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS items_owned CASCADE;
+CREATE TABLE items_owned (
+  id SERIAL PRIMARY KEY NOT NULL,
+  character_id INTEGER REFERENCES characters(id) ON DELETE CASCADE,
+  item_id INTEGER REFERENCES items(id) ON DELETE CASCADE
+);
