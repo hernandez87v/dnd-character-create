@@ -37,16 +37,15 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, weight, quantity, cost) {
-  return { name, weight, quantity, cost };
+function createData(name, damage_dice, equipment_category, weight, cost) {
+  return { name, damage_dice, equipment_category, weight, cost };
 }
 
 const rows = [
-  createData('Breastplate', '20lb', 1, 400),
-  createData('Potion of Acid Resistance', '-', 1, '-'),
-  createData('Wand of Secrets', '-', '-', '-'),
-  createData('Antimatter Rifle', '10lb', 1, '-'),
-  createData('Wand of Enemy Detection', '-', '-', '-'),
+  createData('Breastplate', 'null', 'null', 400, 1),
+  createData('Breastplate', 'null', 'null', 400, 1),
+  createData('Breastplate', 'null', 'null', 400, 1),
+  createData('Breastplate', 'null', 'null', 400, 1),
 ];
 
 export default function CharacterInventory() {
@@ -64,8 +63,15 @@ export default function CharacterInventory() {
             <TableHead>
               <TableRow>
                 <StyledTableCell>Name</StyledTableCell>
-                <StyledTableCell align="right">Weight</StyledTableCell>
-                <StyledTableCell align="right">Quantity</StyledTableCell>
+                <StyledTableCell align="right">
+                  Damage&nbsp;Dice
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  Equipment&nbsp;Category
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  Weight&nbsp;(LB)
+                </StyledTableCell>
                 <StyledTableCell align="right">Cost&nbsp;(GP)</StyledTableCell>
               </TableRow>
             </TableHead>
@@ -75,10 +81,13 @@ export default function CharacterInventory() {
                   <StyledTableCell component="th" scope="row">
                     {row.name}
                   </StyledTableCell>
-                  <StyledTableCell align="right">{row.weight}</StyledTableCell>
-                  <StyledTableCell align="right">
-                    {row.quantity}
+                  <StyledTableCell component="th" scope="row">
+                    {row.damage_dice}
                   </StyledTableCell>
+                  <StyledTableCell align="right">
+                    {row.equipment_category}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">{row.weight}</StyledTableCell>
                   <StyledTableCell align="right">{row.cost}</StyledTableCell>
                 </StyledTableRow>
               ))}
@@ -89,42 +98,3 @@ export default function CharacterInventory() {
     </React.Fragment>
   );
 }
-// <form className={classes.root} noValidate autoComplete="off">
-//   <div>
-//     <TextField
-//       id="outlined-helperText"
-//       label="Platinum"
-//       defaultValue="50"
-//       helperText="Some important text"
-//       variant="outlined"
-//     />
-//     <TextField
-//       id="outlined-helperText"
-//       label="Gold"
-//       defaultValue="6"
-//       helperText="Some important text"
-//       variant="outlined"
-//     />
-//     <TextField
-//       id="outlined-helperText"
-//       label="Electrum"
-//       defaultValue="1"
-//       helperText="Some important text"
-//       variant="outlined"
-//     />
-//     <TextField
-//       id="outlined-helperText"
-//       label="Silver"
-//       defaultValue="22"
-//       helperText="Some important text"
-//       variant="outlined"
-//     />
-//     <TextField
-//       id="outlined-helperText"
-//       label="Copper"
-//       defaultValue="120"
-//       helperText="Some important text"
-//       variant="outlined"
-//     />
-//   </div>
-// </form>
