@@ -14,11 +14,14 @@ export default function CharacterNew (){
 const [state , setState] = useState({backgrounds:[], classes: [], races:[] });
 let i = 0
 const [stats, setStats] = useState([15,14,13,12,10,8,''].map(stat => ({value: i++, label:stat})))
+const [alignments, setAlignments] = useState([
+  {id: 1, name :'Lawful good'},{id:2, name :'Neutral good'},{id: 3, name :'Chaotic good'},{id:4, name :'Lawful neutral'},{id:5, name :'Neutral'},{id:6, name :'Chaotic neutral'},{id:7, name :'Lawful evil'},{id:8, name :'Neutral evil'},{id:9, name :'Chaotic evil'},
+])
 const [characterState, setCharacterState] = useState({
   user_id: 1,
-  background:{id: '0', name:'background'}, 
-  class_info: {id: '0', name:'class'}, 
-  race: {id: '0', name:'race'},
+  background:{id: '0', name:'Background'}, 
+  class_info: {id: '0', name:'Class'}, 
+  race: {id: '0', name:'Race'},
   strength: 10,
   dexterity: 10,
   constitution: 10,
@@ -31,6 +34,7 @@ const [characterState, setCharacterState] = useState({
   proficienciesSelected: [],
   equipmentSelected: [],
   characterName:'',
+  alignment:{id:'0', name :'Alignment'}
 })
 
   const [raceState, setRaceState] = useState({
@@ -90,7 +94,7 @@ const [characterState, setCharacterState] = useState({
       <Container>
       <React.Fragment>
         <h2>Characters</h2>
-        <Stepper raceState={raceState} characterState={characterState} pages = {[ <SelectAtributes backgrounds={state.backgrounds} classes={state.classes} races={state.races} 
+        <Stepper raceState={raceState} characterState={characterState} pages = {[ <SelectAtributes backgrounds={state.backgrounds} classes={state.classes} races={state.races}  alignments = {alignments}
         characterState = {characterState} setCharacterState = {setCharacterState}/>, 
         <SelectStats stats = {stats} characterState = {characterState} setCharacterState = {setCharacterState}/>,  
         <SelectProfiencies characterState = {characterState} setCharacterState = {setCharacterState}/>,
