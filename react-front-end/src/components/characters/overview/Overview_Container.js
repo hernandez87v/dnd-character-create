@@ -4,7 +4,6 @@ import {
   Switch,
   Route,
   Link,
-  useParams,
   useRouteMatch,
 } from 'react-router-dom';
 import CharacterMain from './Character_Profile';
@@ -12,9 +11,11 @@ import CharacterSkillThrow from './Character_SkillThrow';
 import CharacterFeaturesProficiencies from './Character_FeaturesProficiencies';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
-import AbilityPointsAll from './AP_all';
 // ROUTE 3 - THIS IS OVERVIEW PAGE WITH BLACK TEXT
 // QUICKVIEW > OVERVIEW > MAIN - SKILLS/THROWS - FEATURES & PROFICIENCIES
+
+// import AbilityPointsAll from './AP_all';
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -32,7 +33,7 @@ export default function OverviewContainer(props) {
   return (
     <div>
       <MuiThemeProvider theme={theme}>
-        <h2 className="view-title">Overview Container</h2>
+        {/* <h2 className="view-title">Overview Container</h2>
         <div className="overview-skill-throw">
           <div className="skill-throw-internal">
             <AbilityPointsAll
@@ -44,7 +45,7 @@ export default function OverviewContainer(props) {
               intelligence={props.characterObject.intelligence}
             />
           </div>
-        </div>
+        </div> */}
         <ul className="character-nav3">
           <li>
             <Link class="crumb-button" to={`${url}/main`}>
