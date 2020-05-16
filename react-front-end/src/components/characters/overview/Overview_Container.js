@@ -45,7 +45,7 @@ export default function OverviewContainer(props) {
             />
           </div>
         </div>
-        <ul className="character-nav">
+        <ul className="character-nav3">
           <li>
             <Link class="crumb-button" to={`${url}/main`}>
               <button variant="contained" color="primary">
