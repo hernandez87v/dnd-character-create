@@ -34,22 +34,34 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(name, cost, damage, weight, properties) {
+  return { name, cost, damage, weight, properties };
 }
 
 const rows = [
   createData(
-    'Crossbow',
+    'Crossbow, light',
     '25gp',
     '1d8 piercing',
     5,
     'Ammunition (range 80/320), loading, two-handed'
   ),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData(
+    'Longbow',
+    '50gp',
+    '1d8 piercing',
+    2,
+    'Ammunition (range 80/320), loading, two-handed'
+  ),
+  createData('Longsword', '15gp', '1d8 slashing', 3, 'Versatile (1d10)'),
+  createData('Rapier', '25gp', '1d8 piercing', 2, 'Finesse'),
+  createData(
+    'Sling',
+    '1sp',
+    '1d4 bludgeoning',
+    '-',
+    'Ammunition (range 30/120)'
+  ),
 ];
 
 export default function CombatWeapons() {
@@ -81,12 +93,12 @@ export default function CombatWeapons() {
                   <StyledTableCell component="th" scope="row">
                     {row.name}
                   </StyledTableCell>
+                  <StyledTableCell align="right">{row.cost}</StyledTableCell>
+                  <StyledTableCell align="right">{row.damage}</StyledTableCell>
+                  <StyledTableCell align="right">{row.weight}</StyledTableCell>
                   <StyledTableCell align="right">
-                    {row.calories}
+                    {row.properties}
                   </StyledTableCell>
-                  <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                  <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-                  <StyledTableCell align="right">{row.protein}</StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
