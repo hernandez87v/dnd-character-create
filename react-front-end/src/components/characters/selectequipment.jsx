@@ -78,7 +78,7 @@ const [chooseState, setChooseState] = React.useState(0);
     if (props.handleChange) {
       props.handleChange(event.target.value)
     }
-};
+};  
 
 
  if (chooseState === 2 ){
