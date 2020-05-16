@@ -29,10 +29,10 @@ export default function CombatContainer() {
       <List>
         <ListItem alignItems="center">
           <ListItemAvatar>
-            <Avatar src="https://img.icons8.com/material/96/000000/armored-breastplate.png" />
+            <Avatar src="https://img.icons8.com/material/96/000000/sparring--v1.png" />
           </ListItemAvatar>
           <ListItemText
-            primary="ARMOUR"
+            primary="Actions in Combat"
             secondary={
               <React.Fragment>
                 <Typography
@@ -41,7 +41,8 @@ export default function CombatContainer() {
                   className={classes.inline}
                   color="textPrimary"
                 >
-                  Light Armour
+                  Attack, Cast a Spell, Dash, Disengage, Dodge, Grapple, Help,
+                  Hide, Improvise, Ready, Search, Shove, Use an Object
                 </Typography>
               </React.Fragment>
             }
@@ -52,11 +53,11 @@ export default function CombatContainer() {
           <ListItemAvatar>
             <Avatar
               alt="Travis Howard"
-              src="https://img.icons8.com/material/96/000000/sword.png"
+              src="https://img.icons8.com/material/96/000000/angry-fist.png"
             />
           </ListItemAvatar>
           <ListItemText
-            primary="WEAPONS"
+            primary="Unarmed Strike"
             secondary={
               <React.Fragment>
                 <Typography
@@ -65,7 +66,8 @@ export default function CombatContainer() {
                   className={classes.inline}
                   color="textPrimary"
                 >
-                  Crossbow, Hand, Longsword, Rapier, Shortsword, Simple Weapons
+                  You can punch, kick, head-butt, or use a similar forceful blow
+                  and deal bludgeoning damage equal to 1 + STR modifier
                 </Typography>
               </React.Fragment>
             }
