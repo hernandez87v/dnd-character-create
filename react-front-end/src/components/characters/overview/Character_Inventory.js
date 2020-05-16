@@ -10,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
+import axios from 'axios';
 
 // ROUTE 0 - THIS IS THE BEGINNING
 // QUICKVIEW - INVENTORY - DETAILS NOTES
@@ -50,6 +51,19 @@ const rows = [
 
 export default function CharacterInventory() {
   const classes = useStyles();
+
+  const getItemsOwned = async () => {
+    return await axios({
+      url: '/api/character',
+    });
+  };
+
+  (async () => {
+    const itemsOwned = await getItemsOwned();
+    console.log(itemsOwned.data);
+  })();
+
+  // make a query to the items_owned table where character id is equal to the current character, and you return all of the items_owned entries for that character_id
 
   return (
     <React.Fragment>
