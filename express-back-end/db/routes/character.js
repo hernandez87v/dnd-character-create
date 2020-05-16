@@ -77,7 +77,7 @@ module.exports = (db) => {
       dexterity,
       constitution,
       intelligence,
-      widsom,
+      wisdom,
       charisma,
       hitDie,
       avatar_url,
@@ -95,12 +95,30 @@ module.exports = (db) => {
 
     let characterQuery = `
       INSERT INTO characters
-      (user_id, class_id, race_id, background_id, experience, level, alignment, speed, armour_class, total_hit_points, temporary_hit_points, initiative, strength, dexterity, constitution, intelligence, wisdom, charisma, name, avatar_url)
+      (user_id, class_id, race_id, background_id, experience, level, alignment, speed, armour_class, total_hit_points, temporary_hit_points, initiative, strength, dexterity, constitution, intelligence, wisdom, charisma, name, avatar_url, hit_die)
       VALUES
-      (${user_id}, ${class_info.id}, ${name}, ${background.id}, 0, 1, null, ${speed}, ${10 + getModifier(dexterity + dexterity_bonus)},  )
+      (${user_id}, ${class_info.id}, ${name}, ${background.id}, 0, 1, null, ${speed}, ${10 + getModifier(dexterity + dexterity_bonus)}, '[HITDIE + const]', 0, ${getModifier(dexterity + dexterity_bonus)}, ${strength + strength_bonus}, ${dexterity + dexterity_bonus}, ${constitution + constitution_bonus}, ${intelligence + intelligence_bonus}, ${wisdom + wisdom_bonus}, ${charisma + charisma_bonus}, ${characterName}, ${avatar_url})
     `;
 
-    console.log('this is the character, ', background, constitution, name)
+    const proficienciesQuery = `
+    
+    `;
+
+    const languageQuery = ``;
+
+    const itemQuery = ``;
+
+    // db.query(characterQuery)
+    // .then()
+    // .catch(err => {
+    //   res
+    //     .status(500)
+    //     .json({ error: err.message });
+    // });
+
+
+
+    console.log('this is the profsselected, equipment selected, ', proficienciesSelected, equipmentSelected)
 
 
 
