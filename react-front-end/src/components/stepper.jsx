@@ -6,6 +6,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ['Select Class,Background and race', 'Select your stats', 'Select your profencies', 'Select your equipment','Select your name'];
+  return ['Select Class,Background and race', 'Select your stats', 'Select your proficiencies', 'Select your equipment','Select your name'];
 }
 
 function getStepContent(stepIndex,props) {
@@ -60,6 +61,15 @@ export default function HorizontalLabelPositionBelowStepper(props) {
     setActiveStep(0);
   };
 
+  const submitCharacter = () => {
+    axios
+      .post(`/api/character/submit`, {
+        raceState: props.raceState,
+        characterState: props.characterState
+      })
+      // .catch((error) => setState({ error })); 
+  }
+
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep} alternativeLabel>
@@ -72,7 +82,6 @@ export default function HorizontalLabelPositionBelowStepper(props) {
       <div>
         {activeStep === steps.length ? (
           <div>
-            {/* here shoul be were */}
             <Typography className={classes.instructions}>All steps completed</Typography>
             <Button onClick={handleReset}>Reset</Button>
           </div>
@@ -89,9 +98,9 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                 Back
               </Button>
 
-              <Button variant="contained" color="primary" onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-              </Button>
+                {activeStep === steps.length - 1 ? 
+                <Button variant="contained" color="primary" onClick={submitCharacter}>Finish</Button> : 
+                <Button variant="contained" color="primary" onClick={handleNext}>Next</Button>}
               </Grid>
             </div>
           </div>

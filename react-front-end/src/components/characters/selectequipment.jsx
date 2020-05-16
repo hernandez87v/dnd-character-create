@@ -32,7 +32,7 @@ const [chooseState, setChooseState] = React.useState(0);
 
     const getEquipmentInfo = () => {
       var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-        targetUrl = `http://dnd5eapi.co/api/starting-equipment/${props.characterState.class.id}`
+        targetUrl = `http://dnd5eapi.co/api/starting-equipment/${props.characterState.class_info.id}`
         fetch(proxyUrl + targetUrl)
           .then(blob => blob.json())
           .then(data => {

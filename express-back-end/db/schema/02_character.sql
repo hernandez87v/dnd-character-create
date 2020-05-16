@@ -9,7 +9,7 @@ CREATE TABLE characters
     background_id INTEGER REFERENCES backgrounds(id) ON DELETE CASCADE,
     experience INTEGER DEFAULT 0,
     level INTEGER DEFAULT 1,
-    aligment VARCHAR(255),
+    alignment VARCHAR(255),
     speed INTEGER DEFAULT 0,
     armour_class INTEGER DEFAULT 0,
     total_hit_points INTEGER DEFAULT 0,

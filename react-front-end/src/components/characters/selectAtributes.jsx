@@ -47,7 +47,7 @@ const selectAtributes = ({
   const updateClass = (val) => {
     setCharacterState({
       ...characterState,
-      class: { id: val, name: classes[val - 1].name },
+      class_info: { id: val, name: classes[val - 1].name },
     });
   };
 
@@ -131,7 +131,7 @@ avatar_url: 'https://i.pinimg.com/originals/ba/c2/1d/bac21d16043a7e9d41593338660
 
             </Grid>
             <Grid item xs={4}>
-                <DropDown {...classOption} value = {characterState.class.name} handleChange = {val => updateClass(val)}
+                <DropDown {...classOption} value = {characterState.class_info.name} handleChange = {val => updateClass(val)}
                      /> 
                 <DropDown {...raceOption} value = {characterState.race.name} handleChange = {val => updateRace(val)} />
                 <DropDown {...backgroundOption} value = {characterState.background.name} handleChange = {val => updateBackground(val)}/>
