@@ -35,7 +35,7 @@ export default function App (){
         <Route exact path="/404" > <NotFoundPage loginState={loginState} setLogin={setLogin}/></Route> 
         <Route exact path="/allcharacters" > <CharacterList loginState={loginState} setLogin={setLogin}/></Route> 
         <Route exact path="/createCharacter" > <CreateCharacter loginState={loginState} setLogin={setLogin}/></Route> 
-        <Route exact path="/character" > <CharacterContainer loginState={loginState} setLogin={setLogin}/></Route> 
+        <Route path="/character/:id"  component={CharacterContainer}></Route> 
         <Redirect to="/404" />
       </Switch>
     </Router>

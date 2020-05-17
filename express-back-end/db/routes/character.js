@@ -24,16 +24,17 @@ module.exports = (db) => {
       });
   });
 
-  router.get("/id", (req, res) => {
+  router.get("/:id", (req, res) => {
+    let currentCharacterID = [req.params.id]
     let query = `
     SELECT characters.*, classes.name as character_class, races.name as race, backgrounds.name as background
     FROM characters 
     JOIN classes ON classes.id = class_id
     JOIN races ON races.id = race_id
     JOIN backgrounds ON backgrounds.id = background_id
-    WHERE characters.id = 1;
+    WHERE characters.id = $1;
     `;
-    db.query(query)
+    db.query(query, currentCharacterID)
       .then(data => {
         console.log(data.rows)
         const character = data.rows;
