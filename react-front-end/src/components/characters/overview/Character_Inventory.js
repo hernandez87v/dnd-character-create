@@ -63,8 +63,6 @@ export default function CharacterInventory() {
     console.log(itemsOwned.data);
   })();
 
-  // make a query to the items_owned table where character id is equal to the current character, and you return all of the items_owned entries for that character_id
-
   return (
     <React.Fragment>
       <Container maxWidth="md">

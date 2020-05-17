@@ -37,6 +37,7 @@ export default class SignUp extends React.Component {
     axios.post(`/api/user`, { user }).then((res) => {
       console.log(res);
       console.log(res.data);
+
     });
   };
 

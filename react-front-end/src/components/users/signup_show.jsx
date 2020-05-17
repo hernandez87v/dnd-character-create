@@ -82,6 +82,7 @@ export default function SignUp() {
     axios.post(`/api/user`, { form }).then((res) => {
       console.log(res);
       console.log(res.data);
+      window.location = `/ShowCharacterByUser` ;//${res.data.user[0].id}`;
     });
   };
 
