@@ -102,8 +102,7 @@ module.exports = (db) => {
 
     //takes in returned id for character insertion
 
-    const getProficiencyids = function(characterID) {
-      // console.log('in the getproficiencyids fucntion')
+    const proficiencyInsertions = function(characterID) {
       let allIDs = []
       let raceID = [id];
       // console.log('the race id you want to query with', raceID[0])
@@ -119,6 +118,11 @@ module.exports = (db) => {
           allIDs.push(result.rows[0].id)
           // console.log('resultsArray ', allIDs)
         })
+        .catch(err => {
+          res
+            .status(500)
+            .json({ error: err.message });
+        });
       }
       db.query(raceQuery, raceID)
       .then((result) => {
@@ -134,13 +138,14 @@ module.exports = (db) => {
        
       })
       .then((data) => {
-        console.log('for real allIDs ', data)
+        // console.log('for real allIDs ', data)
         for (g = 0; g < data.length; g++) {
           let proficiencyInsertion = `INSERT INTO proficiencies_known (character_id, proficiency_id) VALUES ($1, $2);`;
           let insertionVariables = [characterID, data[g]]
           db.query(proficiencyInsertion, insertionVariables)
           .then(data => {
             console.log('proficiencies Added!')
+            // languageInsertions(characterID)
           })
           .catch(err => {
             res
@@ -151,9 +156,31 @@ module.exports = (db) => {
 
         }
       })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
     } 
 
-    const languageQuery = ``;
+    const languageInsertions = function(characterID) {
+      let languageQuery = `SELECT language_id FROM race_languages WHERE race_id = $1;`;
+      let raceID = [id];
+      db.query(languageQuery, raceID)
+      .then((result) => {
+        console.log('NEW CONSOLE LOG', result.rows)
+        let racelanguagesArray = result.rows;
+        let languageInsertionQuery = `INSERT INTO languages_known (character_id, language_id) VALUES ($1, $2),($1, $3);`;
+        let languageInsertionVariables = [characterID, racelanguagesArray[0].language_id, racelanguagesArray[1].language_id]
+        db.query(languageInsertionQuery, languageInsertionVariables)
+        .then((result) =>{console.log('language added')})
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+    };
 
     const itemQuery = ``;
 
@@ -161,8 +188,9 @@ module.exports = (db) => {
     .then((result) => {
       console.log('this is the id', result.rows[0].id);
       const newCharacterID = result.rows[0].id;
-      let proficiencyIdArray = getProficiencyids(newCharacterID);
-      console.log('proficiencyidarray ', proficiencyIdArray)
+      proficiencyInsertions(newCharacterID);
+      languageInsertions(newCharacterID);
+      
 
     })
     .catch(err => {
