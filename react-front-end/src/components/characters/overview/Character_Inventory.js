@@ -54,7 +54,7 @@ export default function CharacterInventory() {
 
   const getItemsOwned = async () => {
     return await axios({
-      url: '/api/items',
+      url: '/api/item',
     });
   };
 
