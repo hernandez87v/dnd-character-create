@@ -3,7 +3,6 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/user/:id", (req, res) => {
-    console.log('all users' , req.params.id)
     let query = `
     SELECT characters.*, classes.name as character_class, races.name as race, backgrounds.name as background
     FROM characters 
@@ -35,7 +34,6 @@ module.exports = (db) => {
     `;
     db.query(query)
       .then(data => {
-        console.log(data.rows)
         const character = data.rows;
         res.json({ character });
       })
@@ -49,8 +47,6 @@ module.exports = (db) => {
 //Handles logic for posting of a newly created character. destructures the objects, then will make the proper db insertions
 
   router.post("/submit", (req, res) => {
-
-    console.log(req.body)
     const raceData = req.body.raceState;
     const characterData = req.body.characterState
     const {
@@ -93,7 +89,6 @@ module.exports = (db) => {
       return Math.floor(result)
     }
 
-    console.log('background',background)
     const values = [user_id, class_info.id, id, background.id,0,1, alignment.name, speed ,10 + getModifier(dexterity + dexterity_bonus),hitDie + getModifier(constitution + constitution_bonus),0, getModifier(dexterity + dexterity_bonus), strength + strength_bonus, dexterity + dexterity_bonus, constitution + constitution_bonus, intelligence + intelligence_bonus,wisdom + wisdom_bonus, charisma + charisma_bonus, characterName, avatar_url, hitDie];
 
     let characterQuery = `INSERT INTO characters
@@ -144,7 +139,7 @@ module.exports = (db) => {
           let insertionVariables = [characterID, data[g]]
           db.query(proficiencyInsertion, insertionVariables)
           .then(data => {
-            console.log('proficiencies Added!')
+            // console.log('proficiencies Added!')
             // languageInsertions(characterID)
           })
           .catch(err => {
@@ -168,12 +163,14 @@ module.exports = (db) => {
       let raceID = [id];
       db.query(languageQuery, raceID)
       .then((result) => {
-        console.log('NEW CONSOLE LOG', result.rows)
+        // console.log('NEW CONSOLE LOG', result.rows)
         let racelanguagesArray = result.rows;
         let languageInsertionQuery = `INSERT INTO languages_known (character_id, language_id) VALUES ($1, $2),($1, $3);`;
         let languageInsertionVariables = [characterID, racelanguagesArray[0].language_id, racelanguagesArray[1].language_id]
         db.query(languageInsertionQuery, languageInsertionVariables)
-        .then((result) =>{console.log('language added')})
+        .then((result) =>{
+        // console.log('language added')
+        })
       })
       .catch(err => {
         res
@@ -182,12 +179,11 @@ module.exports = (db) => {
       });
     };
 
-    const itemInsertions = function(characterID) {
+    const itemInsertions = function(characterID , i) {
       let equipmentIDs = [];
-      for (let i = 0; i < equipmentSelected.length; i++) {
-        // console.log('in the for loop')
-        let currentEquipment = equipmentSelected[i]
-        let currentEquipmentURL = [currentEquipment.url]
+      console.log('im here!!', i)
+        let currentEquipment = equipmentSelected[i].item.url
+        let currentEquipmentURL = [currentEquipment]
         let query = `SELECT id FROM items WHERE api_link = $1;`;
         db.query(query, currentEquipmentURL)
         .then((result) => {
@@ -212,30 +208,21 @@ module.exports = (db) => {
         });
       }
 
-    };
 
     db.query(characterQuery, values)
     .then((result) => {
-      console.log('this is the id', result.rows[0].id);
       const newCharacterID = result.rows[0].id;
       proficiencyInsertions(newCharacterID);
       languageInsertions(newCharacterID);
-      // itemInsertions(newCharacterID);
-      
-
+      for (let i = 0; i < equipmentSelected.length; i++) {
+       itemInsertions(newCharacterID, i);
+      }
     })
     .catch(err => {
       res
         .status(500)
         .json({ error: err.message });
     });
-
-
-
-    console.log('this is the profsselected, equipment selected, ', proficienciesSelected, equipmentSelected)
-
-
-
   })
   
   return router;
