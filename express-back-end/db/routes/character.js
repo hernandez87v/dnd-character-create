@@ -105,7 +105,7 @@ module.exports = (db) => {
 
     const proficiencyInsertions = function(characterID) {
       let allIDs = []
-      let raceID = [65];
+      let raceID = [id];
       // console.log('the race id you want to query with', raceID[0])
       let raceQuery = `SELECT proficiency_id FROM race_proficiencies WHERE race_id = $1;`;
       for (let i = 0; i < proficienciesSelected.length; i++) {
@@ -192,6 +192,7 @@ module.exports = (db) => {
         db.query(query, currentEquipmentURL)
         .then((result) => {
           let currentItemID = result.rows[0].id;
+          equipmentIDs.push(currentItemID)
           let insertionVariables = [characterID, currentItemID];
           let insertion = `INSERT INTO items_owned (character_id, item_id) VALUES ($1, $2);`;
           db.query(insertion, insertionVariables)
