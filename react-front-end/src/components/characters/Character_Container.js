@@ -21,12 +21,14 @@ const theme = createMuiTheme({
   },
 });
 
-export default function CharacterContainer() {
+export default function CharacterContainer(props) {
   const [characterData, setCharacterData] = useState({});
+  const { match: { params } } = props;
 
   const getCharacter = function () {
+
     axios
-      .get('/api/character/id')
+      .get(`/api/character/${params.id}`)
       // Once we get a response and store data, let's change the loading state
       .then((response) => {
         setCharacterData({
