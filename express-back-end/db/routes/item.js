@@ -4,7 +4,7 @@ const router = express.Router();
 module.exports = (db) => {
   router.get('/', (req, res) => {
     let query = `
-   SELECT items_owned.* 
+   SELECT items.* 
     FROM characters
     JOIN items_owned ON items_owned.character_id = 1
     JOIN items ON items.id = item_id
