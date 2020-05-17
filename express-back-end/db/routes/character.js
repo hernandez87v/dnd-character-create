@@ -182,7 +182,36 @@ module.exports = (db) => {
       });
     };
 
-    const itemQuery = ``;
+    const itemInsertions = function(characterID) {
+      let equipmentIDs = [];
+      for (let i = 0; i < equipmentSelected.length; i++) {
+        // console.log('in the for loop')
+        let currentEquipment = equipmentSelected[i]
+        let currentEquipmentURL = [currentEquipment.url]
+        let query = `SELECT id FROM items WHERE api_link = $1;`;
+        db.query(query, currentEquipmentURL)
+        .then((result) => {
+          let currentItemID = result.rows[0].id;
+          let insertionVariables = [characterID, currentItemID];
+          let insertion = `INSERT INTO items_owned (character_id, item_id) VALUES ($1, $2);`;
+          db.query(insertion, insertionVariables)
+          .then(() => {
+            console.log('Item Inserted')
+          })
+          .catch(err => {
+            res
+            .status(500)
+            .json({ error: err.message });
+          });
+        })
+        .catch(err => {
+          res
+          .status(500)
+          .json({ error: err.message });
+        });
+      }
+
+    };
 
     db.query(characterQuery, values)
     .then((result) => {
@@ -190,6 +219,7 @@ module.exports = (db) => {
       const newCharacterID = result.rows[0].id;
       proficiencyInsertions(newCharacterID);
       languageInsertions(newCharacterID);
+      // itemInsertions(newCharacterID);
       
 
     })
