@@ -10,7 +10,8 @@ import Stepper from '../components/stepper';
 import { Container } from '@material-ui/core';
 
 
-export default function CharacterNew (){
+export default function CharacterNew (props){
+  console.log(props)
 const [state , setState] = useState({backgrounds:[], classes: [], races:[] });
 let i = 0
 const [stats, setStats] = useState([15,14,13,12,10,8,''].map(stat => ({value: i++, label:stat})))
@@ -18,7 +19,7 @@ const [alignments, setAlignments] = useState([
   {id: 1, name :'Lawful good'},{id:2, name :'Neutral good'},{id: 3, name :'Chaotic good'},{id:4, name :'Lawful neutral'},{id:5, name :'Neutral'},{id:6, name :'Chaotic neutral'},{id:7, name :'Lawful evil'},{id:8, name :'Neutral evil'},{id:9, name :'Chaotic evil'},
 ])
 const [characterState, setCharacterState] = useState({
-  user_id: 1,
+  user_id: props.loginState.userId,
   background:{id: '0', name:'Background'}, 
   class_info: {id: '0', name:'Class'}, 
   race: {id: '0', name:'Race'},
@@ -36,7 +37,7 @@ const [characterState, setCharacterState] = useState({
   characterName:'',
   alignment:{id:'0', name :'Alignment'}
 })
-
+console.log('character',characterState)
   const [raceState, setRaceState] = useState({
     ab_choice: 0,
     charisma_bonus: 0,

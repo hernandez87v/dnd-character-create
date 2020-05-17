@@ -68,25 +68,21 @@ const theme = createMuiTheme({
 
 export default function SignIn(props) {
   const classes = useStyles();
-
   const [form, setForm] = React.useState({
     email: '',
     password: '',
   });
 
-
   let handleSubmit = (e) => {
     e.preventDefault();
     axios.post(`/api/user/login`, {form})
     .then((res) => {
-      console.log('login1',props)
       if (res.data.user.length > 0){
-        console.log('here')
         props.setLogin ( {      
-          ...props.loginState, 
+          ...props.loginState,
+          id: res.data.user[0].id,
           login: true
       },
-      console.log('login2',props.login)
       )
         window.location = `/ShowCharacterByUser` ;//${res.data.user[0].id}`;
         
@@ -135,10 +131,6 @@ export default function SignIn(props) {
               id="password"
               autoComplete="current-password"
             />
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
             <Button
               type="submit"
               fullWidth

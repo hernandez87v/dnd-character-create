@@ -105,7 +105,7 @@ module.exports = (db) => {
     const getProficiencyids = function(characterID) {
       // console.log('in the getproficiencyids fucntion')
       let allIDs = []
-      let raceID = [id];
+      let raceID = [65];
       // console.log('the race id you want to query with', raceID[0])
       let raceQuery = `SELECT proficiency_id FROM race_proficiencies WHERE race_id = $1;`;
       for (let i = 0; i < proficienciesSelected.length; i++) {
@@ -127,8 +127,7 @@ module.exports = (db) => {
           let raceProficiencyArray = result.rows;
           for (let j = 0; j < raceProficiencyArray.length; j++) {
             allIDs.push(raceProficiencyArray[j].proficiency_id)
-          }
-          
+          }          
         }
         console.log('all ids', allIDs)
         return allIDs

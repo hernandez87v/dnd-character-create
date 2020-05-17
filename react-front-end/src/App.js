@@ -11,7 +11,6 @@ import ShowCharacterByUser from './pages/ShowCharacterByUser'
 import AppBar from './components/navbar'
 import CharacterList from './components/characters/Character_List';
 import CharacterContainer from './components/characters/Character_Container.js';
-// import TableContainer from './components/table'
 import {
   BrowserRouter as Router,
   Route,
@@ -20,22 +19,23 @@ import {
 } from 'react-router-dom';
 
 export default function App (){
-  const [loginState , setLogin] = React.useState({
+  const [loginState , setLogin] = useState({
     login: true,
-    user_id: 0,
+    userId:1,
   });
+
     return (
       <Router>
-      <AppBar login={loginState} setLogin={setLogin}/>
+      <AppBar loginState={loginState} setLogin={setLogin}/>
         <Switch>
-        <Route exact path="/" component={MainPage} login={loginState} setLogin={setLogin}/>
-        <Route exact path="/ShowCharacterByUser" component={ShowCharacterByUser} login={loginState} setLogin={setLogin}/>
-        <Route exact path="/login" component={Login} login={loginState} setLogin={setLogin}/>
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/404" component={NotFoundPage} />
-        <Route exact path="/allcharacters" component={CharacterList} />
-        <Route exact path="/createCharacter" component={CreateCharacter} />
-        <Route exact path="/character" component={CharacterContainer} />
+        <Route exact path="/" component={MainPage}/>
+        <Route exact path="/ShowCharacterByUser"> <ShowCharacterByUser  loginState={loginState} setLogin={setLogin}/></Route> 
+        <Route exact path="/login"> <Login  loginState={loginState} setLogin={setLogin}/></Route>
+        <Route exact path="/signup" > <SignUp loginState={loginState} setLogin={setLogin}/></Route> 
+        <Route exact path="/404" > <NotFoundPage loginState={loginState} setLogin={setLogin}/></Route> 
+        <Route exact path="/allcharacters" > <CharacterList loginState={loginState} setLogin={setLogin}/></Route> 
+        <Route exact path="/createCharacter" > <CreateCharacter loginState={loginState} setLogin={setLogin}/></Route> 
+        <Route exact path="/character" > <CharacterContainer loginState={loginState} setLogin={setLogin}/></Route> 
         <Redirect to="/404" />
       </Switch>
     </Router>

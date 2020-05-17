@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { spacing } from '@material-ui/system';
 import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
@@ -37,9 +36,10 @@ const theme = createMuiTheme({
 });
 
 export default function ButtonAppBar(props) {
+  
   const classes = useStyles();
-  console.log('props', props);
-  if (props.login === true) {
+  console.log('props', props.loginState.login);
+  if (props.loginState.login !== true) {
     return (
       <div className={classes.root}>
         <MuiThemeProvider theme={theme}>
@@ -110,7 +110,7 @@ export default function ButtonAppBar(props) {
                   <Box ml="18rem">DND Character Creation</Box>
                 </Typography>
                 <Typography
-                  variant="h9"
+                  variant="h6"
                   aligment="left"
                   className={classes.title}
                 >

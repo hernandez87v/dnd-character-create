@@ -7,7 +7,7 @@ import axios from 'axios';
 const ShowCharacterByUser = (props) => {
 
   const [characterState , setCharacterState] = React.useState([])
-
+  console.log('login info on showcharacter',props)
   const getCharacterById = () => {
     axios.get(`/api/character/`, )
       .then((response) => {
@@ -16,15 +16,11 @@ const ShowCharacterByUser = (props) => {
           ...characterState,
           ...response.data.characters
         });
-        //setCharacterState(response.data.characters)
-        console.log(response.data.characters)
-        console.log(characterState)
       })
     }
     useEffect(() => {
       getCharacterById();
     }, []);
-    console.log('character',characterState)
 
   return (
     <div className="App">
@@ -32,7 +28,6 @@ const ShowCharacterByUser = (props) => {
         <h4>Select one of your character or create a new one! </h4>
           <ExpansionPanel characterState = {characterState} setCharacterState = {setCharacterState} />
           <Button href="/createCharacter">Link</Button>
-          {/* <Button href="/createCharacter" type= 'submit'/> */}
         </Container>
     </div>
   );
