@@ -1,6 +1,5 @@
-import React from 'react';
-// import AbilityPointsAll from './AP_all';
-// import TextField from '@material-ui/core/TextField';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -10,7 +9,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
-import axios from 'axios';
 
 // ROUTE 0 - THIS IS THE BEGINNING
 // QUICKVIEW - INVENTORY - DETAILS NOTES
@@ -51,20 +49,37 @@ const rows = [
 
 export default function CharacterInventory() {
   const classes = useStyles();
+  const [data, setData] = useState({ items: [] });
+  const [itemState, setItemState] = useState({
+    id: 0,
+    name: '',
+    damage_dice: '',
+    api_link: '',
+    equipment_category: '',
+    weight: 0,
+    cost: 0,
+  });
 
-  const getItemsOwned = async () => {
-    return await axios({
-      url: '/api/items',
+  useEffect(async () => {
+    const result = await axios('/api/item');
+    console.log('items from char_inventory: ', result.data.items_owned);
+    setItemState({
+      ...data,
+      ...result.data.items_owned,
     });
-  };
+  }, []);
 
-  (async () => {
-    const itemsOwned = await getItemsOwned();
-    console.log(itemsOwned.data);
-  })();
+  // console.log();
 
   return (
     <React.Fragment>
+      {/* <ul>
+        {data.items_owned.map((item) => (
+          <li key={item.id}>
+            <a href={item.cost}>{item.name}</a>
+          </li>
+        ))}
+      </ul> */}
       <Container maxWidth="md">
         <TableContainer component={Paper}>
           <Table
