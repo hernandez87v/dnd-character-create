@@ -10,6 +10,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import SaveIcon from '@material-ui/icons/Save';
+import Button from '@material-ui/core/Button';
+
 // ROUTE 0 - THIS IS THE BEGINNING
 // QUICKVIEW - INVENTORY - DETAILS NOTES
 const StyledTableCell = withStyles((theme) => ({
@@ -46,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  button: {
+    margin: theme.spacing(1),
+  },
 }));
 
 function createData(name, weight, quantity, cost) {
@@ -65,9 +71,9 @@ export default function CharacterDetailsNotes() {
 
   return (
     <React.Fragment>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Grid container spacing={10}>
-          <Grid item xs={6}>
+          <Grid item xs={8}>
             <TableContainer component={Paper}>
               <Table
                 className={classes.table}
@@ -106,7 +112,7 @@ export default function CharacterDetailsNotes() {
             </TableContainer>
           </Grid>
 
-          <Grid item xs={6}>
+          <Grid item xs={4}>
             <form
               className={classes.root}
               noValidate
@@ -119,11 +125,20 @@ export default function CharacterDetailsNotes() {
                   label="Notes"
                   multiline
                   rows={15}
-                  defaultValue="Default Value"
+                  defaultValue="...."
                   variant="outlined"
                 />
               </div>
             </form>
+            <Button
+              variant="contained"
+              color="primary"
+              size="small"
+              className={classes.button}
+              startIcon={<SaveIcon justify="center" />}
+            >
+              Save
+            </Button>
           </Grid>
         </Grid>
       </Container>
