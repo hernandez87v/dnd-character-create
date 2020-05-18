@@ -33,10 +33,10 @@ export default function CombatStats() {
           <List>
             <ListItem alignItems="center">
               <ListItemAvatar>
-                <Avatar src="https://img.icons8.com/material/96/000000/sparring--v1.png" />
+                <Avatar src="https://img.icons8.com/windows/96/000000/language-skill.png" />
               </ListItemAvatar>
               <ListItemText
-                primary="Actions in Combat"
+                primary="Languages"
                 secondary={
                   <React.Fragment>
                     <Typography
@@ -45,8 +45,7 @@ export default function CombatStats() {
                       className={classes.inline}
                       color="textPrimary"
                     >
-                      Attack, Cast a Spell, Dash, Disengage, Dodge, Grapple,
-                      Help, Hide, Improvise, Ready, Search, Shove, Use an Object
+                      Abyssal, Common, Dwarvish, Elvish
                     </Typography>
                     {' - Actions'}
                   </React.Fragment>
@@ -59,7 +58,7 @@ export default function CombatStats() {
                 <Avatar src="https://img.icons8.com/material/96/000000/angry-fist.png" />
               </ListItemAvatar>
               <ListItemText
-                primary="Unarmed Strike"
+                primary="Proficiencies"
                 secondary={
                   <React.Fragment>
                     <Typography
@@ -68,8 +67,7 @@ export default function CombatStats() {
                       className={classes.inline}
                       color="textPrimary"
                     >
-                      You can punch, kick, head-butt, or use a similar forceful
-                      blow and deal bludgeoning damage equal to 1 + STR modifier
+                      Skill: Survival, Rapiers, Simple Weapons
                     </Typography>
                     {' - Actions'}
                   </React.Fragment>
