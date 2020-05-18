@@ -65,8 +65,11 @@ export default function HorizontalLabelPositionBelowStepper(props) {
     axios
       .post(`/api/character/submit`, {
         raceState: props.raceState,
-        characterState: props.characterState
+        characterState: props.characterState,
+
       })
+      .then (
+      window.location = `/ShowCharacterByUser`)
       // .catch((error) => setState({ error })); 
   }
 
