@@ -9,6 +9,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
+import Popup from './pop-up';
+
+
+
 // ROUTE 3B - THIS IS AFTER CLICKING MAIN
 // QUICKVIEW > COMBAT > STATS - WEAPONS - SPELLS - DICE
 const StyledTableCell = withStyles((theme) => ({
@@ -59,6 +63,7 @@ const rows = [
 ];
 let rows2 = [];
 export default function CombatWeapons(props) {
+  console.log(props)
   const classes = useStyles();
   
   const getWeapons = () => {
@@ -92,6 +97,9 @@ export default function CombatWeapons(props) {
                 <StyledTableCell>Weapons</StyledTableCell>
                 <StyledTableCell align="right">ATK Bonus</StyledTableCell>
                 <StyledTableCell align="right">Damage</StyledTableCell>
+                <StyledTableCell align="right">Attack Roll</StyledTableCell>
+                <StyledTableCell align="right">Damage Roll</StyledTableCell>
+
               </TableRow>
             </TableHead>
             <TableBody>
@@ -102,6 +110,12 @@ export default function CombatWeapons(props) {
                   </StyledTableCell>
                   <StyledTableCell align="right">{row.properties}</StyledTableCell>
                   <StyledTableCell align="right">{row.damage}</StyledTableCell>
+                  <StyledTableCell align="right">
+                  <Popup strength={props.characterObject.strength} true={true}/>
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                  <Popup strength={props.characterObject.strength} true = {false}/>
+                  </StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
