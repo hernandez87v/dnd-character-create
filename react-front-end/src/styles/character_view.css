@@ -86,12 +86,9 @@ button:focus {
 }
 
 .overview-main {
-  display: flex;
-  justify-content: center;
-  margin-left: 35vh;
-  /* margin-right: 10vw; */
   width: 40em;
-  height: 30em;
+  height: 25em;
+  padding: 1em;
   border-radius: 1em;
   border-radius: 1em;
   background-color: #e9e9e9;
@@ -101,6 +98,12 @@ button:focus {
     0px 7px 2px rgba(0, 0, 0, 0.73), 0px 3px 5px rgba(0, 0, 0, 0.3),
     0px 5px 10px rgba(0, 0, 0, 0.37), 0px 10px 10px rgba(0, 0, 0, 0.1),
     0px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card-outer {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
 }
 
 .avatar-img {
@@ -135,15 +138,10 @@ div > img {
   justify-content: space-evenly;
 }
 
-/* .img-info-div {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-} */
-
 /* character profile */
 .overview-internal {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -165,7 +163,6 @@ div > img {
 .abp-unit {
   border-radius: 1em;
   background-color: #e9e9e9;
-  /* box-shadow: 6px 5px 5px #495964; */
   box-shadow: 0px 1px 2px #eee, 0px 2px 2px #e9e9e9, 0px 3px 2px #ccc,
     0px 4px 2px #c9c9c9, 0px 5px 2px #bbb, 0px 6px 2px #b9b9b9, 0px 7px 2px #999,
     0px 7px 2px rgba(0, 0, 0, 0.5), 0px 7px 2px rgba(0, 0, 0, 0.1),
@@ -176,7 +173,6 @@ div > img {
 
 .abp-unit:hover {
   background-color: #fdfdfd;
-  /* box-shadow: 6px 5px 5px #545d68; */
   box-shadow: 0px 1px 2px rgb(195, 195, 195), 0px 2px 2px #b9b9b9,
     0px 3px 2px rgb(202, 192, 192), 0px 4px 2px #c9c9c9, 0px 5px 2px #bbb,
     0px 6px 2px #b9b9b9, 0px 7px 2px #999, 0px 7px 2px rgba(0, 0, 0, 0.5),
