@@ -36,9 +36,9 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, damage_dice, equipment_category, weight, cost) {
-  return { name, damage_dice, equipment_category, weight, cost };
-}
+// function createData(name, damage_dice, equipment_category, weight, cost) {
+//   return { name, damage_dice, equipment_category, weight, cost };
+// }
 
 // const rows = [
 //   createData('Disguise Kit', '-', 'aint working if this shows', 3, 25),
