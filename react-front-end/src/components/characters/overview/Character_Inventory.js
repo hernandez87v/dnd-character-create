@@ -41,45 +41,61 @@ function createData(name, damage_dice, equipment_category, weight, cost) {
 }
 
 const rows = [
-  createData('Breastplate', 'null', 'null', 400, 1),
-  createData('Breastplate', 'null', 'null', 400, 1),
-  createData('Breastplate', 'null', 'null', 400, 1),
-  createData('Breastplate', 'null', 'null', 400, 1),
+  createData('Disguise Kit', '-', 'Adventuring Gear', 3, 25),
+  createData('Horse, draft', '-', 'Mounts and Vehicles', '-', 50),
+  createData('Crowbar', '-', 'Adventuring Gear', 5, 2),
+  createData('Wand', '-', 'Adventuring Gear', 1, 10),
 ];
 
 export default function CharacterInventory() {
   const classes = useStyles();
   const [data, setData] = useState({ items: [] });
-  const [itemState, setItemState] = useState({
-    id: 0,
-    name: '',
-    damage_dice: '',
-    api_link: '',
-    equipment_category: '',
-    weight: 0,
-    cost: 0,
-  });
+  // const [itemState, setItemState] = useState({
+  //   id: 0,
+  //   name: '',
+  //   damage_dice: '',
+  //   api_link: '',
+  //   equipment_category: '',
+  //   weight: 0,
+  //   cost: 0,
+  // });
 
-  useEffect(async () => {
-    const result = await axios('/api/item');
-    console.log('items from char_inventory: ', result.data.items_owned);
-    setItemState({
-      ...data,
-      ...result.data.items_owned,
-    });
+  // {
+  //   proficienciesData.map((proficiency) => (
+  //     <div>
+  //       <p>
+  //         {' '}
+  //         <Checkbox
+  //           onClick={(val) => proficienciesSelected(proficiency)}
+  //         />{' '}
+  //         {proficiency.name}
+  //       </p>
+  //       <br />{' '}
+  //     </div>
+  //   ));
+  // }
+  // console.log();
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios('/api/item');
+      console.log(result.data);
+      setData(result.data.items_owned);
+    };
+    fetchData();
   }, []);
 
-  // console.log();
+  console.log(data.items_owned);
 
   return (
     <React.Fragment>
       {/* <ul>
         {data.items_owned.map((item) => (
           <li key={item.id}>
-            <a href={item.cost}>{item.name}</a>
+            <a>{item.name}</a>
           </li>
         ))}
-      </ul> */}
+      </ul>
+      <h2>hello</h2> */}
       <Container maxWidth="md">
         <TableContainer component={Paper}>
           <Table
