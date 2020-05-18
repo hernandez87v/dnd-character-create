@@ -133,7 +133,7 @@ export default function ButtonAppBar() {
                       {localStorage.getItem('userName')}
                   </Box>
                 </Typography>
-                <Button href="/" color="inherit"  >
+                <Button href='/login'  color="inherit" onClick={ () => localStorage.removeItem('login')} >
                   LogOut
                 </Button>
               </Toolbar>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
+import Avatar from '@material-ui/core/Avatar';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -54,7 +55,7 @@ export default function SimpleModal(props) {
 
   const body2 = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Attak Roll</h2>
+      <h2 id="simple-modal-title">Damage Roll</h2>
       <p id="simple-modal-description">
       {/* + (props.strength - 10)/2 */}
         Your Damage Roll is {Math.floor((Math.random() * 8) + 1) + + (props.strength - 10)/2}
@@ -64,9 +65,8 @@ export default function SimpleModal(props) {
 if (props.true){
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        Attack
-      </button>
+      <Avatar type = 'button' src="https://img.icons8.com/windows/96/000000/dice-cubes.png" onClick={handleOpen} />
+
       <Modal
         open={open}
         onClose={handleClose}
@@ -80,9 +80,7 @@ if (props.true){
   } else {
     return (
       <div>
-        <button type="button" onClick={handleOpen}>
-          Attack
-        </button>
+        <Avatar type = 'button' src="https://img.icons8.com/small/24/000000/battle.png" onClick={handleOpen} />
         <Modal
           open={open}
           onClose={handleClose}
