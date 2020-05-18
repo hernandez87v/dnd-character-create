@@ -41,7 +41,7 @@ function createData(name, damage_dice, equipment_category, weight, cost) {
 }
 
 const rows = [
-  createData('Disguise Kit', '-', 'Adventuring Gear', 3, 25),
+  createData('Disguise Kit', '-', 'aint working if this shows', 3, 25),
   createData('Horse, draft', '-', 'Mounts and Vehicles', '-', 50),
   createData('Crowbar', '-', 'Adventuring Gear', 5, 2),
   createData('Wand', '-', 'Adventuring Gear', 1, 10),
@@ -49,32 +49,8 @@ const rows = [
 
 export default function CharacterInventory() {
   const classes = useStyles();
-  const [data, setData] = useState({ items: [] });
-  // const [itemState, setItemState] = useState({
-  //   id: 0,
-  //   name: '',
-  //   damage_dice: '',
-  //   api_link: '',
-  //   equipment_category: '',
-  //   weight: 0,
-  //   cost: 0,
-  // });
+  const [data, setData] = useState({ items_owned: [] });
 
-  // {
-  //   proficienciesData.map((proficiency) => (
-  //     <div>
-  //       <p>
-  //         {' '}
-  //         <Checkbox
-  //           onClick={(val) => proficienciesSelected(proficiency)}
-  //         />{' '}
-  //         {proficiency.name}
-  //       </p>
-  //       <br />{' '}
-  //     </div>
-  //   ));
-  // }
-  // console.log();
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios('/api/item');
@@ -83,16 +59,8 @@ export default function CharacterInventory() {
     fetchData();
   }, []);
 
-  console.log(data.items_owned);
-
   return (
     <React.Fragment>
-      {/* <h2>hello</h2>
-      <ul>
-        {data.items_owned.map((item) => (
-          <li key={item.id} name={item.name}></li>
-        ))}
-      </ul> */}
       <Container maxWidth="md">
         <TableContainer component={Paper}>
           <Table
@@ -116,7 +84,7 @@ export default function CharacterInventory() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {data.items_owned.map((row) => (
                 <StyledTableRow key={row.name}>
                   <StyledTableCell component="th" scope="row">
                     {row.name}
