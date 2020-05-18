@@ -75,7 +75,10 @@ export default function CombatStats() {
             <Divider variant="inset" component="li" />
             <ListItem alignItems="center">
               <ListItemAvatar>
-                <Avatar src="https://img.icons8.com/android/96/000000/exercise.png" />
+                <Avatar
+                  variant="square"
+                  src="https://img.icons8.com/android/96/000000/exercise.png"
+                />
               </ListItemAvatar>
               <ListItemText
                 primary="Speed"
