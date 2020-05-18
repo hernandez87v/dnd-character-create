@@ -11,8 +11,6 @@ import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import Popup from './pop-up';
 
-
-
 // ROUTE 3B - THIS IS AFTER CLICKING MAIN
 // QUICKVIEW > COMBAT > STATS - WEAPONS - SPELLS - DICE
 const StyledTableCell = withStyles((theme) => ({
@@ -39,10 +37,8 @@ const useStyles = makeStyles({
   },
 });
 
-
-
-function createData(name,properties,  damage  ) {
-  return { name, properties,  damage };
+function createData(name, properties, damage) {
+  return { name, properties, damage };
 }
 
 const rows = [
@@ -52,18 +48,18 @@ const rows = [
 let rows2 = [];
 export default function CombatWeapons(props) {
   const classes = useStyles();
-  
+
   const getWeapons = () => {
     axios
       .get(`/api/item/weapon/${props.characterObject.id}`)
       .then((response) => {
         rows2 = response;
-      })
-      // .catch((error) => setState({ error }));
+      });
+    // .catch((error) => setState({ error }));
   };
-  
+
   useEffect(() => {
-   // getWeapons();
+    // getWeapons();
   }, []);
 
   // const getWeapons = () => {
@@ -94,28 +90,35 @@ export default function CombatWeapons(props) {
             <TableHead>
               <TableRow>
                 <StyledTableCell>Weapons</StyledTableCell>
-                <StyledTableCell align="right">ATK Bonus</StyledTableCell>
-                <StyledTableCell align="right">Damage</StyledTableCell>
-                <StyledTableCell align="right">Attack Roll</StyledTableCell>
-                <StyledTableCell align="right">Damage Roll</StyledTableCell>
-
+                <StyledTableCell align="justify">ATK Bonus</StyledTableCell>
+                <StyledTableCell align="justify">Damage</StyledTableCell>
+                <StyledTableCell align="justify">Attack Roll</StyledTableCell>
+                <StyledTableCell align="justify">Damage Roll</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row) => (
                 <StyledTableRow key={row.name}>
-                  <StyledTableCell component="th" scope="row">
+                  <StyledTableCell align="justify" component="th" scope="row">
                     {row.name}
                   </StyledTableCell>
-                  <StyledTableCell align="right">
+                  <StyledTableCell align="justify">
                     {row.properties}
                   </StyledTableCell>
-                  <StyledTableCell align="right">{row.damage}</StyledTableCell>
-                  <StyledTableCell align="right">
-                  <Popup strength={props.characterObject.strength} true={true}/>
+                  <StyledTableCell align="justify">
+                    {row.damage}
                   </StyledTableCell>
-                  <StyledTableCell align="right">
-                  <Popup strength={props.characterObject.strength} true = {false}/>
+                  <StyledTableCell align="justify">
+                    <Popup
+                      strength={props.characterObject.strength}
+                      true={true}
+                    />
+                  </StyledTableCell>
+                  <StyledTableCell align="justify">
+                    <Popup
+                      strength={props.characterObject.strength}
+                      true={false}
+                    />
                   </StyledTableCell>
                 </StyledTableRow>
               ))}
