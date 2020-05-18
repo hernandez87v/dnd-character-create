@@ -5,12 +5,23 @@ import SelectStats from '../components/characters/selectStats';
 import SelectProfiencies from '../components/characters/selectProfiencies';
 import SelectEquipment from '../components/characters/selectequipment';
 import SelectName from '../components/characters/selectName';
-
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Stepper from '../components/stepper';
 import { Container } from '@material-ui/core';
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#6f0000',
+    },
+    secondary: {
+      main: '#6f0000',
+    },
+  },
+});
+
 export default function CharacterNew(props) {
-  console.log('props',props)
+  console.log('props', props);
   const [state, setState] = useState({
     backgrounds: [],
     classes: [],
@@ -106,38 +117,40 @@ export default function CharacterNew(props) {
   return (
     <Container>
       <React.Fragment>
-        <h2>Characters</h2>
-        <Stepper
-          raceState={raceState}
-          characterState={characterState}
-          pages={[
-            <SelectAtributes
-              backgrounds={state.backgrounds}
-              classes={state.classes}
-              races={state.races}
-              alignments={alignments}
-              characterState={characterState}
-              setCharacterState={setCharacterState}
-            />,
-            <SelectStats
-              stats={stats}
-              characterState={characterState}
-              setCharacterState={setCharacterState}
-            />,
-            <SelectProfiencies
-              characterState={characterState}
-              setCharacterState={setCharacterState}
-            />,
-            <SelectEquipment
-              characterState={characterState}
-              setCharacterState={setCharacterState}
-            />,
-            <SelectName
-              characterState={characterState}
-              setCharacterState={setCharacterState}
-            />,
-          ]}
-        />
+        <MuiThemeProvider theme={theme}>
+          <h2>Characters</h2>
+          <Stepper
+            raceState={raceState}
+            characterState={characterState}
+            pages={[
+              <SelectAtributes
+                backgrounds={state.backgrounds}
+                classes={state.classes}
+                races={state.races}
+                alignments={alignments}
+                characterState={characterState}
+                setCharacterState={setCharacterState}
+              />,
+              <SelectStats
+                stats={stats}
+                characterState={characterState}
+                setCharacterState={setCharacterState}
+              />,
+              <SelectProfiencies
+                characterState={characterState}
+                setCharacterState={setCharacterState}
+              />,
+              <SelectEquipment
+                characterState={characterState}
+                setCharacterState={setCharacterState}
+              />,
+              <SelectName
+                characterState={characterState}
+                setCharacterState={setCharacterState}
+              />,
+            ]}
+          />
+        </MuiThemeProvider>
       </React.Fragment>
     </Container>
   );

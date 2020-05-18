@@ -135,7 +135,7 @@ export default function CharacterDetailsNotes() {
               color="primary"
               size="small"
               className={classes.button}
-              startIcon={<SaveIcon justify="center" />}
+              startIcon={<SaveIcon />}
             >
               Save
             </Button>

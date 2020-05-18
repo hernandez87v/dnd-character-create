@@ -88,7 +88,7 @@ button:focus {
 .overview-main {
   display: flex;
   justify-content: center;
-  margin-left: 25vw;
+  margin-left: 35vh;
   /* margin-right: 10vw; */
   width: 40em;
   height: 30em;
