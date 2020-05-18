@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
+import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+  },
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
   },
 }));
 
@@ -36,8 +41,8 @@ const theme = createMuiTheme({
 });
 
 export default function ButtonAppBar(props) {
-  
   const classes = useStyles();
+
   console.log('props', props.loginState.login);
   if (props.loginState.login !== true) {
     return (
@@ -76,45 +81,59 @@ export default function ButtonAppBar(props) {
           <AppBar position="static">
             <Box p={0}>
               <Toolbar>
-                <IconButton
-                  size="small"
-                  href="/"
-                  edge="start"
-                  className={classes.menuButton}
-                  color="inherit"
-                  aria-label="menu"
-                >
-                  Home
-                </IconButton>
-                <IconButton
-                  size="small"
-                  href="/createCharacter"
-                  edge="start"
-                  className={classes.menuButton}
-                  color="inherit"
-                  aria-label="menu"
-                >
-                  New Character
-                </IconButton>
-                <IconButton
-                  size="small"
-                  href="/ShowCharacterByUser"
-                  edge="start"
-                  className={classes.menuButton}
-                  color="inherit"
-                  aria-label="menu"
-                >
-                  Show My Characters
-                </IconButton>
+                <Hidden only="lg">
+                  <IconButton
+                    edge="start"
+                    className={classes.menuButton}
+                    color="inherit"
+                    aria-label="menu"
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                </Hidden>
+                <Hidden mdDown>
+                  <IconButton
+                    size="small"
+                    href="/"
+                    edge="start"
+                    className={classes.menuButton}
+                    color="inherit"
+                    aria-label="menu"
+                  >
+                    Home
+                  </IconButton>
+                </Hidden>
+                <Hidden mdDown>
+                  <IconButton
+                    size="small"
+                    href="/createCharacter"
+                    edge="start"
+                    className={classes.menuButton}
+                    color="inherit"
+                    aria-label="menu"
+                  >
+                    New Character
+                  </IconButton>
+                </Hidden>
+                <Hidden mdDown>
+                  <IconButton
+                    size="small"
+                    href="/ShowCharacterByUser"
+                    edge="start"
+                    className={classes.menuButton}
+                    color="inherit"
+                    aria-label="menu"
+                  >
+                    Show My Characters
+                  </IconButton>
+                </Hidden>
                 <Typography variant="h6" className={classes.title}>
-                  <Box ml="18rem">DND Character Creation</Box>
+                  <Box ml="18rem">DND&nbsp;Character&nbsp;Creation</Box>
                 </Typography>
-                <Typography
-                  variant="h6"
-                  aligment="left"
-                  className={classes.title}
-                >
-                  <Box ml="15rem">santiFedericoni</Box>
+                <Typography variant="h6" edge="start" className={classes.title}>
+                  <Box ml="15rem" edge="end">
+                    santiFedericoni
+                  </Box>
                 </Typography>
                 <Button href="/" color="inherit">
                   LogOut
