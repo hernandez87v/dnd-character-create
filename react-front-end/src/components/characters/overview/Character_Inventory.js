@@ -36,17 +36,6 @@ const useStyles = makeStyles({
   },
 });
 
-// function createData(name, damage_dice, equipment_category, weight, cost) {
-//   return { name, damage_dice, equipment_category, weight, cost };
-// }
-
-// const rows = [
-//   createData('Disguise Kit', '-', 'aint working if this shows', 3, 25),
-//   createData('Horse, draft', '-', 'Mounts and Vehicles', '-', 50),
-//   createData('Crowbar', '-', 'Adventuring Gear', 5, 2),
-//   createData('Wand', '-', 'Adventuring Gear', 1, 10),
-// ];
-
 export default function CharacterInventory() {
   const classes = useStyles();
   const [data, setData] = useState({ items_owned: [] });
