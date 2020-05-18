@@ -33,6 +33,69 @@ export default function CombatStats() {
           <List>
             <ListItem alignItems="center">
               <ListItemAvatar>
+                <Avatar src="https://img.icons8.com/ios-filled/50/000000/action.png" />
+              </ListItemAvatar>
+              <ListItemText
+                primary="Hit Die"
+                secondary={
+                  <React.Fragment>
+                    <Typography
+                      component="span"
+                      variant="body2"
+                      className={classes.inline}
+                      color="textPrimary"
+                    >
+                      8
+                    </Typography>
+                  </React.Fragment>
+                }
+              />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+            <ListItem alignItems="center">
+              <ListItemAvatar>
+                <Avatar src="https://img.icons8.com/ios/50/000000/crusader.png" />
+              </ListItemAvatar>
+              <ListItemText
+                primary="Armour Class"
+                secondary={
+                  <React.Fragment>
+                    <Typography
+                      component="span"
+                      variant="body2"
+                      className={classes.inline}
+                      color="textPrimary"
+                    >
+                      17
+                    </Typography>
+                  </React.Fragment>
+                }
+              />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+            <ListItem alignItems="center">
+              <ListItemAvatar>
+                <Avatar src="https://img.icons8.com/android/96/000000/exercise.png" />
+              </ListItemAvatar>
+              <ListItemText
+                primary="Speed"
+                secondary={
+                  <React.Fragment>
+                    <Typography
+                      component="span"
+                      variant="body2"
+                      className={classes.inline}
+                      color="textPrimary"
+                    >
+                      30 ft.
+                    </Typography>
+                  </React.Fragment>
+                }
+              />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+            <ListItem alignItems="center">
+              <ListItemAvatar>
                 <Avatar src="https://img.icons8.com/windows/96/000000/language-skill.png" />
               </ListItemAvatar>
               <ListItemText
@@ -45,101 +108,8 @@ export default function CombatStats() {
                       className={classes.inline}
                       color="textPrimary"
                     >
-                      Abyssal, Common, Dwarvish, Elvish
+                      Common, Elvish
                     </Typography>
-                    {' - Actions'}
-                  </React.Fragment>
-                }
-              />
-            </ListItem>
-            <Divider variant="inset" component="li" />
-            <ListItem alignItems="center">
-              <ListItemAvatar>
-                <Avatar src="https://img.icons8.com/material/96/000000/angry-fist.png" />
-              </ListItemAvatar>
-              <ListItemText
-                primary="Proficiencies"
-                secondary={
-                  <React.Fragment>
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      className={classes.inline}
-                      color="textPrimary"
-                    >
-                      Skill: Survival, Rapiers, Simple Weapons
-                    </Typography>
-                    {' - Actions'}
-                  </React.Fragment>
-                }
-              />
-            </ListItem>
-            <Divider variant="inset" component="li" />
-            <ListItem alignItems="center">
-              <ListItemAvatar>
-                <Avatar src="https://img.icons8.com/material/96/000000/toolbox--v1.png" />
-              </ListItemAvatar>
-              <ListItemText
-                primary="Actions in Combat"
-                secondary={
-                  <React.Fragment>
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      className={classes.inline}
-                      color="textPrimary"
-                    >
-                      Two-Weapon Fighting
-                    </Typography>
-                    {' - Bonus Actions'}
-                  </React.Fragment>
-                }
-              />
-            </ListItem>
-            <Divider variant="inset" component="li" />
-            <ListItem alignItems="center">
-              <ListItemAvatar>
-                <Avatar src="https://img.icons8.com/material/96/000000/wizard.png" />
-              </ListItemAvatar>
-              <ListItemText
-                primary="Spells"
-                secondary={
-                  <React.Fragment>
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      className={classes.inline}
-                      color="textPrimary"
-                    >
-                      Misty Step(2nd)
-                    </Typography>
-                    {' - Bonus Actions'}
-                  </React.Fragment>
-                }
-              />
-            </ListItem>
-            <Divider variant="inset" component="li" />
-            <ListItem alignItems="center">
-              <ListItemAvatar>
-                <Avatar src="https://img.icons8.com/material/96/000000/magical-scroll.png" />
-              </ListItemAvatar>
-              <ListItemText
-                primary="Bardic Inspiration"
-                secondary={
-                  <React.Fragment>
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      className={classes.inline}
-                      color="textPrimary"
-                    >
-                      As a bonus action, a creature (other than yourself) within
-                      60 ft. that can hear you gains an inspiration die (1d6).
-                      For 10 minutes, the creature can add it to one ability
-                      check, attack roll, or saving throw. This can be added
-                      after seeing the roll, but before knowing the outcome.
-                    </Typography>
-                    {' - Bonus Actions'}
                   </React.Fragment>
                 }
               />
