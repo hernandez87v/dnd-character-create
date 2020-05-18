@@ -65,7 +65,7 @@ export default function SimpleModal(props) {
 if (props.true){
   return (
     <div>
-      <Avatar type = 'button' src="https://img.icons8.com/windows/96/000000/dice-cubes.png" onClick={handleOpen} />
+      <Avatar type = 'button' Style = 'cursor:pointer; 'src="https://img.icons8.com/windows/96/000000/dice-cubes.png" onClick={handleOpen} />
 
       <Modal
         open={open}
@@ -80,7 +80,7 @@ if (props.true){
   } else {
     return (
       <div>
-        <Avatar type = 'button' src="https://img.icons8.com/small/24/000000/battle.png" onClick={handleOpen} />
+        <Avatar type = 'button' Style = 'cursor:pointer; ' src="https://img.icons8.com/small/24/000000/battle.png" onClick={handleOpen} />
         <Modal
           open={open}
           onClose={handleClose}

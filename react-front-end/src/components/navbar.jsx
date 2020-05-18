@@ -57,7 +57,7 @@ export default function ButtonAppBar() {
                 >
                   <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" className={classes.title}>
+                <Typography  variant="h6" className={classes.title}>
                   DnD Character Creator
                 </Typography>
                 <Button href="/signup" color="inherit">
@@ -129,7 +129,8 @@ export default function ButtonAppBar() {
                   <Box ml="18rem">DnD&nbsp;Character&nbsp;Creation</Box>
                 </Typography>
                 <Typography variant="h6" edge="start" className={classes.title}>
-                  <Box ml="15rem" edge="end">
+                  <Box ml="45rem" edge="end">
+                    
                       {localStorage.getItem('userName')}
                   </Box>
                 </Typography>
