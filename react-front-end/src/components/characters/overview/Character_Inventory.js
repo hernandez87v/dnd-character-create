@@ -78,8 +78,7 @@ export default function CharacterInventory() {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios('/api/item');
-      console.log(result.data);
-      setData(result.data.items_owned);
+      setData(result.data);
     };
     fetchData();
   }, []);
@@ -88,14 +87,12 @@ export default function CharacterInventory() {
 
   return (
     <React.Fragment>
-      {/* <ul>
+      {/* <h2>hello</h2>
+      <ul>
         {data.items_owned.map((item) => (
-          <li key={item.id}>
-            <a>{item.name}</a>
-          </li>
+          <li key={item.id} name={item.name}></li>
         ))}
-      </ul>
-      <h2>hello</h2> */}
+      </ul> */}
       <Container maxWidth="md">
         <TableContainer component={Paper}>
           <Table
