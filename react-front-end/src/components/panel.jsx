@@ -8,6 +8,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Button } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SimpleExpansionPanel(props) {
+  console.log(props.characterState[0])
   const classes = useStyles();
   if (props.characterState[4]){
     return (
@@ -50,7 +52,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[0].background} </p><br/>
-            <p>Aligment:  {props.characterState[0].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[0].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -85,7 +87,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[1].background} </p><br/>
-            <p>Aligment:  {props.characterState[1].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[1].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -120,7 +122,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[2].background} </p><br/>
-            <p>Aligment:  {props.characterState[2].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[2].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -155,7 +157,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[3].background} </p><br/>
-            <p>Aligment:  {props.characterState[3].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[3].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -190,7 +192,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[4].background} </p><br/>
-            <p>Aligment:  {props.characterState[4].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[4].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -230,7 +232,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[0].background} </p><br/>
-            <p>Aligment:  {props.characterState[0].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[0].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -265,7 +267,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[1].background} </p><br/>
-            <p>Aligment:  {props.characterState[1].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[1].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -300,7 +302,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[2].background} </p><br/>
-            <p>Aligment:  {props.characterState[2].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[2].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -335,7 +337,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[3].background} </p><br/>
-            <p>Aligment:  {props.characterState[3].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[3].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -375,7 +377,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[0].background} </p><br/>
-            <p>Aligment:  {props.characterState[0].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[0].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -410,7 +412,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[1].background} </p><br/>
-            <p>Aligment:  {props.characterState[1].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[1].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -445,7 +447,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[2].background} </p><br/>
-            <p>Aligment:  {props.characterState[2].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[2].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -485,7 +487,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[0].background} </p><br/>
-            <p>Aligment:  {props.characterState[0].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[0].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -520,7 +522,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[1].background} </p><br/>
-            <p>Aligment:  {props.characterState[1].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[1].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -560,7 +562,7 @@ export default function SimpleExpansionPanel(props) {
           </Grid>
           <Grid item xs={3}>
             <p>Background:  {props.characterState[0].background} </p><br/>
-            <p>Aligment:  {props.characterState[0].aligment} </p><br/>        
+            <p>alignment:  {props.characterState[0].alignment} </p><br/>        
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body2" color="textSecondary" align="center">
@@ -577,7 +579,10 @@ export default function SimpleExpansionPanel(props) {
   
   } else {
     return (
-    <h1>loading</h1>
+      <div className="App">
+        <p>Loading</p>
+        <CircularProgress />
+       </div>
     )
   }
 }
