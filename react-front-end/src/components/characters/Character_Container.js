@@ -48,7 +48,6 @@ export default function CharacterContainer(props) {
     <MuiThemeProvider theme={theme}>
       <Router>
         <div>
-          <h2 className="view-title">Character Container</h2>
           <ul className="character-nav">
             <li>
               <Link class="crumb-button" to="/quickview">

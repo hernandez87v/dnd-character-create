@@ -9,7 +9,8 @@ import SelectName from '../components/characters/selectName';
 import Stepper from '../components/stepper';
 import { Container } from '@material-ui/core';
 
-export default function CharacterNew() {
+export default function CharacterNew(props) {
+  console.log('props',props)
   const [state, setState] = useState({
     backgrounds: [],
     classes: [],
@@ -31,7 +32,7 @@ export default function CharacterNew() {
     { id: 9, name: 'Chaotic evil' },
   ]);
   const [characterState, setCharacterState] = useState({
-    user_id: 1,
+    user_id: props.loginState.userId,
     background: { id: '0', name: 'Background' },
     class_info: { id: '0', name: 'Class' },
     race: { id: '0', name: 'Race' },

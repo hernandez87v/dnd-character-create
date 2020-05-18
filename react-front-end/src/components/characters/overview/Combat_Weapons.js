@@ -1,5 +1,6 @@
-import React from 'react';
+import React ,{ useEffect, useState } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -34,41 +35,51 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, cost, damage, weight, properties) {
-  return { name, cost, damage, weight, properties };
+
+
+function createData(name,properties,  damage  ) {
+  console.log(name)
+  return { name, properties,  damage };
 }
 
 const rows = [
   createData(
-    'Crossbow, light',
-    '25gp',
+    'Crossbow',
+    '+5',
     '1d8 piercing',
-    5,
-    'Ammunition (range 80/320), loading, two-handed'
+
+
   ),
   createData(
     'Longbow',
-    '50gp',
+    '+5',
     '1d8 piercing',
-    2,
-    'Ammunition (range 80/320), loading, two-handed'
-  ),
-  createData('Longsword', '15gp', '1d8 slashing', 3, 'Versatile (1d10)'),
-  createData('Rapier', '25gp', '1d8 piercing', 2, 'Finesse'),
-  createData(
-    'Sling',
-    '1sp',
-    '1d4 bludgeoning',
-    '-',
-    'Ammunition (range 30/120)'
+
   ),
 ];
-
-export default function CombatWeapons() {
+let rows2 = [];
+export default function CombatWeapons(props) {
   const classes = useStyles();
+  
+  const getWeapons = () => {
+    axios
+      .get(`/api/item/weapon/${props.characterObject.id}`)
+      .then((response) => {
+        console.log(response);
+        rows2 = response;
+        console.log(rows2)
+      })
+      // .catch((error) => setState({ error }));
+  };
+  
+  useEffect(() => {
+    getWeapons();
+  }, []);
 
+  
   return (
     <React.Fragment>
+      {rows2}
       <Container maxWidth="md">
         <TableContainer component={Paper}>
           <Table
@@ -79,12 +90,8 @@ export default function CombatWeapons() {
             <TableHead>
               <TableRow>
                 <StyledTableCell>Weapons</StyledTableCell>
-                <StyledTableCell align="right">Cost</StyledTableCell>
+                <StyledTableCell align="right">ATK Bonus</StyledTableCell>
                 <StyledTableCell align="right">Damage</StyledTableCell>
-                <StyledTableCell align="right">
-                  Weight&nbsp;(lb)
-                </StyledTableCell>
-                <StyledTableCell align="right">Properties</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -93,12 +100,8 @@ export default function CombatWeapons() {
                   <StyledTableCell component="th" scope="row">
                     {row.name}
                   </StyledTableCell>
-                  <StyledTableCell align="right">{row.cost}</StyledTableCell>
+                  <StyledTableCell align="right">{row.properties}</StyledTableCell>
                   <StyledTableCell align="right">{row.damage}</StyledTableCell>
-                  <StyledTableCell align="right">{row.weight}</StyledTableCell>
-                  <StyledTableCell align="right">
-                    {row.properties}
-                  </StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>

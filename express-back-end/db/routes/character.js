@@ -209,9 +209,10 @@ module.exports = (db) => {
         });
       }
 
-
+      console.log('character before creation')
     db.query(characterQuery, values)
     .then((result) => {
+      console.log('character created')
       const newCharacterID = result.rows[0].id;
       proficiencyInsertions(newCharacterID);
       languageInsertions(newCharacterID);
