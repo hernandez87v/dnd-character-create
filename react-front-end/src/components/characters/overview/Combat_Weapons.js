@@ -1,4 +1,4 @@
-import React ,{ useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import Table from '@material-ui/core/Table';
@@ -35,48 +35,33 @@ const useStyles = makeStyles({
   },
 });
 
-
-
-function createData(name,properties,  damage  ) {
-  console.log(name)
-  return { name, properties,  damage };
+function createData(name, properties, damage) {
+  return { name, properties, damage };
 }
 
 const rows = [
-  createData(
-    'Crossbow',
-    '+5',
-    '1d8 piercing',
-
-
-  ),
-  createData(
-    'Longbow',
-    '+5',
-    '1d8 piercing',
-
-  ),
+  createData('Crossbow', '+5', '1d8 piercing'),
+  createData('Longbow', '+5', '1d8 piercing'),
 ];
 let rows2 = [];
 export default function CombatWeapons(props) {
   const classes = useStyles();
-  
-  const getWeapons = () => {
-    axios
-      .get(`/api/item/weapon/${props.characterObject.id}`)
-      .then((response) => {
-        console.log(response);
-        rows2 = response;
-        console.log(rows2)
-      })
-      // .catch((error) => setState({ error }));
-  };
-  
-  useEffect(() => {
-    getWeapons();
-  }, []);
 
-  
+  // const getWeapons = () => {
+  //   axios
+  //     .get(`/api/item/weapon/${props.characterObject.id}`)
+  //     .then((response) => {
+  //       // console.log(response);
+  //       rows2 = response;
+  //       // console.log(rows2);
+  //     });
+  //   // .catch((error) => setState({ error }));
+  // };
+
+  // useEffect(() => {
+  //   getWeapons();
+  // }, []);
+
   return (
     <React.Fragment>
       {rows2}
@@ -100,7 +85,9 @@ export default function CombatWeapons(props) {
                   <StyledTableCell component="th" scope="row">
                     {row.name}
                   </StyledTableCell>
-                  <StyledTableCell align="right">{row.properties}</StyledTableCell>
+                  <StyledTableCell align="right">
+                    {row.properties}
+                  </StyledTableCell>
                   <StyledTableCell align="right">{row.damage}</StyledTableCell>
                 </StyledTableRow>
               ))}
