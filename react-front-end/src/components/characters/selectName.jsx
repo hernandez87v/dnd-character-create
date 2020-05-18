@@ -26,8 +26,7 @@ const selectStats = (props) => {
   }));
   const classes = useStyles();
 
-  console.log('character',props.characterState) 
-  console.log('name',name) 
+
 
     return (
     <div className="App">

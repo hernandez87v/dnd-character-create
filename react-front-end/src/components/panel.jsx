@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SimpleExpansionPanel(props) {
-  console.log(props.characterState[0])
   const classes = useStyles();
   if (props.characterState[4]){
     return (

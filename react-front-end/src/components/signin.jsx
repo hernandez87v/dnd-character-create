@@ -72,19 +72,15 @@ export default function SignIn(props) {
     email: '',
     password: '',
   });
-
   let handleSubmit = (e) => {
     e.preventDefault();
     axios.post(`/api/user/login`, {form})
     .then((res) => {
       if (res.data.user.length > 0){
-        props.setLogin ( {      
-          ...props.loginState,
-          id: res.data.user[0].id,
-          login: true
-      },
-      )
-        window.location = `/ShowCharacterByUser` ;//${res.data.user[0].id}`;
+        localStorage.setItem('login',true);
+        localStorage.setItem('userName',res.data.user[0].nick_name);
+        localStorage.setItem('userId',res.data.user[0].id);
+       window.location = `/ShowCharacterByUser/` ;//${res.data.user[0].id}`;
         
       } else {
         alert('invalid data');

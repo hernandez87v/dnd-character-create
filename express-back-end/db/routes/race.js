@@ -45,7 +45,6 @@ module.exports = (db) => {
   });
 
   router.get("/:id", (req, res) => {
-    console.log(req.params.id)
     let id = req.params.id;
     db.query(` 
     SELECT races.*  

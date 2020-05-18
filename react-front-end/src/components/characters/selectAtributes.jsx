@@ -19,7 +19,6 @@ const selectAtributes = ({
       value: characterAtribute.id,
       label: characterAtribute.name,
     }));
-console.log('backgrounds',backgrounds)
   let backgroundOption = {
     title: 'Background',
     options: generateCharacterAtributes(backgrounds),
@@ -72,7 +71,6 @@ console.log('backgrounds',backgrounds)
         //     avatar_url: 'https://i.pinimg.com/originals/ec/57/7c/ec577cf288cc7d9d4b56e859781f1dc9.png',
         // })
         if (races[val-1].name === 'Elf'){
-            console.log('here')
             setCharacterState( {
                 ...characterState, 
                 race: {id: val, name: races[val-1].name },

@@ -55,7 +55,6 @@ let choose = 2;
        getClassesInfo();
     }, [])
 
-console.log('character',props.characterState) 
 let demo = false;
 if (demo){
   return (

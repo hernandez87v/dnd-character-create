@@ -19,22 +19,19 @@ import {
 } from 'react-router-dom';
 
 export default function App (){
-  const [loginState , setLogin] = useState({
-    login: true,
-    userId:1,
-  });
+
 
     return (
       <Router>
-      <AppBar loginState={loginState} setLogin={setLogin}/>
+      <AppBar />
         <Switch>
         <Route exact path="/" component={MainPage}/>
-        <Route exact path="/ShowCharacterByUser"> <ShowCharacterByUser  loginState={loginState} setLogin={setLogin}/></Route> 
-        <Route exact path="/login"> <Login  loginState={loginState} setLogin={setLogin}/></Route>
-        <Route exact path="/signup" > <SignUp loginState={loginState} setLogin={setLogin}/></Route> 
-        <Route exact path="/404" > <NotFoundPage loginState={loginState} setLogin={setLogin}/></Route> 
-        <Route exact path="/allcharacters" > <CharacterList loginState={loginState} setLogin={setLogin}/></Route> 
-        <Route exact path="/createCharacter" > <CreateCharacter loginState={loginState} setLogin={setLogin}/></Route> 
+        <Route exact path="/ShowCharacterByUser"> <ShowCharacterByUser  /></Route> 
+        <Route exact path="/login"> <Login /></Route>
+        <Route exact path="/signup" > <SignUp /></Route> 
+        <Route exact path="/404" > <NotFoundPage /></Route> 
+        <Route exact path="/allcharacters" > <CharacterList /></Route> 
+        <Route exact path="/createCharacter" > <CreateCharacter /></Route> 
         <Route path="/character/:id"  component={CharacterContainer}></Route> 
         <Redirect to="/404" />
       </Switch>

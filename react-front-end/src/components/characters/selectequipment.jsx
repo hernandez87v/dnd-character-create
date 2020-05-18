@@ -38,10 +38,8 @@ const [chooseState, setChooseState] = React.useState(0);
           .then(data => {
             setChooseState(data.choices_to_make)
             if (data.choices_to_make === 2) {
-              console.log('here') 
               setEquipmentData(data.choice_1[1].from)
               setEquipmentData2(data.choice_2[1].from)
-              console.log('set all the data')
             } else if (data.choices_to_make === 3) { 
               setEquipmentData(data.choice_1[1].from)
               setEquipmentData2(data.choice_2[1].from)
@@ -52,7 +50,6 @@ const [chooseState, setChooseState] = React.useState(0);
               setEquipmentData3(data.choice_3[1].from)
               setEquipmentData4(data.choice_4[0].from)
             } else if (data.choices_to_make === 5) {
-              console.log('data_choice',data.choice_5[0].from)
               setEquipmentData(data.choice_1[1].from)
               setEquipmentData2(data.choice_2[1].from)
               setEquipmentData3(data.choice_3[1].from)

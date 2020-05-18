@@ -21,7 +21,6 @@ const theme = createMuiTheme({
 });
 
 export default function CharacterNew(props) {
-  console.log('props', props);
   const [state, setState] = useState({
     backgrounds: [],
     classes: [],
@@ -43,7 +42,7 @@ export default function CharacterNew(props) {
     { id: 9, name: 'Chaotic evil' },
   ]);
   const [characterState, setCharacterState] = useState({
-    user_id: props.loginState.userId,
+    user_id: localStorage.getItem('userId'),
     background: { id: '0', name: 'Background' },
     class_info: { id: '0', name: 'Class' },
     race: { id: '0', name: 'Race' },
@@ -96,8 +95,6 @@ export default function CharacterNew(props) {
     axios
       .get(`/api/race/${characterState.race.id}`)
       .then((response) => {
-        console.log(response.data.raceData[0]);
-        console.log(response.data);
         setRaceState({
           ...state,
           ...response.data.raceData[0],

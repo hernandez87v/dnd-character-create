@@ -44,7 +44,6 @@ App.get('/test', (req, res) => {
         `
   )
     .then((data) => {
-      console.log(data.rows);
       const languageData = data.rows;
       res.json({ languageData });
     })

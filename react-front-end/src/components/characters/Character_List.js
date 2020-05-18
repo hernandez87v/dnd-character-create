@@ -15,7 +15,6 @@ export default class CharacterList extends React.Component {
       .get('/api/character')
       // Once we get a response and store data, let's change the loading state
       .then((response) => {
-        console.log('THIS IS THE RESPONSE ', response.data);
         this.setState({
           characters: response.data.characters,
           isLoading: false,
@@ -31,7 +30,6 @@ export default class CharacterList extends React.Component {
   // Putting that data to use
   render() {
     const { isLoading, characters } = this.state;
-    console.log('characters?', characters);
     return (
       <React.Fragment>
         <h2>Characters</h2>

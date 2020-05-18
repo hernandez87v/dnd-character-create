@@ -77,12 +77,14 @@ export default function SignUp() {
 
   let save = (e) => {
     e.preventDefault();
-    console.log(form);
+
 
     axios.post(`/api/user`, { form }).then((res) => {
-      console.log(res);
-      console.log(res.data);
-      window.location = `/ShowCharacterByUser` ;//${res.data.user[0].id}`;
+      console.log(res)
+      localStorage.setItem('login',true);
+      localStorage.setItem('userName',res.data.user[0].nick_name);
+      localStorage.setItem('userId',res.data.user[0].id);
+      window.location = `/createCharacter` ;//${res.data.user[0].id}`;
     });
   };
 

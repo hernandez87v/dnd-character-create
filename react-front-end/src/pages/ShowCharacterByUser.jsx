@@ -7,14 +7,10 @@ import axios from 'axios';
 const ShowCharacterByUser = (props) => {
 
   const [characterState , setCharacterState] = React.useState([])
-  console.log('login info on showcharacter',props.loginState)
-  const user = props.loginState;
-  console.log(user.userId)
+  const user = localStorage.getItem('userId');
   const getCharacterById = () => {
-    console.log('here')
-    axios.get(`/api/character/user/${user.userId}` )
+    axios.get(`/api/character/user/${user}` )
       .then((response) => {
-        console.log(response.data.characters)
         setCharacterState({
           ...characterState,
           ...response.data.characters

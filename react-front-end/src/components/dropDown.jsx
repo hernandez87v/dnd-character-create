@@ -26,7 +26,6 @@ export default function SimpleSelect(props) {
       props.handleChange(event.target.value);
     }
   };
-  console.log(props.value);
   return (
     <div>
       <FormControl className={classes.formControl}>

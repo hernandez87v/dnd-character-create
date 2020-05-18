@@ -42,7 +42,6 @@ const useStyles = makeStyles({
 
 
 function createData(name,properties,  damage  ) {
-  console.log(name)
   return { name, properties,  damage };
 }
 
@@ -63,22 +62,19 @@ const rows = [
 ];
 let rows2 = [];
 export default function CombatWeapons(props) {
-  console.log(props)
   const classes = useStyles();
   
   const getWeapons = () => {
     axios
       .get(`/api/item/weapon/${props.characterObject.id}`)
       .then((response) => {
-        console.log(response);
         rows2 = response;
-        console.log(rows2)
       })
       // .catch((error) => setState({ error }));
   };
   
   useEffect(() => {
-    getWeapons();
+   // getWeapons();
   }, []);
 
   

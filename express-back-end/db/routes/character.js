@@ -182,7 +182,6 @@ module.exports = (db) => {
 
     const itemInsertions = function(characterID , i) {
       let equipmentIDs = [];
-      console.log('im here!!', i)
         let currentEquipment = equipmentSelected[i].item.url
         let currentEquipmentURL = [currentEquipment]
         let query = `SELECT id FROM items WHERE api_link = $1;`;
@@ -194,7 +193,6 @@ module.exports = (db) => {
           let insertion = `INSERT INTO items_owned (character_id, item_id) VALUES ($1, $2);`;
           db.query(insertion, insertionVariables)
           .then(() => {
-            console.log('Item Inserted')
           })
           .catch(err => {
             res
@@ -209,10 +207,8 @@ module.exports = (db) => {
         });
       }
 
-      console.log('character before creation')
     db.query(characterQuery, values)
     .then((result) => {
-      console.log('character created')
       const newCharacterID = result.rows[0].id;
       proficiencyInsertions(newCharacterID);
       languageInsertions(newCharacterID);

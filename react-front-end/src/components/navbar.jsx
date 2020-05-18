@@ -40,15 +40,13 @@ const theme = createMuiTheme({
   },
 });
 
-export default function ButtonAppBar(props) {
+export default function ButtonAppBar() {
   const classes = useStyles();
-
-  console.log('props', props.loginState.login);
-  if (props.loginState.login !== true) {
+  if (localStorage.getItem('login') !== 'true') {
     return (
       <div className={classes.root}>
         <MuiThemeProvider theme={theme}>
-          <Box p={1} bgcolor="background.paper">
+          <Box p={0} bgcolor="background.paper">
             <AppBar position="static">
               <Toolbar>
                 <IconButton
@@ -60,7 +58,7 @@ export default function ButtonAppBar(props) {
                   <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" className={classes.title}>
-                  DND testing
+                  DnD Character Creator
                 </Typography>
                 <Button href="/signup" color="inherit">
                   Sing Up
@@ -128,14 +126,14 @@ export default function ButtonAppBar(props) {
                   </IconButton>
                 </Hidden>
                 <Typography variant="h6" className={classes.title}>
-                  <Box ml="18rem">DND&nbsp;Character&nbsp;Creation</Box>
+                  <Box ml="18rem">DnD&nbsp;Character&nbsp;Creation</Box>
                 </Typography>
                 <Typography variant="h6" edge="start" className={classes.title}>
                   <Box ml="15rem" edge="end">
-                    santiFedericoni
+                      {localStorage.getItem('userName')}
                   </Box>
                 </Typography>
-                <Button href="/" color="inherit">
+                <Button href="/" color="inherit"  >
                   LogOut
                 </Button>
               </Toolbar>

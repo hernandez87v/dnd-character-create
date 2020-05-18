@@ -23,7 +23,6 @@ module.exports = (db) => {
 
 
   router.get('/weapon/:id', (req, res) => {
-    console.log('here',req.params.id)
     let currentCharacterID = [req.params.id]
     let query = `
     SELECT items.* 

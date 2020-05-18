@@ -17,7 +17,6 @@ const spellApiComber = function(url) {
         }
         const data = JSON.parse(body);
         const currentInsertion = `('${data.name}', ${data.level}, '${data.duration}', ${data.ritual}, '${data.casting_time}', '${data.range}', '${data.url}'),`;
-        console.log(currentInsertion);
       });
 
 
