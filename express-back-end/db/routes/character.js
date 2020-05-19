@@ -222,6 +222,58 @@ module.exports = (db) => {
         .json({ error: err.message });
     });
   })
+
+
+
+  router.get("/features/:characterid", (req, res) => {
+    let currentCharacterID = [req.params.characterid]
+    let languageQuery = ` 
+        SELECT language_id, languages.name
+        FROM languages_known JOIN languages ON language_id = languages.id
+        WHERE character_id = $1;
+      `;
+    db.query(languageQuery, currentCharacterID)
+      .then(data => {
+        const languages = data.rows;
+        return languages;
+      })
+      .then(languages => {
+        let proficiencyQuery = `       
+        SELECT proficiency_id, proficiencies.name
+        FROM proficiencies_known JOIN proficiencies ON proficiency_id = proficiencies.id
+        WHERE character_id = $1;
+        `;
+        return db.query(proficiencyQuery, currentCharacterID)
+        .then(data => {
+          const proficiencies = data.rows;
+          // res.json({ classes, races});
+          return [proficiencies,languages]
+        })
+      })
+
+      .then(data  => {
+        const proficiencies = data[0];
+        const languages = data[1];
+        traitsQuery = `       
+        SELECT trait_id, traits.name
+        FROM traits_known JOIN traits ON trait_id = traits.id
+        WHERE character_id = $1;
+        `;
+        db.query(traitsQuery, currentCharacterID)
+        .then(data => {
+          const traits = data.rows;
+          res.json({languages, proficiencies, traits});
+        })
+      })
+      
+      .catch(err => {
+        console.error(err)
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
   
   return router;
 };

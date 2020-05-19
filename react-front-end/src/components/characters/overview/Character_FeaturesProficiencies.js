@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -8,6 +8,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,9 +26,37 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CharacterFeaturesProficiencies(props) {
   const classes = useStyles();
+  const [featuresState, setFeaturesState] = useState({
+    languages: [],
+    proficiencies: [],
+    traits: []
+  })
+
+
+  const getCharacterFeatures = function () {
+
+    axios
+      .get(`/api/character/features/${props.characterObject.id}`)
+      // Once we get a response and store data, let's change the loading state
+      .then((response) => {
+        console.log('This is the features response ', response.data)
+        setFeaturesState({
+          ...featuresState,
+          ...response.data
+        });
+      })
+      .then(() => (console.log('this is features state after update', featuresState)))
+      // If we catch any errors connecting, let's update accordingly
+      .catch((error) => ({ error }));
+  };
+
+  useEffect(() => {
+    getCharacterFeatures();
+  }, []);
 
   return (
     <Box display="flex" alignItems="center" justifyContent="center">
+    <h1>{featuresState.languages[0].name}</h1>
       <List>
         <ListItem alignItems="center">
           <ListItemAvatar>
