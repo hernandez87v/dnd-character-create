@@ -57,11 +57,11 @@ export default function ButtonAppBar() {
                 >
                   <MenuIcon />
                 </IconButton>
-                <Typography  variant="h6" className={classes.title}>
+                <Typography variant="h6" className={classes.title}>
                   DnD Character Creator
                 </Typography>
                 <Button href="/signup" color="inherit">
-                  Sing Up
+                  Sign Up
                 </Button>
                 <Button href="/login" color="inherit">
                   Login
@@ -130,11 +130,14 @@ export default function ButtonAppBar() {
                 </Typography>
                 <Typography variant="h6" edge="start" className={classes.title}>
                   <Box ml="45rem" edge="end">
-                    
-                      {localStorage.getItem('userName')}
+                    {localStorage.getItem('userName')}
                   </Box>
                 </Typography>
-                <Button href='/login'  color="inherit" onClick={ () => localStorage.removeItem('login')} >
+                <Button
+                  href="/login"
+                  color="inherit"
+                  onClick={() => localStorage.removeItem('login')}
+                >
                   LogOut
                 </Button>
               </Toolbar>
