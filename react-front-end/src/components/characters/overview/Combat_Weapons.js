@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -20,6 +20,7 @@ const StyledTableCell = withStyles((theme) => ({
   },
   body: {
     fontSize: 14,
+    backgroundColor: theme.palette.common.white,
   },
 }))(TableCell);
 
