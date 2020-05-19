@@ -54,13 +54,13 @@ export default function OverviewContainer(props) {
               </button>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link class="crumb-button" to={`${url}/skills-throws`}>
               <button variant="contained" color="primary">
                 Skills/Throws
               </button>
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link class="crumb-button" to={`${url}/features-proficencies`}>
               <button variant="contained" color="primary">
