@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -11,8 +11,9 @@ import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import Popup from './pop-up';
 
-// ROUTE 3B - THIS IS AFTER CLICKING MAIN
-// QUICKVIEW > COMBAT > STATS - WEAPONS - SPELLS - DICE
+
+// ROUTE 0 - THIS IS THE BEGINNING
+// QUICKVIEW - INVENTORY - DETAILS NOTES
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -37,34 +38,21 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, properties, damage) {
-  return { name, properties, damage };
-}
-
-const rows = [
-  createData('BattleAxe', '+5', '1d8 piercing'),
-  createData('Light Hammer', '+5', '1d4 piercing'),
-];
-let rows2 = [];
-export default function CombatWeapons(props) {
+export default function CharacterInventory(props) {
   const classes = useStyles();
-
-  const getWeapons = () => {
-    axios
-      .get(`/api/item/weapon/${props.characterObject.id}`)
-      .then((response) => {
-        rows2 = response;
-      });
-    // .catch((error) => setState({ error }));
-  };
+  const [data, setData] = useState({ weapons: [] });
 
   useEffect(() => {
-    // getWeapons();
+    const fetchData = async () => {
+      const result = await axios(`/api/item/weapon/${props.characterObject.id}`);
+      console.log(result.data.weapons)
+      setData(result.data);
+    };
+    fetchData();
   }, []);
-
+console.log('data',data)
   return (
     <React.Fragment>
-      {rows2}
       <Container maxWidth="md">
         <TableContainer component={Paper}>
           <Table
@@ -74,7 +62,7 @@ export default function CombatWeapons(props) {
           >
             <TableHead>
               <TableRow>
-                <StyledTableCell>Weapons</StyledTableCell>
+              <StyledTableCell>Weapons</StyledTableCell>
                 <StyledTableCell align="justify">ATK Bonus</StyledTableCell>
                 <StyledTableCell align="justify">Damage</StyledTableCell>
                 <StyledTableCell align="justify">Attack Roll</StyledTableCell>
@@ -82,33 +70,33 @@ export default function CombatWeapons(props) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {data.weapons.map((row) => (
                 <StyledTableRow key={row.name}>
-                  <StyledTableCell align="justify" component="th" scope="row">
-                    {row.name}
-                  </StyledTableCell>
-                  <StyledTableCell align="justify">
-                    {row.properties}
-                  </StyledTableCell>
-                  <StyledTableCell align="justify">
-                    {row.damage}
-                  </StyledTableCell>
-                  <StyledTableCell align="justify">
-                    <Popup
-                      strength={props.characterObject.strength}
-                      true={true}
-                      damage = {row.damage}
-                    />
-                  </StyledTableCell>
-                  <StyledTableCell align="justify">
-                    <Popup
-                      strength={props.characterObject.strength}
-                      true={false}
-                      damage = {row.damage}
-                    />
-                  </StyledTableCell>
-                </StyledTableRow>
-              ))}
+                <StyledTableCell align="justify" component="th" scope="row">
+                  {row.name}
+                </StyledTableCell>
+                <StyledTableCell align="justify">
+                  +5
+                </StyledTableCell>
+                <StyledTableCell align="justify">
+                  {row.damage_dice}
+                </StyledTableCell>
+                <StyledTableCell align="justify">
+                  <Popup
+                    strength={props.characterObject.strength}
+                    true={true}
+                    damage = {row.damage_dice}
+                  />
+                </StyledTableCell>
+                <StyledTableCell align="justify">
+                  <Popup
+                    strength={props.characterObject.strength}
+                    true={false}
+                    damage = {row.damage_dice}
+                  />
+                </StyledTableCell>
+              </StyledTableRow>
+            ))}
             </TableBody>
           </Table>
         </TableContainer>
