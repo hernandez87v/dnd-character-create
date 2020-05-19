@@ -8,12 +8,12 @@
   margin-left: 5vw;
   list-style-type: none;
   border-radius: 10px;
-  background-color: #7a1111;
-  box-shadow: 10px 5px 5px rgb(141, 59, 59);
+  background-color: #5c6bc0;
+  box-shadow: 10px 5px 5px #3f51b5;
 }
 
 .character-nav:hover {
-  background-color: #6f0000;
+  background-color: #3f51b5;
   filter: none;
 }
 /* NAV - Overview - Combat */
@@ -23,17 +23,15 @@
   justify-content: space-evenly;
   width: 70%;
   align-self: center;
-  /* padding-left: 5%;
-  padding-right: 5%; */
   margin-left: 15vw;
   list-style-type: none;
   border-radius: 10px;
-  background-color: #7a1111;
-  box-shadow: 10px 5px 5px rgb(141, 59, 59);
+  background-color: #5c6bc0;
+  box-shadow: 10px 5px 5px #3f51b5;
 }
 
 .character-nav2:hover {
-  background-color: #6f0000;
+  background-color: #3f51b5;
   filter: none;
 }
 
@@ -44,22 +42,20 @@
   justify-content: space-evenly;
   width: 50%;
   align-self: center;
-  /* padding-left: 5%;
-  padding-right: 5%; */
   margin-left: 23.5vw;
   list-style-type: none;
   border-radius: 10px;
-  background-color: #7a1111;
-  box-shadow: 10px 5px 5px rgb(141, 59, 59);
+  background-color: #5c6bc0;
+  box-shadow: 10px 5px 5px #3f51b5;
 }
 
 .character-nav3:hover {
-  background-color: #6f0000;
+  background-color: #3f51b5;
   filter: none;
 }
 
 button {
-  background-color: #7a1111;
+  background-color: #5c6bc0;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -70,7 +66,7 @@ button {
 }
 
 button:focus {
-  background-color: #9e2929;
+  background-color: #3f51b5;
 }
 
 .quickview-container {
@@ -231,4 +227,3 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
-

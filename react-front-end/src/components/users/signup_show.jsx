@@ -13,7 +13,7 @@ import {
   createMuiTheme,
   MuiThemeProvider,
 } from '@material-ui/core/styles';
-import red from '@material-ui/core/colors/red';
+import indigo from '@material-ui/core/colors/indigo';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
 
@@ -48,20 +48,20 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-  redAvatar: {
+  colorAvatar: {
     margin: 10,
     color: '#fff',
-    backgroundColor: red[900],
+    backgroundColor: indigo[900],
   },
 }));
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#6f0000',
+      main: '#3f51b5',
     },
     secondary: {
-      main: '#6f0000',
+      main: '#7986cb',
     },
   },
 });
@@ -78,13 +78,12 @@ export default function SignUp() {
   let save = (e) => {
     e.preventDefault();
 
-
     axios.post(`/api/user`, { form }).then((res) => {
-      console.log(res)
-      localStorage.setItem('login',true);
-      localStorage.setItem('userName',res.data.user[0].nick_name);
-      localStorage.setItem('userId',res.data.user[0].id);
-      window.location = `/createCharacter` ;//${res.data.user[0].id}`;
+      console.log(res);
+      localStorage.setItem('login', true);
+      localStorage.setItem('userName', res.data.user[0].nick_name);
+      localStorage.setItem('userId', res.data.user[0].id);
+      window.location = `/createCharacter`; //${res.data.user[0].id}`;
     });
   };
 
@@ -93,7 +92,7 @@ export default function SignUp() {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          <Avatar className={classes.redAvatar}>
+          <Avatar className={classes.colorAvatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">

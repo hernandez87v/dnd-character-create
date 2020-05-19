@@ -4,7 +4,6 @@ import {
   createMuiTheme,
   MuiThemeProvider,
 } from '@material-ui/core/styles';
-import red from '@material-ui/core/colors/red';
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
@@ -17,9 +16,11 @@ const useStyles = makeStyles((theme) => ({
 
 const theme = createMuiTheme({
   palette: {
-    primary: red,
+    primary: {
+      main: '#3f51b5',
+    },
     secondary: {
-      main: '#6f0000',
+      main: '#7986cb',
     },
   },
 });

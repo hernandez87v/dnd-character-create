@@ -14,7 +14,7 @@ import {
   MuiThemeProvider,
 } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import red from '@material-ui/core/colors/red';
+import indigo from '@material-ui/core/colors/indigo';
 import axios from 'axios';
 
 function Copyright() {
@@ -51,17 +51,17 @@ const useStyles = makeStyles((theme) => ({
   redAvatar: {
     margin: 10,
     color: '#fff',
-    backgroundColor: red[900],
+    backgroundColor: indigo[200],
   },
 }));
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#6f0000',
+      main: '#3f51b5',
     },
     secondary: {
-      main: '#6f0000',
+      main: '#7986cb',
     },
   },
 });
@@ -74,14 +74,12 @@ export default function SignIn(props) {
   });
   let handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`/api/user/login`, {form})
-    .then((res) => {
-      if (res.data.user.length > 0){
-        localStorage.setItem('login',true);
-        localStorage.setItem('userName',res.data.user[0].nick_name);
-        localStorage.setItem('userId',res.data.user[0].id);
-       window.location = `/ShowCharacterByUser/` ;//${res.data.user[0].id}`;
-        
+    axios.post(`/api/user/login`, { form }).then((res) => {
+      if (res.data.user.length > 0) {
+        localStorage.setItem('login', true);
+        localStorage.setItem('userName', res.data.user[0].nick_name);
+        localStorage.setItem('userId', res.data.user[0].id);
+        window.location = `/ShowCharacterByUser/`; //${res.data.user[0].id}`;
       } else {
         alert('invalid data');
       }
@@ -89,9 +87,7 @@ export default function SignIn(props) {
   };
 
   return (
-    
     <MuiThemeProvider theme={theme}>
-
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>

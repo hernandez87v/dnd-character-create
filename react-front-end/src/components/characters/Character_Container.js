@@ -13,20 +13,21 @@ import CharacterDetailsNotes from './overview/Character_DetailsNotes';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#6f0000',
+      main: '#3f51b5',
     },
     secondary: {
-      main: '#6f0000',
+      main: '#7986cb',
     },
   },
 });
 
 export default function CharacterContainer(props) {
   const [characterData, setCharacterData] = useState({});
-  const { match: { params } } = props;
+  const {
+    match: { params },
+  } = props;
 
   const getCharacter = function () {
-
     axios
       .get(`/api/character/${params.id}`)
       // Once we get a response and store data, let's change the loading state

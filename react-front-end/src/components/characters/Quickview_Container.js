@@ -9,7 +9,6 @@ import {
   useRouteMatch,
 } from 'react-router-dom';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import AbilityPointsAll from './overview/AP_all';
 import OverviewContainer from './overview/Overview_Container';
 import CombatContainer from './overview/Combat_Container';
 
@@ -18,10 +17,10 @@ import CombatContainer from './overview/Combat_Container';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#6f0000',
+      main: '#3f51b5',
     },
     secondary: {
-      main: '#6f0000',
+      main: '#7986cb',
     },
   },
 });
@@ -30,19 +29,6 @@ export default function CharacterView(props) {
   let { path, url } = useRouteMatch();
 
   return (
-    // <h2 className="view-title">Quickview Container</h2>
-    //     <div className="overview-skill-throw">
-    //       <div className="skill-throw-internal">
-    //         <AbilityPointsAll
-    //           constitution={props.characterObject.constitution}
-    //           strength={props.characterObject.strength}
-    //           dexterity={props.characterObject.dexterity}
-    //           charisma={props.characterObject.charisma}
-    //           wisdom={props.characterObject.wisdom}
-    //           intelligence={props.characterObject.intelligence}
-    //         />
-    //       </div>
-    //     </div>
     <div>
       <MuiThemeProvider theme={theme}>
         <ul className="character-nav2">
