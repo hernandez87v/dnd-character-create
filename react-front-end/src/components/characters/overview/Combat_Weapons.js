@@ -42,8 +42,8 @@ function createData(name, properties, damage) {
 }
 
 const rows = [
-  createData('Crossbow', '+5', '1d8 piercing'),
-  createData('Longbow', '+5', '1d8 piercing'),
+  createData('BattleAxe', '+5', '1d8 piercing'),
+  createData('Light Hammer', '+5', '1d4 piercing'),
 ];
 let rows2 = [];
 export default function CombatWeapons(props) {
@@ -61,21 +61,6 @@ export default function CombatWeapons(props) {
   useEffect(() => {
     // getWeapons();
   }, []);
-
-  // const getWeapons = () => {
-  //   axios
-  //     .get(`/api/item/weapon/${props.characterObject.id}`)
-  //     .then((response) => {
-  //       // console.log(response);
-  //       rows2 = response;
-  //       // console.log(rows2);
-  //     });
-  //   // .catch((error) => setState({ error }));
-  // };
-
-  // useEffect(() => {
-  //   getWeapons();
-  // }, []);
 
   return (
     <React.Fragment>
@@ -112,12 +97,14 @@ export default function CombatWeapons(props) {
                     <Popup
                       strength={props.characterObject.strength}
                       true={true}
+                      damage = {row.damage}
                     />
                   </StyledTableCell>
                   <StyledTableCell align="justify">
                     <Popup
                       strength={props.characterObject.strength}
                       true={false}
+                      damage = {row.damage}
                     />
                   </StyledTableCell>
                 </StyledTableRow>
