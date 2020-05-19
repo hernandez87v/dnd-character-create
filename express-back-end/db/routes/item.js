@@ -26,7 +26,7 @@ module.exports = (db) => {
     let query = `
     SELECT items.* 
     FROM characters
-    JOIN items_owned ON items_owned.character_id = 1
+    JOIN items_owned ON items_owned.character_id = ${currentCharacterID}
     JOIN items ON items.id = item_id
     WHERE characters.id = ${currentCharacterID} and equipment_category = 'Weapon';`;
     db.query(query)

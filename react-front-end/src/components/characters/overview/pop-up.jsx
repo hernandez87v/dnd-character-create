@@ -35,6 +35,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SimpleModal(props) {
+  let dice = props.damage[2]
+  console.log('dice',dice)
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -59,13 +61,13 @@ let random = Math.floor(Math.random() * 20 + 1)
       </p>
     </div>
 
-let random2 = Math.floor(Math.random() * 8 + 1)
+let random2 = Math.floor(Math.random() * dice + 1)
   const body2 = (
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Damage Roll</h2>
       <p id="simple-modal-description">
         {/* + (props.strength - 10)/2 */}
-        Your D8 roll is  {random2} + your Strength bonus {(props.strength - 10) / 2} = Total damage you made {random2 + (props.strength - 10) / 2}
+        Your D{dice} roll is  {random2} + your Strength bonus {Math.floor((props.strength - 10) / 2)} = Total damage you made {random2 + Math.floor((props.strength - 10) / 2)}
       
       </p>
     </div>
