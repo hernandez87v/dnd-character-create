@@ -62,7 +62,7 @@ export default function CharacterFeaturesProficiencies(props) {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    {row.name}
+                    {row.name},
                   </Typography>
                 ))}
               </React.Fragment>
@@ -88,7 +88,7 @@ export default function CharacterFeaturesProficiencies(props) {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    {row.name}
+                    {row.name},
                   </Typography>
                 ))}
               </React.Fragment>
@@ -111,7 +111,7 @@ export default function CharacterFeaturesProficiencies(props) {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    {row.name}
+                    {row.name},
                   </Typography>
                 ))}
               </React.Fragment>
