@@ -36,13 +36,13 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CharacterInventory() {
+export default function CharacterInventory(props) {
   const classes = useStyles();
   const [data, setData] = useState({ items_owned: [] });
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios('/api/item');
+      const result = await axios(`/api/item/${props.characterObject.id}`);
       setData(result.data);
     };
     fetchData();

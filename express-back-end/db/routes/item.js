@@ -2,13 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (db) => {
-  router.get('/', (req, res) => {
+  router.get('/:id', (req, res) => {
+    let currentCharacterID = [req.params.id];
     let query = `
    SELECT items.* 
     FROM characters
-    JOIN items_owned ON items_owned.character_id = 1
+    JOIN items_owned ON items_owned.character_id = ${currentCharacterID}
     JOIN items ON items.id = item_id
-    WHERE characters.id = 1;
+    WHERE characters.id = ${currentCharacterID};
     `;
     db.query(query)
       .then((data) => {
@@ -22,7 +23,6 @@ module.exports = (db) => {
 
   router.get('/weapon/:id', (req, res) => {
     let currentCharacterID = [req.params.id];
-    console.log(req.params.id);
     let query = `
     SELECT items.* 
     FROM characters

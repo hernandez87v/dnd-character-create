@@ -11,7 +11,6 @@ import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import Popup from './pop-up';
 
-
 // ROUTE 0 - THIS IS THE BEGINNING
 // QUICKVIEW - INVENTORY - DETAILS NOTES
 const StyledTableCell = withStyles((theme) => ({
@@ -44,13 +43,13 @@ export default function CharacterInventory(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`/api/item/weapon/${props.characterObject.id}`);
-      console.log(result.data.weapons)
+      const result = await axios(
+        `/api/item/weapon/${props.characterObject.id}`
+      );
       setData(result.data);
     };
     fetchData();
   }, []);
-console.log('data',data)
   return (
     <React.Fragment>
       <Container maxWidth="md">
@@ -62,7 +61,7 @@ console.log('data',data)
           >
             <TableHead>
               <TableRow>
-              <StyledTableCell>Weapons</StyledTableCell>
+                <StyledTableCell>Weapons</StyledTableCell>
                 <StyledTableCell align="justify">ATK Bonus</StyledTableCell>
                 <StyledTableCell align="justify">Damage</StyledTableCell>
                 <StyledTableCell align="justify">Attack Roll</StyledTableCell>
@@ -72,31 +71,29 @@ console.log('data',data)
             <TableBody>
               {data.weapons.map((row) => (
                 <StyledTableRow key={row.name}>
-                <StyledTableCell align="justify" component="th" scope="row">
-                  {row.name}
-                </StyledTableCell>
-                <StyledTableCell align="justify">
-                  +5
-                </StyledTableCell>
-                <StyledTableCell align="justify">
-                  {row.damage_dice}
-                </StyledTableCell>
-                <StyledTableCell align="justify">
-                  <Popup
-                    strength={props.characterObject.strength}
-                    true={true}
-                    damage = {row.damage_dice}
-                  />
-                </StyledTableCell>
-                <StyledTableCell align="justify">
-                  <Popup
-                    strength={props.characterObject.strength}
-                    true={false}
-                    damage = {row.damage_dice}
-                  />
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
+                  <StyledTableCell align="justify" component="th" scope="row">
+                    {row.name}
+                  </StyledTableCell>
+                  <StyledTableCell align="justify">+5</StyledTableCell>
+                  <StyledTableCell align="justify">
+                    {row.damage_dice}
+                  </StyledTableCell>
+                  <StyledTableCell align="justify">
+                    <Popup
+                      strength={props.characterObject.strength}
+                      true={true}
+                      damage={row.damage_dice}
+                    />
+                  </StyledTableCell>
+                  <StyledTableCell align="justify">
+                    <Popup
+                      strength={props.characterObject.strength}
+                      true={false}
+                      damage={row.damage_dice}
+                    />
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))}
             </TableBody>
           </Table>
         </TableContainer>
