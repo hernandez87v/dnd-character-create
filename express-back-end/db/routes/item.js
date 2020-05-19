@@ -20,10 +20,9 @@ module.exports = (db) => {
       });
   });
 
-
-
   router.get('/weapon/:id', (req, res) => {
-    let currentCharacterID = [req.params.id]
+    let currentCharacterID = [req.params.id];
+    console.log(req.params.id);
     let query = `
     SELECT items.* 
     FROM characters
@@ -31,14 +30,12 @@ module.exports = (db) => {
     JOIN items ON items.id = item_id
     WHERE characters.id = ${currentCharacterID} and equipment_category = 'Weapon';`;
     db.query(query)
-      .then(data => {
+      .then((data) => {
         const weapons = data.rows;
         res.json({ weapons });
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
       });
   });
   return router;
