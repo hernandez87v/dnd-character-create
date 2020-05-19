@@ -40,13 +40,13 @@ export default function CombatContainer(props) {
             </button>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link class="crumb-button" to={`${url}/dice`}>
             <button variant="contained" color="primary">
               Dice
             </button>
           </Link>
-        </li>
+        </li> */}
       </ul>
 
       <Switch>
