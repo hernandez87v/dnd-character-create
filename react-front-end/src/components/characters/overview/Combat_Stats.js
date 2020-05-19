@@ -97,26 +97,6 @@ export default function CombatStats() {
               />
             </ListItem>
             <Divider variant="inset" component="li" />
-            <ListItem alignItems="center">
-              <ListItemAvatar>
-                <Avatar src="https://img.icons8.com/windows/96/000000/language-skill.png" />
-              </ListItemAvatar>
-              <ListItemText
-                primary="Languages"
-                secondary={
-                  <React.Fragment>
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      className={classes.inline}
-                      color="textPrimary"
-                    >
-                      Common, Elvish
-                    </Typography>
-                  </React.Fragment>
-                }
-              />
-            </ListItem>
           </List>
         </Box>
       </Container>
