@@ -42,7 +42,6 @@ export default function CharacterFeaturesProficiencies(props) {
     };
     fetchData();
   }, []);
-  console.log('outside result: ', data);
 
   return (
     <Box display="flex" alignItems="center" justifyContent="center">
