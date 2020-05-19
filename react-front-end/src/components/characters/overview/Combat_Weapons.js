@@ -81,14 +81,14 @@ export default function CharacterInventory(props) {
                   <StyledTableCell align="justify">
                     <Popup
                       strength={props.characterObject.strength}
-                      true={true}
+                      true={1}
                       damage={row.damage_dice}
                     />
                   </StyledTableCell>
                   <StyledTableCell align="justify">
                     <Popup
                       strength={props.characterObject.strength}
-                      true={false}
+                      true={2}
                       damage={row.damage_dice}
                     />
                   </StyledTableCell>
