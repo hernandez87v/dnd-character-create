@@ -107,7 +107,7 @@ export default function CombatStats(props) {
                 />
               </ListItemAvatar>
               <ListItemText
-                primary="Iniciative"
+                primary="Initiative"
                 secondary={
                   <React.Fragment>
                     <Typography

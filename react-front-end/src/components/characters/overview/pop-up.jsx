@@ -63,9 +63,9 @@ let random = Math.floor(Math.random() * 20 + 1)
 
 const body3 = 
 <div style={modalStyle} className={classes.paper}>
-  <h2 id="simple-modal-title">Iniciative Roll</h2>
+  <h2 id="simple-modal-title">Initiative Roll</h2>
   <p id="simple-modal-description">
-    Your D20 roll is {random} + your iniciative {Math.floor((props.strength - 10) / 2)} ={random + Math.floor((props.strength - 10) / 2)} 
+    Your D20 roll is {random} + your initiative {Math.floor((props.strength - 10) / 2)} ={random + Math.floor((props.strength - 10) / 2)} 
   </p>
 </div>
 
