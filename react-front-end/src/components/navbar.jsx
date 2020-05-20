@@ -126,7 +126,7 @@ export default function ButtonAppBar() {
                   </IconButton>
                 </Hidden>
                 <Typography variant="h6" className={classes.title}>
-                  <Box align="end">DnD&nbsp;Character&nbsp;Creation</Box>
+                  <Box align="center">DnD&nbsp;Character&nbsp;Creation</Box>
                 </Typography>
                 <Typography variant="h6" edge="end" className={classes.title}>
                   <Box align="end" edge="end">
