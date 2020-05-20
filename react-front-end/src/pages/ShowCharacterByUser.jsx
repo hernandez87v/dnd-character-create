@@ -24,7 +24,7 @@ const ShowCharacterByUser = (props) => {
   return (
     <div className="App">
         <Container>
-        <h4>Select one of your character or create a new one! </h4>
+        <h4>View your characters, or create a new one! </h4>
           <ExpansionPanel characterState = {characterState} setCharacterState = {setCharacterState} />
           <Button href="/createCharacter">Link</Button>
         </Container>
