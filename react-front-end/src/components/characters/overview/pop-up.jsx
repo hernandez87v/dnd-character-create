@@ -54,10 +54,10 @@ let random = Math.floor(Math.random() * 20 + 1)
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Attack Roll</h2>
       <p id="simple-modal-description">
-        Your D20 roll is {random} + your weapon bonus {5} ={random + 5} 
+        Your attack roll is ({random}) + Proficiency Bonus ({5}) = {random + 5} 
       </p>
       <p id="simple-modal-description">
-        Ask to your DM if {random + 5} pass the Armour Class of the enemy 
+        Does a {random + 5} hit? (Ask Dungeon Master) 
       </p>
     </div>
 
@@ -75,7 +75,7 @@ let random2 = Math.floor(Math.random() * dice + 1)
       <h2 id="simple-modal-title">Damage Roll</h2>
       <p id="simple-modal-description">
         {/* + (props.strength - 10)/2 */}
-        Your D{dice} roll is  {random2} + your Strength bonus {Math.floor((props.strength - 10) / 2)} = Total damage you made {random2 + Math.floor((props.strength - 10) / 2)}
+        Your D{dice} roll was {random2} + Strength Bonus {Math.floor((props.strength - 10) / 2)} = Total Damage {random2 + Math.floor((props.strength - 10) / 2)}
       
       </p>
     </div>
