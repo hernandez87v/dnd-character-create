@@ -61,6 +61,14 @@ let random = Math.floor(Math.random() * 20 + 1)
       </p>
     </div>
 
+const body3 = 
+<div style={modalStyle} className={classes.paper}>
+  <h2 id="simple-modal-title">Iniciative Roll</h2>
+  <p id="simple-modal-description">
+    Your D20 roll is {random} + your iniciative {Math.floor((props.strength - 10) / 2)} ={random + Math.floor((props.strength - 10) / 2)} 
+  </p>
+</div>
+
 let random2 = Math.floor(Math.random() * dice + 1)
   const body2 = (
     <div style={modalStyle} className={classes.paper}>
@@ -72,7 +80,7 @@ let random2 = Math.floor(Math.random() * dice + 1)
       </p>
     </div>
   );
-  if (props.true) {
+  if (props.true === 1) {
     return (
       <div>
         <Avatar
@@ -93,7 +101,7 @@ let random2 = Math.floor(Math.random() * dice + 1)
         </Modal>
       </div>
     );
-  } else {
+  } else if (props.true === 2) {
     return (
       <div>
         <Avatar
@@ -109,6 +117,25 @@ let random2 = Math.floor(Math.random() * dice + 1)
           aria-describedby="simple-modal-description"
         >
           {body2}
+        </Modal>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Avatar
+          type="button"
+          Style="cursor:pointer; "
+          src="https://img.icons8.com/small/24/000000/battle.png"
+          onClick={handleOpen}
+        />
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+        >
+          {body3}
         </Modal>
       </div>
     );

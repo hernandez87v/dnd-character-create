@@ -9,6 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
+import Popup from './pop-up';
 
 // ROUTE 3B - THIS IS AFTER CLICKING MAIN
 // QUICKVIEW > COMBAT > STATS - WEAPONS - SPELLS - DICE
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CombatStats() {
+export default function CombatStats(props) {
   const classes = useStyles();
 
   return (
@@ -96,6 +97,36 @@ export default function CombatStats() {
                 }
               />
             </ListItem>
+
+            <Divider variant="inset" component="li" />
+            <ListItem alignItems="center">
+              <ListItemAvatar>
+                <Avatar
+                  variant="square"
+                  src="https://img.icons8.com/windows/96/000000/dice-cubes.png"
+                />
+              </ListItemAvatar>
+              <ListItemText
+                primary="Iniciative"
+                secondary={
+                  <React.Fragment>
+                    <Typography
+                      component="span"
+                      variant="body2"
+                      className={classes.inline}
+                      color="textPrimary"
+                    >
+                                          <Popup
+                      strength= {props.characterObject.dexterity}
+                      true={3}
+                      damage={'1d8'}
+                    />
+                    </Typography>
+                  </React.Fragment>
+                }
+              />
+            </ListItem>
+
             <Divider variant="inset" component="li" />
           </List>
         </Box>
