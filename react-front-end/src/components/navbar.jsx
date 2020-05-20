@@ -128,8 +128,8 @@ export default function ButtonAppBar() {
                 <Typography variant="h6" className={classes.title}>
                   <Box ml="18rem">DnD&nbsp;Character&nbsp;Creation</Box>
                 </Typography>
-                <Typography variant="h6" edge="start" className={classes.title}>
-                  <Box ml="45rem" edge="end">
+                <Typography variant="h6" edge="end" className={classes.title}>
+                  <Box align="end" edge="end">
                     {localStorage.getItem('userName')}
                   </Box>
                 </Typography>
