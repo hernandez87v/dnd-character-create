@@ -1,4 +1,4 @@
-###Dungeons and Dragons Character Creator
+### Dungeons and Dragons Character Creator
 
 The DnD Character Creator is an app that allows for the creation of characters, and viewing of previously created stats. A user can also make attack, and initiative rolls.
 
