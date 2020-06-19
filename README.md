@@ -13,4 +13,18 @@ The app was built with a React front end, and an express backend. Our database u
 4. In outermost project folder, run npm i to install dependencies
 5. Open 2 terminal windows, and cd into react-front-end in one, and express-back-end in the other. Run npm start in both.
 
+## Screenshots
+
+!["First page and initial selections for character creation"](https://github.com/hernandez87v/dnd-character-create/blob/master/Docs/create_screen_1.png?raw=true)
+
+
+!["Page showing all of a users created characters"](https://github.com/hernandez87v/dnd-character-create/blob/master/Docs/all_characters.png?raw=true)
+
+
+!["Character quickview screen"](https://github.com/hernandez87v/dnd-character-create/blob/master/Docs/character_quickview.png?raw=true)
+
+
+!["Weapons Page"](https://github.com/hernandez87v/dnd-character-create/blob/master/Docs/weapons_page.png?raw=true)
+
+
 
